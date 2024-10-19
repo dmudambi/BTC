@@ -23,7 +23,6 @@ API_Key = d.birdeye
 wallet = d.sol_wallet
 chain = "solana"
 multichain = "solana,ethereum,bsc"
-address = "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm" #WIF
 
 ### DEFI APIs
 
@@ -119,10 +118,6 @@ def get_ohlcv_data_multi(tokens, API_Key, timeframes=None):
 
     return results
 
-# Example usage:
-tokens = ['EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm', 'So11111111111111111111111111111111111111112']
-result = get_ohlcv_data_multi(tokens, API_Key, timeframes=['1m', '3m']) # ['1m', '3m', '5m', '15m', '30m', '1H', '2H', '4H', '6H', '8H', '12H', '1D']
-
 ### Token APIs
 
 # Token Security
@@ -196,9 +191,7 @@ def get_token_security_data_multi(tokens, API_Key):
 
     return results
 
-# Example usage:
-tokens = ['EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm', 'So11111111111111111111111111111111111111112']
-result = get_token_security_data_multi(tokens, API_Key)
+
 
 for token, data in result.items():
     print(f"\nToken: {token}")
@@ -285,9 +278,7 @@ def get_token_overview_data_multi(tokens, API_Key):
 
     return results
 
-# Example usage:
-tokens = ['EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm', 'So11111111111111111111111111111111111111112']
-result = get_token_overview_data_multi(tokens, API_Key)
+
 
 for token, df in result.items():
     print(f"\nToken: {token}")
@@ -341,13 +332,6 @@ def get_token_trade_data_multi(tokens, API_Key):
 
     return results
 
-# Example usage:
-tokens = ['So11111111111111111111111111111111111111112', 'EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm']
-result = get_token_trade_data_multi(tokens, API_Key)
-
-for token, df in result.items():
-    print(f"\nToken Trade Data for {token}:")
-    display(df)
 
 # Trending List
 
@@ -420,10 +404,6 @@ def get_trending_tokens(total_tokens, API_Key, chain):
     else:
         return pd.DataFrame()  # Return an empty DataFrame if no data is available
 
-# Example usage:
-number_of_trending_tokens = 100
-trending_tokens_df = get_trending_tokens(number_of_trending_tokens, API_Key, chain)
-print(trending_tokens_df)
 
 # New Listings 0-3 days max
 
@@ -512,16 +492,6 @@ def get_new_listings(days_back, hours_back, minutes_back, API_Key, liquidity_fil
     else:
         return pd.DataFrame(), pd.DataFrame()
 
-# Example usage:
-days_back = 1  # Change this value to look back fewer days (1 for 1 day, 2 for 2 days, 3 for 3 days max)
-hours_back = 0  # Change this value to look back fewer hours within the selected day
-                # Note: when hours_back is 1, it looks back for all new tokens within 1 hour.
-                # when hours_back is 0, it looks back for all new tokens within the selected minutes.
-minutes_back = 5  # Change this value to look back fewer minutes within the selected hour
-liquidity_filter = 10000
-df_filtered = get_new_listings(days_back, hours_back, minutes_back, API_Key, liquidity_filter)
-print(df_filtered)
-
 # Top Traders
 
 def get_top_traders(address, time_frame, sort_type, sort_by, total_traders, API_Key):
@@ -570,16 +540,6 @@ def get_top_traders(address, time_frame, sort_type, sort_by, total_traders, API_
         time.sleep(1)
 
     return pd.DataFrame(all_traders[:total_traders])
-
-# Example usage:
-time_frame = "30m"  # 30m, 1h, 4h, 6h, 8h, 12h, 24h
-sort_type = "desc"  # asc, desc
-sort_by = "volume"  # trade, volume 
-            # Note: trade is the number of transactions made, volume is the total volume of transactions made
-total_traders = 20  # Change this to the number of top traders you want to retrieve
-
-top_traders_df = get_top_traders(address, time_frame, sort_type, sort_by, total_traders, API_Key)
-print(top_traders_df)
 
 # Top Markets for a Token
 
@@ -659,15 +619,6 @@ def get_markets(address, time_frame, sort_type, sort_by, total_markets, API_Key)
     else:
         return pd.DataFrame()
 
-# Example usage:
-time_frame = "24h"  # 30m, 1h, 4h, 6h, 8h, 12h, 24h 
-sort_type = "desc"  # asc, desc
-sort_by = "volume24h"  # volume24h, liquidity
-total_markets = 50  # Change this to the number of markets you want to retrieve
-
-markets_df = get_markets(address, time_frame, sort_type, sort_by, total_markets, API_Key)
-print(markets_df)
-
 ### Wallet APIs
 
 # Supported Chains
@@ -737,10 +688,6 @@ def get_multichain_wallet_tokens(wallet, multichain, API_Key):
         print(f"Request failed with status code: {response.status_code}")
         return pd.DataFrame()
 
-# Example usage:
-wallet_tokens_df = get_multichain_wallet_tokens(wallet, multichain, API_Key)
-print(wallet_tokens_df)
-
 # Wallet Portfolio History
 
 def get_wallet_portfolio_history(wallet, time_frame, API_Key):
@@ -795,11 +742,6 @@ def get_wallet_portfolio_history(wallet, time_frame, API_Key):
     else:
         print(f"Request failed with status code: {response.status_code}")
         return pd.DataFrame()
-
-# Example usage:
-time_frame = "30D"  # 1D, 7D, 30D, 90D, 180D, 1Y, ALL
-#wallet_history_df = get_wallet_portfolio_history(wallet, time_frame, API_Key)
-#print(wallet_history_df)
 
 # Wallet Transaction History
 
@@ -857,12 +799,6 @@ def get_wallet_transaction_history(wallet, offset, limit, API_Key):
     else:
         print(f"Request failed with status code: {response.status_code}")
         return pd.DataFrame()
-
-# Example usage:
-offset = 0
-#limit = 100  # Adjust this value based on how many transactions you want to retrieve
-#wallet_transactions_df = get_wallet_transaction_history(wallet, offset, limit, API_Key)
-#print(wallet_transactions_df)
 
 def main():
     print("Testing all functions in the Birdeye API script...")
@@ -928,5 +864,7 @@ def main():
 
     print("\nAll functions tested successfully!")
 
+'''
 if __name__ == "__main__":
     main()
+'''
