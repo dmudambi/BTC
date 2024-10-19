@@ -64,7 +64,7 @@ def main():
     )
 
     total_tokens = st.sidebar.number_input(
-        "Total Tokens",
+        "Number of Pre-Filtered Tokens To Scan",
         min_value=100,
         max_value=5000,  # Adjusted to prevent excessive requests
         value=1000,
