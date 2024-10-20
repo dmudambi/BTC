@@ -1,5 +1,6 @@
 import requests
 import sys
+import os
 import json
 import base64
 import time
@@ -8,7 +9,12 @@ from solders.keypair import Keypair
 from solders.transaction import VersionedTransaction 
 from solana.rpc.api import Client
 from solana.rpc.types import TxOpts
-import dontshare as d 
+
+current_dir = os.getcwd()
+root_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..'))
+sys.path.append(root_dir)
+import Birdeye.Basics.dontshare as d
+
 from pprint import pprint
 from functools import lru_cache
 from datetime import datetime, timedelta
@@ -142,9 +148,13 @@ def get_token_list(sort_by, sort_type, min_liquidity, min_volume_24h, min_market
     """
     limit = 50
     all_tokens = []
+    max_offsets = total_tokens * 3  # Adjust multiplier based on expected data density
 
-    for offset in range(0, total_tokens * 3, limit):  # Fetch more tokens to account for filtering
-        url = f"https://public-api.birdeye.so/defi/tokenlist?sort_by={sort_by}&sort_type={sort_type}&offset={offset}&limit={limit}&min_liquidity={min_liquidity}"
+    for offset in range(0, max_offsets, limit):
+        url = (
+            f"https://public-api.birdeye.so/defi/tokenlist?"
+            f"sort_by={sort_by}&sort_type={sort_type}&offset={offset}&limit={limit}&min_liquidity={min_liquidity}"
+        )
 
         headers = {
             "accept": "application/json",
@@ -152,10 +162,11 @@ def get_token_list(sort_by, sort_type, min_liquidity, min_volume_24h, min_market
             "X-API-KEY": API_Key
         }
 
-        response = requests.get(url, headers=headers)
+        try:
+            response = requests.get(url, headers=headers)
+            response.raise_for_status()  # Raises HTTPError for bad responses
+            data = response.json()
 
-        if response.status_code == 200:
-            data = json.loads(response.text)
             if 'data' in data and 'tokens' in data['data']:
                 new_tokens = [
                     {
@@ -173,22 +184,48 @@ def get_token_list(sort_by, sort_type, min_liquidity, min_volume_24h, min_market
                 ]
                 all_tokens.extend(new_tokens)
             else:
-                print(f"Unexpected response structure at offset {offset}")
+                print(f"Unexpected response structure at offset {offset}: {data}")
                 break
-        else:
-            print(f"Request failed with status code: {response.status_code} at offset {offset}")
-            break
 
-        if len(all_tokens) >= total_tokens:
+            if len(all_tokens) >= total_tokens:
+                break
+
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred at offset {offset}: {http_err}")
+            break
+        except requests.exceptions.RequestException as req_err:
+            print(f"Request exception at offset {offset}: {req_err}")
+            break
+        except Exception as e:
+            print(f"An unexpected error occurred at offset {offset}: {e}")
             break
 
         # Respect rate limits
         time.sleep(1)
 
+    # Trim the list to the desired number of tokens
     all_tokens = all_tokens[:total_tokens]
 
-    if all_tokens:
-        df = pd.DataFrame(all_tokens)
+    # Create DataFrame regardless of whether tokens were found
+    df = pd.DataFrame(all_tokens)
+
+    if not df.empty:
+        # Optional: Rename columns for clarity
+        columns_to_display = {
+            'name': 'Name',
+            'symbol': 'Symbol',
+            'mc': 'Market Cap',
+            'v24hUSD': 'Volume 24h',
+            'v24hChangePercent': '24h Change (%)',
+            'liquidity': 'Liquidity',
+            'address': 'Address'
+        }
+
+        # Ensure columns exist before renaming
+        available_columns = [col for col in columns_to_display.keys() if col in df.columns]
+        df = df[available_columns].rename(columns={col: columns_to_display[col] for col in available_columns})
+
+    return df  # Always return a DataFrame, empty or populated
 
 # Token Market Data
 
@@ -972,3 +1009,4 @@ def main():
 if __name__ == "__main__":
     main()
 '''
+
