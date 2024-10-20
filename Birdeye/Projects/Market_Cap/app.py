@@ -42,7 +42,7 @@ def main():
     max_market_cap = st.sidebar.number_input(
         "Maximum Market Cap",
         min_value=0,
-        value=1000000000,
+        value=900000000,
         step=10000000,
         help="Set the maximum market capitalization in USD."
     )
