@@ -8,7 +8,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def main():
-    st.title("Filtered Tokens Dashboard")
+    st.title("Market Cap Dashboard")
 
     st.sidebar.header("Filter Options")
 
@@ -21,26 +21,26 @@ def main():
     
     sort_by = st.sidebar.selectbox(
         "Sort By",
-        options=["mc", "v24hUSD", "v24hChangePercent"],
+        options=["mc"],
         help="Choose the criterion to sort the tokens."
     )
 
     sort_type = st.sidebar.selectbox(
         "Sort Type",
-        options=["desc", "asc"],
+        options=["desc"],
         help="Choose the sort order."
     )
 
     min_market_cap = st.sidebar.number_input(
-        "Minimum Market Cap",
-        min_value=300000,
-        value=1000000,
-        step=100000,
+        "Minimum Market Cap: Set at 10M",
+        min_value=1000000,
+        value=10000000,
+        step=5000000,
         help="Set the minimum market capitalization in USD. Minimum floored to 300k to avoid gutter."
     )
 
     max_market_cap = st.sidebar.number_input(
-        "Maximum Market Cap",
+        "Maximum Market Cap: Set at 900M",
         min_value=0,
         value=900000000,
         step=10000000,
@@ -48,7 +48,7 @@ def main():
     )
 
     min_volume_24h = st.sidebar.number_input(
-        "Minimum Volume 24h",
+        "Minimum Volume 24h: Set at 100k",
         min_value=0,
         value=1000000,
         step=1000000,
@@ -56,7 +56,7 @@ def main():
     )
 
     min_liquidity = st.sidebar.number_input(
-        "Minimum Liquidity",
+        "Minimum Liquidity: Set at 100k",
         min_value=0,
         value=100000,
         step=10000,
