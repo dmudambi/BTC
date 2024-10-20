@@ -1,7 +1,6 @@
 # Birdeye Dashboard
 
-  Local URL: http://localhost:8503
+  You can now view App in your browser.
 
-  Network URL: http://103.88.233.48:8503
-  
-  External URL: http://103.88.233.48:8503
+  Local URL: http://localhost:8504
+  Network URL: http://103.88.233.48:8504 (External)
