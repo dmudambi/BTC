@@ -1,29 +1,30 @@
 import requests
 import sys
-import os
 import json
-import base64
-import time
-import logging
 from solders.keypair import Keypair
 from solders.transaction import VersionedTransaction 
 from solana.rpc.api import Client
 from solana.rpc.types import TxOpts
+from pprint import pprint
+from functools import lru_cache
+from datetime import datetime, timedelta
+import pandas as pd
+import json
+import pandas as pd
+from pprint import pprint 
+from IPython.display import display, HTML
+import os
+from datetime import datetime
+import glob
+import pytz
+import time
 
 current_dir = os.getcwd()
 root_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..'))
 sys.path.append(root_dir)
 import Birdeye.Basics.dontshare as d
 
-from pprint import pprint
-from functools import lru_cache
-from datetime import datetime, timedelta
-import pytz
-import json
-import pandas as pd
-from pprint import pprint 
-from IPython.display import display, HTML
-import time
+
 
 API_Key = d.birdeye
 wallet = d.sol_wallet
@@ -32,6 +33,56 @@ multichain = "solana,ethereum,bsc"
 
 ### DEFI APIs
 
+# Data Gathering Functions
+# Function to get the most recent folder
+def get_most_recent_folder(base_path):
+    folders = glob.glob(os.path.join(base_path, '*'))
+    return max(folders, key=os.path.getctime)
+
+# Import OHLCV data for analysis
+def import_ohlcv_data(ohlcv_datetime_folder):
+    ohlcv_data = {}
+    
+    # Get all token folders
+    token_folders = glob.glob(os.path.join(ohlcv_datetime_folder, '*'))
+    
+    for token_folder in token_folders:
+        token_address = os.path.basename(token_folder)
+        ohlcv_data[token_address] = {}
+        
+        # Get all CSV files in the token folder
+        csv_files = glob.glob(os.path.join(token_folder, '*.csv'))
+        
+        for csv_file in csv_files:
+            timeframe = os.path.splitext(os.path.basename(csv_file))[0]
+            df = pd.read_csv(csv_file)
+            
+            # Rename columns to standard OHLCV names
+            df = df.rename(columns={
+                'datetime': 'timestamp',
+                'c': 'close',
+                'h': 'high',
+                'l': 'low',
+                'o': 'open',
+                'v': 'volume'
+            })
+            
+            df['timestamp'] = pd.to_datetime(df['timestamp'])
+            df.set_index('timestamp', inplace=True)
+            ohlcv_data[token_address][timeframe] = df
+    
+    return ohlcv_data
+
+# Function to format numbers into human-readable format
+def format_number(num):
+    if num >= 1_000_000_000:
+        return f"{num / 1_000_000_000:.2f}Bil"
+    elif num >= 1_000_000:
+        return f"{num / 1_000_000:.2f}Mil"
+    elif num >= 1_000:
+        return f"{num / 1_000:.0f}K"
+    else:
+        return str(num)
 # OHLCV Data
 
 def get_ohlcv_data_multi(tokens, API_Key, timeframes=None):
@@ -107,8 +158,11 @@ def get_ohlcv_data_multi(tokens, API_Key, timeframes=None):
                             results[token][timeframe] = df
                             
                             # Print the head of each token-timeframe table
-                            print(f"\nHead of {token} - {timeframe} table:")
-                            print(df.head())
+                            #print(f"\nHead of {token} - {timeframe} table:")
+                            #print(df.head())
+                            
+                            # Print that the token-timeframe data was successfully retrieved
+                            print(f"\nSuccessfully retrieved {token} - {timeframe} data.")
                         else:
                             results[token][timeframe] = pd.DataFrame()
                             print(f"\nNo data items found for token {token}, timeframe {timeframe}.")
@@ -939,6 +993,8 @@ def get_wallet_transaction_history(wallet, offset, limit, API_Key):
     else:
         print(f"Request failed with status code: {response.status_code}")
         return pd.DataFrame()
+
+
 
 # To test some functions 
 def main():
