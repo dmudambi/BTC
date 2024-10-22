@@ -1,0 +1,55 @@
+# Updated logic flow text for implementing the Fibonacci strategy with the corrected entry conditions.
+
+updated_logic_flow = """
+Logic Flow for the Fibonacci Strategy
+
+1. Import Required Libraries and Data
+   - Use libraries such as pandas for data manipulation, numpy for calculations, and matplotlib for visualizations.
+   - Load the historical data for the trading pair you are interested in (e.g., CSV, API). The data should contain time, open, high, low, and close prices.
+
+2. Define Parameters
+   - Set the timeframes (e.g., 5m, 15m, 1h).
+   - Set Fibonacci levels: 0.382, 0.5, 0.618, and 0.786.
+   - Specify the range and adjustment values for each level:
+     - 0.382: Range ±5
+     - 0.5: Range ±10
+     - 0.618: Range ±15
+     - 0.786: Range ±20
+
+3. Calculate Fibonacci Prices
+   - Identify the all-time high (ATH) up to the current point in time.
+   - Calculate the target Fibonacci prices using the formula:
+     FibPrice = ATH * (1 - FibLevel)
+   - Adjust the ranges based on the Fibonacci levels:
+     FibPriceRange = FibPrice ± Range
+
+4. Iterate Through Candles
+   - Start the iteration with each candle in the selected timeframe.
+   - For each candle Ci, check if the close price is at or below the current Fibonacci level:
+     - If Ci.close <= FibPrice, proceed to the next step.
+     - If not, continue to the next candle.
+
+5. Load Smaller Timeframe Data
+   - If a signal is detected on the higher timeframe (e.g., 5m), load the smaller timeframe data (e.g., 1m).
+   - Filter this data to focus on the period after the initial signal.
+
+6. Updated Entry Conditions
+   - Set the entry condition candle for the smaller timeframe with the same time value as the candle that crossed below the FibPrice. Call this Entry condition candle at time i as ECi where ECi = Ci for the smaller timeframe T.
+   - While the close of ECi remains within the Fibonacci price range (FibPriceRange), perform the following:
+       - Move to the next candle in the smaller timeframe (Ci = Ci + 1).
+       - Check if either (Ci(high) - Ci(open)) or (Ci(close) - Ci(open)) is greater than 1.03 * (ECi(high) - ECi(open)).
+       - If true, set the buy price as 1.03 * (ECi(high) - ECi(open)) and place a buy order at the calculated buy price.
+
+7. Exit Conditions
+   - The exit condition will trigger when the current candle's high (Ci(high)) or close (Ci(close)) reaches the predefined take profit or stop loss level.
+   - Adjust the stop loss dynamically (e.g., trailing stop) if the trade moves favorably.
+
+8. Log Trades and Results
+   - Record each trade’s entry and exit details, including timestamp, buy price, and exit price.
+   - Calculate performance metrics (e.g., profit/loss, win rate, risk-reward ratio).
+
+9. Visualization
+   - Plot the price action with marked Fibonacci levels.
+   - Highlight entry and exit points.
+
+
