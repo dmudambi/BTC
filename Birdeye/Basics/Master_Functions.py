@@ -33,19 +33,19 @@ chain = "solana"
 multichain = "solana,ethereum,bsc"
 
 #### PRE-COLLECTION FILTERS ####
-days_back = 0  # 0 for last 24 hours, 1 for 24-48 hours ago, 2 for 48-72 hours ago (max 2)
-hours_back = 1  # 0-23 hours back within the selected day
-minutes_back = 5  # 0-59 minutes back within the selected hour
+days_back = 1 # 0 for last 24 hours, 1 for 24-48 hours ago, 2 for 48-72 hours ago (max 2)
+hours_back = 23  # 0-23 hours back within the selected day
+minutes_back = 0  # 0-59 minutes back within the selected hour
 new_token_liquidity_filter = 10000 # Minimum liquidity in USD for new tokens
 
 #### POST-COLLECTION FILTERS ####
-new_token_min_liquidity = 10000  # Minimum liquidity in USD for new tokens
-new_token_max_liquidity = 100000  # Maximum liquidity in USD for new tokens
-new_token_min_market_cap = 100000  # Minimum market cap in USD for new tokens
-new_token_max_market_cap = 300000  # Maximum market cap in USD for new tokens
+new_token_min_liquidity = 30000  # Minimum liquidity in USD for new tokens
+new_token_max_liquidity = 1000000  # Maximum liquidity in USD for new tokens
+new_token_min_market_cap = 200000  # Minimum market cap in USD for new tokens
+new_token_max_market_cap = 7000000  # Maximum market cap in USD for new tokens
 
 #### OHLCV DATA #### 
-timeframes = ['1m', '3m', '5m', '15m', '30m', '1H', '4H', '1D'] 
+timeframes = ['1m', '3m', '5m', '15m', '1H', '4H', '1D'] 
 # ['1m', '3m', '5m', '15m', '30m', '1H', '2H', '4H', '6H', '8H', '12H', '1D']
 
 
@@ -274,7 +274,7 @@ def get_token_list(sort_by, sort_type, min_liquidity, min_volume_24h, min_market
             break
 
         # Respect rate limits
-        time.sleep(1)
+        time.sleep(0.22)
 
     # Trim the list to the desired number of tokens
     all_tokens = all_tokens[:total_tokens]
@@ -415,7 +415,7 @@ def get_token_security_data_multi(tokens, API_Key):
             }
 
         # Respect rate limits by adding a small delay between requests
-        time.sleep(1)
+        time.sleep(0.22)
 
     return results
 
@@ -493,7 +493,7 @@ def get_token_overview_data_multi(tokens, API_Key):
             results[address] = pd.DataFrame({'Error': [f"Request failed with status code: {response.status_code}"]})
 
         # Respect rate limits by adding a small delay between requests
-        time.sleep(1)
+        time.sleep(0.22)
 
     return results
 
@@ -541,7 +541,7 @@ def get_token_trade_data_multi(tokens, API_Key):
             results[address] = pd.DataFrame({'Attribute': ['Error'], 'Value': [f"Request failed with status code: {response.status_code}"]})
 
         # Respect rate limits by adding a small delay between requests
-        time.sleep(1)
+        time.sleep(0.22)
 
     return results
 
@@ -592,7 +592,7 @@ def get_trending_tokens(total_tokens, API_Key, chain):
             break
 
         # Respect rate limits
-        time.sleep(1)
+        time.sleep(0.22)
 
     all_tokens = all_tokens[:total_tokens]
 
@@ -679,7 +679,7 @@ def get_new_listings(days_back, hours_back, minutes_back, API_Key, liquidity_fil
             break
 
         # Respect rate limits
-        time.sleep(1)
+        time.sleep(0.22)
 
     # Remove duplicates based on 'address'
     unique_tokens = list({token['address']: token for token in all_tokens}.values())
@@ -750,7 +750,7 @@ def get_top_traders(address, time_frame, sort_type, sort_by, total_traders, API_
             break
 
         # Respect rate limits
-        time.sleep(1)
+        time.sleep(0.22)
 
     return pd.DataFrame(all_traders[:total_traders])
 
@@ -799,7 +799,7 @@ def get_markets(address, time_frame, sort_type, sort_by, total_markets, API_Key)
             break
 
         # Respect rate limits
-        time.sleep(1)
+        time.sleep(0.22)
 
     if all_markets:
         df = pd.DataFrame(all_markets[:total_markets])
@@ -1012,76 +1012,3 @@ def get_wallet_transaction_history(wallet, offset, limit, API_Key):
     else:
         print(f"Request failed with status code: {response.status_code}")
         return pd.DataFrame()
-
-
-
-# To test some functions 
-def main():
-    print("Testing all functions in the Birdeye API script...")
-
-    # Test OHLCV Data
-    print("\n1. Testing get_ohlcv_data_multi:")
-    tokens = ['EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm', 'So11111111111111111111111111111111111111112']
-    ohlcv_result = get_ohlcv_data_multi(tokens, API_Key, timeframes=['1m', '3m'])
-    print(f"OHLCV data retrieved for {len(ohlcv_result)} tokens")
-
-    # Test Token Security
-    print("\n2. Testing get_token_security_data_multi:")
-    security_result = get_token_security_data_multi(tokens, API_Key)
-    for token, data in security_result.items():
-        print(f"Security data retrieved for token: {token}")
-
-    # Test Token Overview
-    print("\n3. Testing get_token_overview_data_multi:")
-    overview_result = get_token_overview_data_multi(tokens, API_Key)
-    for token, df in overview_result.items():
-        print(f"Overview data retrieved for token: {token}")
-
-    # Test Token Trade Data
-    print("\n4. Testing get_token_trade_data_multi:")
-    trade_result = get_token_trade_data_multi(tokens, API_Key)
-    for token, df in trade_result.items():
-        print(f"Trade data retrieved for token: {token}")
-
-    # Test Trending Tokens
-    print("\n5. Testing get_trending_tokens:")
-    trending_tokens = get_trending_tokens(20, API_Key, chain)
-    print(f"Retrieved {len(trending_tokens)} trending tokens")
-
-    # Test New Listings
-    print("\n6. Testing get_new_listings:")
-    full_df, filtered_df = get_new_listings(1, 0, 5, API_Key, 10000)
-    print(f"Retrieved {len(full_df)} new listings, {len(filtered_df)} after filtering")
-
-    # Test Top Traders
-    print("\n7. Testing get_top_traders:")
-    top_traders = get_top_traders(address, "30m", "desc", "volume", 20, API_Key)
-    print(f"Retrieved {len(top_traders)} top traders")
-
-    # Test Markets
-    print("\n8. Testing get_markets:")
-    markets = get_markets(address, "24h", "desc", "volume24h", 50, API_Key)
-    print(f"Retrieved {len(markets)} markets")
-
-    # Test Multichain Wallet Tokens
-    print("\n9. Testing get_multichain_wallet_tokens:")
-    wallet_tokens = get_multichain_wallet_tokens(wallet, multichain, API_Key)
-    print(f"Retrieved {len(wallet_tokens)} tokens for the wallet")
-
-    # Test Wallet Portfolio History
-    #print("\n10. Testing get_wallet_portfolio_history:")
-    #portfolio_history = get_wallet_portfolio_history(wallet, "30D", API_Key)
-    #print(f"Retrieved {len(portfolio_history)} portfolio history entries")
-
-    # Test Wallet Transaction History
-    #print("\n11. Testing get_wallet_transaction_history:")
-    #transaction_history = get_wallet_transaction_history(wallet, 0, 100, API_Key)
-    #print(f"Retrieved {len(transaction_history)} transaction history entries")
-
-    print("\nAll functions tested successfully!")
-
-'''
-if __name__ == "__main__":
-    main()
-'''
-
