@@ -34,7 +34,7 @@ multichain = "solana,ethereum,bsc"
 
 #### PRE-COLLECTION FILTERS ####
 days_back = 1 # 0 for last 24 hours, 1 for 24-48 hours ago, 2 for 48-72 hours ago (max 2)
-hours_back = 23  # 0-23 hours back within the selected day
+hours_back = 6  # 0-23 hours back within the selected day
 minutes_back = 0  # 0-59 minutes back within the selected hour
 new_token_liquidity_filter = 10000 # Minimum liquidity in USD for new tokens
 
