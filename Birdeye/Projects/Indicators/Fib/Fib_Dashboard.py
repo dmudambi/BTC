@@ -51,9 +51,18 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
     """
     Plot price action with Fibonacci levels using a dark theme and enhanced display features.
     Mobile-optimized with clean display and improved visuals.
+    
+    Args:
+        imported_ohlcv_data (dict): Dictionary containing OHLCV data for different tokens
+        fib_levels (list): List of Fibonacci retracement levels
+        initial_timeframe (str): Initial timeframe to display
+        
+    Returns:
+        list: List of tuples containing (plotly figure, token_address)
     """
     
     def calculate_fib_proximity(df, level=0.786):
+        """Calculate how close current price is to a Fibonacci level"""
         if df.empty:
             return float('inf'), 0, 0
             
@@ -65,6 +74,7 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
         return proximity, fib_price, current_price
     
     def create_timeframe_annotations(timeframe, market_cap, volume):
+        """Create annotations for the chart"""
         formatted_volume = Master_Functions.format_number(volume)
         return [
             dict(
@@ -109,6 +119,7 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
         ]
     
     def has_outliers(df, threshold_multiplier=15.0):
+        """Check if the dataset contains outliers"""
         if df.empty:
             return True
             
@@ -130,20 +141,17 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
                 
         return False
     
-    # Define color scheme with fainter grid
+    # Define color scheme
     BACKGROUND_COLOR = '#1e1e1e'
     TEXT_COLOR = '#ffffff'
-    GRID_COLOR = 'rgba(51, 51, 51, 0.3)'  # Fainter grid lines
+    GRID_COLOR = 'rgba(51, 51, 51, 0.3)'
     TITLE_COLOR = '#00cc00'
-    FIB_COLORS = ['#0077BE',  # Neon deep ocean blue for 0.236
-                  '#ff9100',   # Current orange for 0.382
-                  '#FFD700',   # Neon golden yellow for 0.5
-                  '#00FF7F',   # Dark neon green for 0.618
-                  '#FF00FF']   # Neon pink purple for 0.786
-    ATH_COLOR = '#FFD700'     # Neon yellow gold for ATH star
+    FIB_COLORS = ['#0077BE', '#ff9100', '#FFD700', '#00FF7F', '#FF00FF']
+    ATH_COLOR = '#FFD700'
     
     available_timeframes = ['5m', '15m', '1H', '4H']
     token_data = []
+    plot_data = []  # List to store tuples of (figure, token_address)
     
     # Process market cap data
     base_path = 'Data/New_Token_Data'
@@ -151,6 +159,7 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
     most_recent_date = max(date_folders)
     date_folder = os.path.join(base_path, most_recent_date)
     
+    # Get market cap data
     summary_folder = os.path.join(date_folder, 'Token_Summary')
     datetime_folders = [f for f in os.listdir(summary_folder) if os.path.isdir(os.path.join(summary_folder, f))]
     most_recent_datetime = max(datetime_folders)
@@ -223,7 +232,7 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
                 visible=(tf == initial_timeframe)
             ))
             
-            # Add ATH star with glow effect
+            # Add ATH star
             traces.append(go.Scatter(
                 x=[ath_idx],
                 y=[ath_close],
@@ -242,21 +251,21 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
                 visible=(tf == initial_timeframe)
             ))
             
-            # Add Fibonacci level lines (thicker for mobile)
+            # Add Fibonacci level lines
             for i, level in enumerate(fib_levels):
                 fib_price = ath_close - (ath_close - atl) * level
                 traces.append(go.Scatter(
                     x=[df.index[0], df.index[-1]],
                     y=[fib_price, fib_price],
                     mode='lines',
-                    line=dict(color=FIB_COLORS[i], width=3),  # Thicker lines
+                    line=dict(color=FIB_COLORS[i], width=3),
                     showlegend=False,
                     visible=(tf == initial_timeframe)
                 ))
             
             timeframe_traces[tf] = traces
         
-        # Create mobile-friendly timeframe buttons
+        # Create timeframe buttons
         buttons = []
         for tf in available_timeframes:
             if tf not in timeframe_traces:
@@ -292,7 +301,7 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
             timeframe_volumes[initial_timeframe]
         )
         
-        # Update layout with fixed dimensions
+        # Update layout
         fig.update_layout(
             height=800,
             width=1200,
@@ -315,11 +324,8 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
                 bgcolor=BACKGROUND_COLOR,
                 bordercolor="#555555",
                 borderwidth=2,
-                font=dict(
-                    size=16,  # Larger font for buttons
-                    color=TITLE_COLOR
-                ),
-                pad=dict(r=20, t=10, b=10, l=20)  # Increased padding on all sides
+                font=dict(size=16, color=TITLE_COLOR),
+                pad=dict(r=20, t=10, b=10, l=20)
             )],
             xaxis=dict(
                 showticklabels=False,
@@ -339,10 +345,8 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
             )
         )
         
-        fig.show()
-
-# Define Fibonacci levels
-fib_levels = [0.236, 0.382, 0.5, 0.618, 0.786]
-
-# Call the function
-plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe='5m')
+        # Append figure and token address to plot_data
+        plot_data.append((fig, token_address))
+    
+    # Return list of tuples containing figures and token addresses
+    return plot_data
