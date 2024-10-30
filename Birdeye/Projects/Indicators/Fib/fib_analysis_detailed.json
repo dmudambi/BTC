@@ -1,0 +1,344 @@
+{
+    "5m.csv": {
+        "0": {
+            "total_touches": 2166,
+            "success_rate": 0.5734072022160664,
+            "avg_rr_ratio": 2.1970558685982646,
+            "avg_gain": 1.6160382239358746,
+            "avg_loss": 0.28968094236133823,
+            "expected_return": 1.3263572815745366,
+            "avg_volume": 906140687029.6294,
+            "best_tokens": [
+                "AyGMknLz2MGkWcU1JQzM3CS8zNhmfMisNUBTp2d28533",
+                "78uwrc1UaKhue3Haud3Z4b3YpHG5Qb493DChchqcpump",
+                "76hZJqGxtmQjRMMQ4mBa3b4fnq4w5DRtTFChtxnpump",
+                "5ULDXfva7noqKU8D2E3fHC7fkgncm6dAHEUfLrDZ3mjE",
+                "6pQ5UgpPP5Ny1vfoxRRWVuFvkXAfNH5QgdWN975Sovc"
+            ]
+        },
+        "0.236": {
+            "total_touches": 3834,
+            "success_rate": 0.21178925404277518,
+            "avg_rr_ratio": 2.554537898648544,
+            "avg_gain": 1.1465885681273216,
+            "avg_loss": 0.478192166751926,
+            "expected_return": 0.6683964013753956,
+            "avg_volume": 1432543631949.6028,
+            "best_tokens": [
+                "78uwrc1UaKhue3Haud3Z4b3YpHG5Qb493DChchqcpump",
+                "5ULDXfva7noqKU8D2E3fHC7fkgncm6dAHEUfLrDZ3mjE",
+                "CJ8oT6dHzyHsXBq6JdhRHiRto3Le96pHyPchqfYdPxhN",
+                "2BBEjW3bh3Z9vZhNu6CCw121owqWquc1KWNorFG9pump",
+                "Fqvpb9bahTiNyyCR1bahU1DBkU2CcESDwmGnwdeEpump"
+            ]
+        },
+        "0.382": {
+            "total_touches": 5574,
+            "success_rate": 0.2691065662002153,
+            "avg_rr_ratio": 2.8998149787821825,
+            "avg_gain": 0.9634501273684037,
+            "avg_loss": 0.4479916733521672,
+            "expected_return": 0.5154584540162366,
+            "avg_volume": 373568770686.6169,
+            "best_tokens": [
+                "78uwrc1UaKhue3Haud3Z4b3YpHG5Qb493DChchqcpump",
+                "CJ8oT6dHzyHsXBq6JdhRHiRto3Le96pHyPchqfYdPxhN",
+                "8xYRpyGK8Szk88gDFyBm7qe3XYxQFqhe7iZBo6LrE9sK",
+                "DM42BEpYGbTtcYyajmg2wVFiH3V9uAahHpS4nqWoBSHt",
+                "eSKEaSVP4fZRSbsZD4yVoRKbSWaTbmpMDq2dUQ9pump"
+            ]
+        },
+        "0.5": {
+            "total_touches": 6700,
+            "success_rate": 0.36134328358208956,
+            "avg_rr_ratio": 3.759159746106966,
+            "avg_gain": 0.9091166353608785,
+            "avg_loss": 0.41380357624352687,
+            "expected_return": 0.4953130591173516,
+            "avg_volume": 666800506026.8162,
+            "best_tokens": [
+                "78uwrc1UaKhue3Haud3Z4b3YpHG5Qb493DChchqcpump",
+                "8UGQsnUWTyYBtybCA8gxSU8QnnffvQPWQATaCWQYpump",
+                "CJ8oT6dHzyHsXBq6JdhRHiRto3Le96pHyPchqfYdPxhN",
+                "8xYRpyGK8Szk88gDFyBm7qe3XYxQFqhe7iZBo6LrE9sK",
+                "DM42BEpYGbTtcYyajmg2wVFiH3V9uAahHpS4nqWoBSHt"
+            ]
+        },
+        "0.618": {
+            "total_touches": 6958,
+            "success_rate": 0.41635527450416787,
+            "avg_rr_ratio": 4.119981281734259,
+            "avg_gain": 0.9637048294481775,
+            "avg_loss": 0.40417863784618474,
+            "expected_return": 0.5595261916019927,
+            "avg_volume": 479545291383.0649,
+            "best_tokens": [
+                "8UGQsnUWTyYBtybCA8gxSU8QnnffvQPWQATaCWQYpump",
+                "CJ8oT6dHzyHsXBq6JdhRHiRto3Le96pHyPchqfYdPxhN",
+                "EswvJvhPy8A8rWPdLJ5ATYW6cY5x483oS4QWWroZpump",
+                "8xYRpyGK8Szk88gDFyBm7qe3XYxQFqhe7iZBo6LrE9sK",
+                "DM42BEpYGbTtcYyajmg2wVFiH3V9uAahHpS4nqWoBSHt"
+            ]
+        },
+        "0.786": {
+            "total_touches": 5730,
+            "success_rate": 0.4952879581151832,
+            "avg_rr_ratio": 6.464555204921989,
+            "avg_gain": 1.2046896940791627,
+            "avg_loss": 0.3813485599333218,
+            "expected_return": 0.823341134145841,
+            "avg_volume": 175989252.57272357,
+            "best_tokens": [
+                "78uwrc1UaKhue3Haud3Z4b3YpHG5Qb493DChchqcpump",
+                "FS3GYZEzE3zS1NdtCRfzrtc2fY7SWxk91b8Z843vpump",
+                "CJ8oT6dHzyHsXBq6JdhRHiRto3Le96pHyPchqfYdPxhN",
+                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
+                "EswvJvhPy8A8rWPdLJ5ATYW6cY5x483oS4QWWroZpump"
+            ]
+        },
+        "1": {
+            "total_touches": 1716,
+            "success_rate": 0.4988344988344988,
+            "avg_rr_ratio": 35.28454151580391,
+            "avg_gain": 3.7428586633020555,
+            "avg_loss": 0.4006119364288629,
+            "expected_return": 3.3422467268731926,
+            "avg_volume": 379700347.50007504,
+            "best_tokens": [
+                "9w3ACAZdjV3r1vnqArEojkdTEVc1ZgJ5gLaxLQATpump",
+                "EWQZj3fteHnkfad7oK46pES5QixJm7nbL8izM3xfzAHx",
+                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
+                "CJ8oT6dHzyHsXBq6JdhRHiRto3Le96pHyPchqfYdPxhN",
+                "238pAXUg7kdRZj5SK8XZZamFSTrhEGz4ZgegYGKDpump"
+            ]
+        }
+    },
+    "15m.csv": {
+        "0": {
+            "total_touches": 1029,
+            "success_rate": 0.42857142857142855,
+            "avg_rr_ratio": 3.7186677689913066,
+            "avg_gain": 1.6375802328718057,
+            "avg_loss": 0.41804499208942186,
+            "expected_return": 1.2195352407823838,
+            "avg_volume": 2753321158995.3657,
+            "best_tokens": [
+                "8SJHvukeqYDyGi64zdv4AM4GrktUtaB7wPMgM3EHpump",
+                "F9GqoJRPzQnGzvP7cQzLHB7C22DToHQYWfsPvhKwqrpC",
+                "784VBrpFx9oSVZBuJaLWemmK55SMZEhLzZYjiMG9pump",
+                "5ULDXfva7noqKU8D2E3fHC7fkgncm6dAHEUfLrDZ3mjE",
+                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump"
+            ]
+        },
+        "0.236": {
+            "total_touches": 2011,
+            "success_rate": 0.21979114868224764,
+            "avg_rr_ratio": 3.0767412466122916,
+            "avg_gain": 1.1421196736020924,
+            "avg_loss": 0.5312445164373019,
+            "expected_return": 0.6108751571647907,
+            "avg_volume": 3064415778027.0356,
+            "best_tokens": [
+                "784VBrpFx9oSVZBuJaLWemmK55SMZEhLzZYjiMG9pump",
+                "5ULDXfva7noqKU8D2E3fHC7fkgncm6dAHEUfLrDZ3mjE",
+                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
+                "BGzw16kv9jP28qVXFVzUdXSU8r9dEV4SYK7P3HfdVVN2",
+                "GB2RP1BbGnFvB62UMzWJ8b5BW8hYcEmwVtkh2ADKpump"
+            ]
+        },
+        "0.382": {
+            "total_touches": 2724,
+            "success_rate": 0.2907488986784141,
+            "avg_rr_ratio": 3.4808877852332065,
+            "avg_gain": 1.0345975925689683,
+            "avg_loss": 0.5027787064949165,
+            "expected_return": 0.5318188860740517,
+            "avg_volume": 2538128131425.069,
+            "best_tokens": [
+                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
+                "BGzw16kv9jP28qVXFVzUdXSU8r9dEV4SYK7P3HfdVVN2",
+                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump",
+                "GPrF7LXiQAY8Y9Fci7et2C7a9JsrCBDRvEAKLCjLpump",
+                "8bRjTSp7mdoHgneFwAZXvTWnVRKUfb4Hr36skQKBpump"
+            ]
+        },
+        "0.5": {
+            "total_touches": 3276,
+            "success_rate": 0.34645909645909645,
+            "avg_rr_ratio": 3.5090050901986096,
+            "avg_gain": 1.0169634234568603,
+            "avg_loss": 0.48966919736200976,
+            "expected_return": 0.5272942260948505,
+            "avg_volume": 2853020288846.478,
+            "best_tokens": [
+                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
+                "BGzw16kv9jP28qVXFVzUdXSU8r9dEV4SYK7P3HfdVVN2",
+                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump",
+                "rDGNQh7d1Fb4SHqVdpSiENyNsvdQEVdggnqy1HZpump",
+                "GPrF7LXiQAY8Y9Fci7et2C7a9JsrCBDRvEAKLCjLpump"
+            ]
+        },
+        "0.618": {
+            "total_touches": 3328,
+            "success_rate": 0.40564903846153844,
+            "avg_rr_ratio": 4.426058721119955,
+            "avg_gain": 1.0930973081665718,
+            "avg_loss": 0.49243784161264226,
+            "expected_return": 0.6006594665539295,
+            "avg_volume": 2022203579128.7231,
+            "best_tokens": [
+                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
+                "EswvJvhPy8A8rWPdLJ5ATYW6cY5x483oS4QWWroZpump",
+                "GB2RP1BbGnFvB62UMzWJ8b5BW8hYcEmwVtkh2ADKpump",
+                "GPrF7LXiQAY8Y9Fci7et2C7a9JsrCBDRvEAKLCjLpump",
+                "8bRjTSp7mdoHgneFwAZXvTWnVRKUfb4Hr36skQKBpump"
+            ]
+        },
+        "0.786": {
+            "total_touches": 2975,
+            "success_rate": 0.5045378151260504,
+            "avg_rr_ratio": 5.533740537863446,
+            "avg_gain": 1.367041833254787,
+            "avg_loss": 0.46206781057514584,
+            "expected_return": 0.9049740226796411,
+            "avg_volume": 237342766.2477546,
+            "best_tokens": [
+                "FS3GYZEzE3zS1NdtCRfzrtc2fY7SWxk91b8Z843vpump",
+                "6pQ5UgpPP5Ny1vfoxRRWVuFvkXAfNH5QgdWN975Sovc",
+                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
+                "EswvJvhPy8A8rWPdLJ5ATYW6cY5x483oS4QWWroZpump",
+                "GB2RP1BbGnFvB62UMzWJ8b5BW8hYcEmwVtkh2ADKpump"
+            ]
+        },
+        "1": {
+            "total_touches": 862,
+            "success_rate": 0.531322505800464,
+            "avg_rr_ratio": 17.196577108680312,
+            "avg_gain": 4.740139480154861,
+            "avg_loss": 0.4697011018629247,
+            "expected_return": 4.270438378291937,
+            "avg_volume": 545858920.0277865,
+            "best_tokens": [
+                "FiQSxRdBzBgskvWcxFYZUrYdcZ55Qzci9dtrSH54pump",
+                "CvARs26ujuCphpnFQZ1Lxsk5R6YaHZ5uKUJoRnoLpump",
+                "6UmGJtWHW13YLJCrdk9jEAnHeSgARTJEfCVV1sX4pump",
+                "8sqkgSRcpgQvEPcZ5jeh5sSPw1W9sAYHGX9JTT5fpump",
+                "3xCezjFxCdRniVHaRhGGUMbKbDu7WkHMLsWGuG8A3nQq"
+            ]
+        }
+    },
+    "1H.csv": {
+        "0": {
+            "total_touches": 406,
+            "success_rate": 0.5024630541871922,
+            "avg_rr_ratio": 3.8819627580962015,
+            "avg_gain": 1.742676109727546,
+            "avg_loss": 0.5217698277548922,
+            "expected_return": 1.2209062819726537,
+            "avg_volume": 12715857474705.738,
+            "best_tokens": [
+                "6yDq43NrbnGeVChQv9iPqcAP3uNCc5K459nLeMYbpump",
+                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
+                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
+                "12JkGNVhg3hzrKXJYVGrtttJDqTnyXeQE3HVacaWfBez",
+                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump"
+            ]
+        },
+        "0.236": {
+            "total_touches": 727,
+            "success_rate": 0.37551581843191195,
+            "avg_rr_ratio": 3.49641196986972,
+            "avg_gain": 1.338406644961094,
+            "avg_loss": 0.5984874971305741,
+            "expected_return": 0.7399191478305198,
+            "avg_volume": 12119599774506.998,
+            "best_tokens": [
+                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
+                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
+                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump",
+                "GB2RP1BbGnFvB62UMzWJ8b5BW8hYcEmwVtkh2ADKpump",
+                "9KtmZMhDzFf8F1EEBGgsuPTTMSKNDtwJWJwgqzBABMMH"
+            ]
+        },
+        "0.382": {
+            "total_touches": 979,
+            "success_rate": 0.3891726251276813,
+            "avg_rr_ratio": 3.23025209973159,
+            "avg_gain": 1.277255955715303,
+            "avg_loss": 0.5977121542912538,
+            "expected_return": 0.679543801424049,
+            "avg_volume": 12863373899204.863,
+            "best_tokens": [
+                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
+                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
+                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump",
+                "GB2RP1BbGnFvB62UMzWJ8b5BW8hYcEmwVtkh2ADKpump",
+                "9KtmZMhDzFf8F1EEBGgsuPTTMSKNDtwJWJwgqzBABMMH"
+            ]
+        },
+        "0.5": {
+            "total_touches": 1135,
+            "success_rate": 0.4149779735682819,
+            "avg_rr_ratio": 3.4736958290002278,
+            "avg_gain": 1.334977091707567,
+            "avg_loss": 0.5781851781729938,
+            "expected_return": 0.7567919135345731,
+            "avg_volume": 9252947578918.672,
+            "best_tokens": [
+                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
+                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
+                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump",
+                "9KtmZMhDzFf8F1EEBGgsuPTTMSKNDtwJWJwgqzBABMMH",
+                "AqpJ2uRYEFdmsL1gZuQoMkWof8YRuuBVMm8dkNK7pump"
+            ]
+        },
+        "0.618": {
+            "total_touches": 1137,
+            "success_rate": 0.45646437994722955,
+            "avg_rr_ratio": 3.8373449602903826,
+            "avg_gain": 1.4702869350355157,
+            "avg_loss": 0.5949265007986732,
+            "expected_return": 0.8753604342368425,
+            "avg_volume": 4813646264742.284,
+            "best_tokens": [
+                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
+                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump",
+                "N2jAJu9ymjNwvKuSWJ4EvmS94MsxkNGL64g2xPPpump",
+                "GB2RP1BbGnFvB62UMzWJ8b5BW8hYcEmwVtkh2ADKpump",
+                "9KtmZMhDzFf8F1EEBGgsuPTTMSKNDtwJWJwgqzBABMMH"
+            ]
+        },
+        "0.786": {
+            "total_touches": 990,
+            "success_rate": 0.5595959595959596,
+            "avg_rr_ratio": 4.488683527612385,
+            "avg_gain": 1.758620479558008,
+            "avg_loss": 0.5777106874507577,
+            "expected_return": 1.1809097921072504,
+            "avg_volume": 586299669.1099007,
+            "best_tokens": [
+                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
+                "9KtmZMhDzFf8F1EEBGgsuPTTMSKNDtwJWJwgqzBABMMH",
+                "FCrGhgT7DY5EUv4nB1Lqyvm5eTsDuWGufJ2z4BhHpump",
+                "7XFXYYiqrEQLLkAGvvxaoh6iYkVYQ4K7XXtKoRShpump",
+                "AqpJ2uRYEFdmsL1gZuQoMkWof8YRuuBVMm8dkNK7pump"
+            ]
+        },
+        "1": {
+            "total_touches": 321,
+            "success_rate": 0.616822429906542,
+            "avg_rr_ratio": 18.741538407191108,
+            "avg_gain": 5.185082931061818,
+            "avg_loss": 0.5984850734303124,
+            "expected_return": 4.586597857631505,
+            "avg_volume": 1657300136.6946042,
+            "best_tokens": [
+                "FiQSxRdBzBgskvWcxFYZUrYdcZ55Qzci9dtrSH54pump",
+                "CvARs26ujuCphpnFQZ1Lxsk5R6YaHZ5uKUJoRnoLpump",
+                "8sqkgSRcpgQvEPcZ5jeh5sSPw1W9sAYHGX9JTT5fpump",
+                "6yDq43NrbnGeVChQv9iPqcAP3uNCc5K459nLeMYbpump",
+                "SHNfd29uR7r5wRVqMuGxaWAgfcKXrEzhrnM6zZctW1k"
+            ]
+        }
+    }
+}

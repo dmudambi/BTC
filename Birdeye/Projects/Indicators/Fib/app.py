@@ -54,13 +54,13 @@ def get_formatted_times():
     ist_time = current_time_utc.astimezone(pytz.timezone('Asia/Kolkata'))
     return est_time, ist_time
 
-def get_time_until_refresh(start_time, refresh_interval=300):
+def get_time_until_refresh(start_time, refresh_interval=700):
     """
     Calculate time remaining until next refresh
     
     Args:
         start_time (float): Timestamp when the refresh started
-        refresh_interval (int): Refresh interval in seconds (default: 300)
+        refresh_interval (int): Refresh interval in seconds (default: 700)
     
     Returns:
         str: Formatted string showing minutes and seconds remaining
@@ -283,7 +283,7 @@ def display_dashboard():
             progress_bar.progress(100)
             
             # Wait for refresh interval while showing countdown
-            while (time.time() - refresh_start_time) < 300:  # 5 minutes
+            while (time.time() - refresh_start_time) < 700:  # 5 minutes
                 time_left = get_time_until_refresh(refresh_start_time)
                 refresh_status.info(f"Next refresh in: {time_left}")
                 time.sleep(1)
