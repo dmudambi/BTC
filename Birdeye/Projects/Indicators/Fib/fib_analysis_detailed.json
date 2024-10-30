@@ -9,11 +9,11 @@
             "expected_return": 1.3263572815745366,
             "avg_volume": 906140687029.6294,
             "best_tokens": [
-                "AyGMknLz2MGkWcU1JQzM3CS8zNhmfMisNUBTp2d28533",
+                "dracoAfhWox6saRpRcovijFSN1b5HHqHPpRSz19neFh",
                 "78uwrc1UaKhue3Haud3Z4b3YpHG5Qb493DChchqcpump",
-                "76hZJqGxtmQjRMMQ4mBa3b4fnq4w5DRtTFChtxnpump",
-                "5ULDXfva7noqKU8D2E3fHC7fkgncm6dAHEUfLrDZ3mjE",
-                "6pQ5UgpPP5Ny1vfoxRRWVuFvkXAfNH5QgdWN975Sovc"
+                "6ankmURHg2te1Yv2FHEfTT6hm9DytjwwQDoMWWgspump",
+                "5KuqY1mu1sn7f2U6L53idr2Ht5vk4513H6o5T2Vupump",
+                "Fqvpb9bahTiNyyCR1bahU1DBkU2CcESDwmGnwdeEpump"
             ]
         },
         "0.236": {
@@ -26,10 +26,10 @@
             "avg_volume": 1432543631949.6028,
             "best_tokens": [
                 "78uwrc1UaKhue3Haud3Z4b3YpHG5Qb493DChchqcpump",
-                "5ULDXfva7noqKU8D2E3fHC7fkgncm6dAHEUfLrDZ3mjE",
-                "CJ8oT6dHzyHsXBq6JdhRHiRto3Le96pHyPchqfYdPxhN",
-                "2BBEjW3bh3Z9vZhNu6CCw121owqWquc1KWNorFG9pump",
-                "Fqvpb9bahTiNyyCR1bahU1DBkU2CcESDwmGnwdeEpump"
+                "8sqkgSRcpgQvEPcZ5jeh5sSPw1W9sAYHGX9JTT5fpump",
+                "5KuqY1mu1sn7f2U6L53idr2Ht5vk4513H6o5T2Vupump",
+                "FXX1PtSZYGPYUeuoUA5JxD8xXZHZiCkjFhpFKK2BS6B2",
+                "2D1rGw1B3pK7kCrpojD6LssG7bBfy4hmnUUnkpCDsjVR"
             ]
         },
         "0.382": {
@@ -41,11 +41,11 @@
             "expected_return": 0.5154584540162366,
             "avg_volume": 373568770686.6169,
             "best_tokens": [
-                "78uwrc1UaKhue3Haud3Z4b3YpHG5Qb493DChchqcpump",
-                "CJ8oT6dHzyHsXBq6JdhRHiRto3Le96pHyPchqfYdPxhN",
-                "8xYRpyGK8Szk88gDFyBm7qe3XYxQFqhe7iZBo6LrE9sK",
-                "DM42BEpYGbTtcYyajmg2wVFiH3V9uAahHpS4nqWoBSHt",
-                "eSKEaSVP4fZRSbsZD4yVoRKbSWaTbmpMDq2dUQ9pump"
+                "EQu5dExRRqacpTPgKciRRtJNztqzYJPYEyLUQXix7qNP",
+                "AFupKyMR75kZ2V6ooCwQHpBtLr6hAt866KWaMUrgpump",
+                "HYTWunEns5k3CBBrr8gTJjNqA93avuEPB3RB1Kud3MWg",
+                "HaNvJ9qV88rHFEYsjMHQwi1nRy3DdnKJyLUjBhcMpump",
+                "FTugWk3sqjLJYbsxbTEdbnenYRPaqGJAC8JXriUspump"
             ]
         },
         "0.5": {
@@ -57,11 +57,11 @@
             "expected_return": 0.4953130591173516,
             "avg_volume": 666800506026.8162,
             "best_tokens": [
-                "78uwrc1UaKhue3Haud3Z4b3YpHG5Qb493DChchqcpump",
-                "8UGQsnUWTyYBtybCA8gxSU8QnnffvQPWQATaCWQYpump",
-                "CJ8oT6dHzyHsXBq6JdhRHiRto3Le96pHyPchqfYdPxhN",
-                "8xYRpyGK8Szk88gDFyBm7qe3XYxQFqhe7iZBo6LrE9sK",
-                "DM42BEpYGbTtcYyajmg2wVFiH3V9uAahHpS4nqWoBSHt"
+                "EQu5dExRRqacpTPgKciRRtJNztqzYJPYEyLUQXix7qNP",
+                "AFupKyMR75kZ2V6ooCwQHpBtLr6hAt866KWaMUrgpump",
+                "3WbARz9yrrPeNvxYTAqodqgmxsTS1fceKcuzep2Apump",
+                "7AcpfFuRJMRGhxvLQg4g7TCWCK22Fv83CLVrt9hEpump",
+                "HYTWunEns5k3CBBrr8gTJjNqA93avuEPB3RB1Kud3MWg"
             ]
         },
         "0.618": {
@@ -73,11 +73,11 @@
             "expected_return": 0.5595261916019927,
             "avg_volume": 479545291383.0649,
             "best_tokens": [
-                "8UGQsnUWTyYBtybCA8gxSU8QnnffvQPWQATaCWQYpump",
-                "CJ8oT6dHzyHsXBq6JdhRHiRto3Le96pHyPchqfYdPxhN",
-                "EswvJvhPy8A8rWPdLJ5ATYW6cY5x483oS4QWWroZpump",
-                "8xYRpyGK8Szk88gDFyBm7qe3XYxQFqhe7iZBo6LrE9sK",
-                "DM42BEpYGbTtcYyajmg2wVFiH3V9uAahHpS4nqWoBSHt"
+                "6ankmURHg2te1Yv2FHEfTT6hm9DytjwwQDoMWWgspump",
+                "AFupKyMR75kZ2V6ooCwQHpBtLr6hAt866KWaMUrgpump",
+                "DtWz93pDUZe5cYqBFmZjXq1wzZqZPygCeox5d3ajpump",
+                "3WbARz9yrrPeNvxYTAqodqgmxsTS1fceKcuzep2Apump",
+                "7AcpfFuRJMRGhxvLQg4g7TCWCK22Fv83CLVrt9hEpump"
             ]
         },
         "0.786": {
@@ -89,11 +89,27 @@
             "expected_return": 0.823341134145841,
             "avg_volume": 175989252.57272357,
             "best_tokens": [
-                "78uwrc1UaKhue3Haud3Z4b3YpHG5Qb493DChchqcpump",
-                "FS3GYZEzE3zS1NdtCRfzrtc2fY7SWxk91b8Z843vpump",
-                "CJ8oT6dHzyHsXBq6JdhRHiRto3Le96pHyPchqfYdPxhN",
-                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
-                "EswvJvhPy8A8rWPdLJ5ATYW6cY5x483oS4QWWroZpump"
+                "6ankmURHg2te1Yv2FHEfTT6hm9DytjwwQDoMWWgspump",
+                "27vMFjJerzLd5iZX2tRWL4eHUTr5Lfh5YWdakU3Zpump",
+                "5KuqY1mu1sn7f2U6L53idr2Ht5vk4513H6o5T2Vupump",
+                "4LzqcMvVM56wSDVpnRfK6VwLKyxJkcDCJuQMaEDkpump",
+                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf"
+            ]
+        },
+        "0.886": {
+            "total_touches": 4461,
+            "success_rate": 0.5418067697825599,
+            "avg_rr_ratio": 9.893265451001582,
+            "avg_gain": 1.8192141335042233,
+            "avg_loss": 0.3720253649526679,
+            "expected_return": 1.4471887685515552,
+            "avg_volume": 220522555.77808785,
+            "best_tokens": [
+                "6ankmURHg2te1Yv2FHEfTT6hm9DytjwwQDoMWWgspump",
+                "418QJC9cHmUXYFDEg78bAZE765WS4PX9Kxwznx2Hpump",
+                "4LzqcMvVM56wSDVpnRfK6VwLKyxJkcDCJuQMaEDkpump",
+                "4sx9a8c81cPWYPy3QVptKcgZu87ncixZp5d2cxeVpump",
+                "8bRjTSp7mdoHgneFwAZXvTWnVRKUfb4Hr36skQKBpump"
             ]
         },
         "1": {
@@ -105,11 +121,11 @@
             "expected_return": 3.3422467268731926,
             "avg_volume": 379700347.50007504,
             "best_tokens": [
-                "9w3ACAZdjV3r1vnqArEojkdTEVc1ZgJ5gLaxLQATpump",
                 "EWQZj3fteHnkfad7oK46pES5QixJm7nbL8izM3xfzAHx",
-                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
-                "CJ8oT6dHzyHsXBq6JdhRHiRto3Le96pHyPchqfYdPxhN",
-                "238pAXUg7kdRZj5SK8XZZamFSTrhEGz4ZgegYGKDpump"
+                "8sqkgSRcpgQvEPcZ5jeh5sSPw1W9sAYHGX9JTT5fpump",
+                "5emZ2w29VGRMkrpDmZ7QyAB35W2upSoYTie35L7kpump",
+                "Fqvpb9bahTiNyyCR1bahU1DBkU2CcESDwmGnwdeEpump",
+                "4sx9a8c81cPWYPy3QVptKcgZu87ncixZp5d2cxeVpump"
             ]
         }
     },
@@ -123,11 +139,11 @@
             "expected_return": 1.2195352407823838,
             "avg_volume": 2753321158995.3657,
             "best_tokens": [
-                "8SJHvukeqYDyGi64zdv4AM4GrktUtaB7wPMgM3EHpump",
-                "F9GqoJRPzQnGzvP7cQzLHB7C22DToHQYWfsPvhKwqrpC",
-                "784VBrpFx9oSVZBuJaLWemmK55SMZEhLzZYjiMG9pump",
-                "5ULDXfva7noqKU8D2E3fHC7fkgncm6dAHEUfLrDZ3mjE",
-                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump"
+                "dracoAfhWox6saRpRcovijFSN1b5HHqHPpRSz19neFh",
+                "4ALKS249vAS3WSCUxXtHJVZN753kZV6ucEQC41421Rka",
+                "5KuqY1mu1sn7f2U6L53idr2Ht5vk4513H6o5T2Vupump",
+                "8bRjTSp7mdoHgneFwAZXvTWnVRKUfb4Hr36skQKBpump",
+                "9dV5wyv4U9MHtz8r28JNmkVimrE7mAGDiddyK9e3pump"
             ]
         },
         "0.236": {
@@ -139,11 +155,11 @@
             "expected_return": 0.6108751571647907,
             "avg_volume": 3064415778027.0356,
             "best_tokens": [
-                "784VBrpFx9oSVZBuJaLWemmK55SMZEhLzZYjiMG9pump",
-                "5ULDXfva7noqKU8D2E3fHC7fkgncm6dAHEUfLrDZ3mjE",
-                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
-                "BGzw16kv9jP28qVXFVzUdXSU8r9dEV4SYK7P3HfdVVN2",
-                "GB2RP1BbGnFvB62UMzWJ8b5BW8hYcEmwVtkh2ADKpump"
+                "4ALKS249vAS3WSCUxXtHJVZN753kZV6ucEQC41421Rka",
+                "5KuqY1mu1sn7f2U6L53idr2Ht5vk4513H6o5T2Vupump",
+                "8bRjTSp7mdoHgneFwAZXvTWnVRKUfb4Hr36skQKBpump",
+                "9ZiBsj8MivwYw4GkNrZ3F3p3tfCwJrJqKdFgBwBCpump",
+                "FRMduUqT6Kri5BbTcBh7tZHL7UmtC7YSLSngGKUMpump"
             ]
         },
         "0.382": {
@@ -155,11 +171,11 @@
             "expected_return": 0.5318188860740517,
             "avg_volume": 2538128131425.069,
             "best_tokens": [
-                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
-                "BGzw16kv9jP28qVXFVzUdXSU8r9dEV4SYK7P3HfdVVN2",
-                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump",
-                "GPrF7LXiQAY8Y9Fci7et2C7a9JsrCBDRvEAKLCjLpump",
-                "8bRjTSp7mdoHgneFwAZXvTWnVRKUfb4Hr36skQKBpump"
+                "4ALKS249vAS3WSCUxXtHJVZN753kZV6ucEQC41421Rka",
+                "5KuqY1mu1sn7f2U6L53idr2Ht5vk4513H6o5T2Vupump",
+                "5CKTaH3mTrawpj26ktp2KHudGkznnrQs59vDMuhNTkVZ",
+                "8bRjTSp7mdoHgneFwAZXvTWnVRKUfb4Hr36skQKBpump",
+                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump"
             ]
         },
         "0.5": {
@@ -171,11 +187,11 @@
             "expected_return": 0.5272942260948505,
             "avg_volume": 2853020288846.478,
             "best_tokens": [
-                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
-                "BGzw16kv9jP28qVXFVzUdXSU8r9dEV4SYK7P3HfdVVN2",
+                "4ALKS249vAS3WSCUxXtHJVZN753kZV6ucEQC41421Rka",
+                "DKrm76PGsieXQe22U5Ab1SqEG5ZzEm9kykQGQ4f5SE8V",
+                "8bRjTSp7mdoHgneFwAZXvTWnVRKUfb4Hr36skQKBpump",
                 "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump",
-                "rDGNQh7d1Fb4SHqVdpSiENyNsvdQEVdggnqy1HZpump",
-                "GPrF7LXiQAY8Y9Fci7et2C7a9JsrCBDRvEAKLCjLpump"
+                "BxBReZ7gTa4HBC29A3KtmsjqnobvRu9g59gBMbTUpump"
             ]
         },
         "0.618": {
@@ -187,11 +203,11 @@
             "expected_return": 0.6006594665539295,
             "avg_volume": 2022203579128.7231,
             "best_tokens": [
-                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
-                "EswvJvhPy8A8rWPdLJ5ATYW6cY5x483oS4QWWroZpump",
-                "GB2RP1BbGnFvB62UMzWJ8b5BW8hYcEmwVtkh2ADKpump",
-                "GPrF7LXiQAY8Y9Fci7et2C7a9JsrCBDRvEAKLCjLpump",
-                "8bRjTSp7mdoHgneFwAZXvTWnVRKUfb4Hr36skQKBpump"
+                "8wa9yRNKp57Fy4RViUgBV21oR7SsgmrAkN576ThJzY2F",
+                "4ALKS249vAS3WSCUxXtHJVZN753kZV6ucEQC41421Rka",
+                "4sx9a8c81cPWYPy3QVptKcgZu87ncixZp5d2cxeVpump",
+                "8bRjTSp7mdoHgneFwAZXvTWnVRKUfb4Hr36skQKBpump",
+                "Cc4sinjiaruP69C7Eotftsu2AjFHAaKZyGtpaLbApump"
             ]
         },
         "0.786": {
@@ -203,11 +219,27 @@
             "expected_return": 0.9049740226796411,
             "avg_volume": 237342766.2477546,
             "best_tokens": [
-                "FS3GYZEzE3zS1NdtCRfzrtc2fY7SWxk91b8Z843vpump",
-                "6pQ5UgpPP5Ny1vfoxRRWVuFvkXAfNH5QgdWN975Sovc",
-                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
-                "EswvJvhPy8A8rWPdLJ5ATYW6cY5x483oS4QWWroZpump",
-                "GB2RP1BbGnFvB62UMzWJ8b5BW8hYcEmwVtkh2ADKpump"
+                "5KuqY1mu1sn7f2U6L53idr2Ht5vk4513H6o5T2Vupump",
+                "4sx9a8c81cPWYPy3QVptKcgZu87ncixZp5d2cxeVpump",
+                "8bRjTSp7mdoHgneFwAZXvTWnVRKUfb4Hr36skQKBpump",
+                "Cc4sinjiaruP69C7Eotftsu2AjFHAaKZyGtpaLbApump",
+                "BpkTfxEAKoAXm5YDo6mAqtTBpfZqhjRQnG76fJb5pump"
+            ]
+        },
+        "0.886": {
+            "total_touches": 2245,
+            "success_rate": 0.5928730512249443,
+            "avg_rr_ratio": 7.679938318902331,
+            "avg_gain": 1.8572341507424268,
+            "avg_loss": 0.4343885682081011,
+            "expected_return": 1.4228455825343254,
+            "avg_volume": 271645593.5103788,
+            "best_tokens": [
+                "4LzqcMvVM56wSDVpnRfK6VwLKyxJkcDCJuQMaEDkpump",
+                "4sx9a8c81cPWYPy3QVptKcgZu87ncixZp5d2cxeVpump",
+                "8bRjTSp7mdoHgneFwAZXvTWnVRKUfb4Hr36skQKBpump",
+                "Cc4sinjiaruP69C7Eotftsu2AjFHAaKZyGtpaLbApump",
+                "BfdVHnbt9LSNAFCZU9kvTjbrH3jX78sv2siLKGQ7pump"
             ]
         },
         "1": {
@@ -219,11 +251,11 @@
             "expected_return": 4.270438378291937,
             "avg_volume": 545858920.0277865,
             "best_tokens": [
-                "FiQSxRdBzBgskvWcxFYZUrYdcZ55Qzci9dtrSH54pump",
+                "65f1VwPxncLCWBUSwvB1PM4CFaYRj4wvPWjH2uuipump",
                 "CvARs26ujuCphpnFQZ1Lxsk5R6YaHZ5uKUJoRnoLpump",
-                "6UmGJtWHW13YLJCrdk9jEAnHeSgARTJEfCVV1sX4pump",
+                "FvLjA1gxFgYSGdxjBgjJBchD5XRdrwvfZaCMyTBdpump",
                 "8sqkgSRcpgQvEPcZ5jeh5sSPw1W9sAYHGX9JTT5fpump",
-                "3xCezjFxCdRniVHaRhGGUMbKbDu7WkHMLsWGuG8A3nQq"
+                "8s25CdyJxN5M82s5s1bJughkWwy8s6uw7qHD3oi76qaZ"
             ]
         }
     },
@@ -237,11 +269,11 @@
             "expected_return": 1.2209062819726537,
             "avg_volume": 12715857474705.738,
             "best_tokens": [
-                "6yDq43NrbnGeVChQv9iPqcAP3uNCc5K459nLeMYbpump",
-                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
-                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
-                "12JkGNVhg3hzrKXJYVGrtttJDqTnyXeQE3HVacaWfBez",
-                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump"
+                "dracoAfhWox6saRpRcovijFSN1b5HHqHPpRSz19neFh",
+                "4ALKS249vAS3WSCUxXtHJVZN753kZV6ucEQC41421Rka",
+                "DKrm76PGsieXQe22U5Ab1SqEG5ZzEm9kykQGQ4f5SE8V",
+                "GfbtxQ3SWydzjgcLPpVp3WLMEMd4Cv6KLKMfducNpump",
+                "7HiSM2hkmqzhZMLuKtGMWkhvDi2LpMBepWRFYjXXpump"
             ]
         },
         "0.236": {
@@ -253,11 +285,11 @@
             "expected_return": 0.7399191478305198,
             "avg_volume": 12119599774506.998,
             "best_tokens": [
-                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
+                "DKrm76PGsieXQe22U5Ab1SqEG5ZzEm9kykQGQ4f5SE8V",
+                "7HiSM2hkmqzhZMLuKtGMWkhvDi2LpMBepWRFYjXXpump",
                 "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
-                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump",
-                "GB2RP1BbGnFvB62UMzWJ8b5BW8hYcEmwVtkh2ADKpump",
-                "9KtmZMhDzFf8F1EEBGgsuPTTMSKNDtwJWJwgqzBABMMH"
+                "9PR7nCP9DpcUotnDPVLUBUZKu5WAYkwrCUx9wDnSpump",
+                "8CJqru4XL2y9eZ1nN6MTeEiN31E9649bmb1DMemupump"
             ]
         },
         "0.382": {
@@ -269,11 +301,11 @@
             "expected_return": 0.679543801424049,
             "avg_volume": 12863373899204.863,
             "best_tokens": [
-                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
+                "DKrm76PGsieXQe22U5Ab1SqEG5ZzEm9kykQGQ4f5SE8V",
                 "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
-                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump",
-                "GB2RP1BbGnFvB62UMzWJ8b5BW8hYcEmwVtkh2ADKpump",
-                "9KtmZMhDzFf8F1EEBGgsuPTTMSKNDtwJWJwgqzBABMMH"
+                "9PR7nCP9DpcUotnDPVLUBUZKu5WAYkwrCUx9wDnSpump",
+                "8CJqru4XL2y9eZ1nN6MTeEiN31E9649bmb1DMemupump",
+                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump"
             ]
         },
         "0.5": {
@@ -285,10 +317,10 @@
             "expected_return": 0.7567919135345731,
             "avg_volume": 9252947578918.672,
             "best_tokens": [
-                "2ho4cNvfFV9DWvw7DzCqrN2HMRdvzYJFHTR2Ts8Kpump",
                 "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
+                "9PR7nCP9DpcUotnDPVLUBUZKu5WAYkwrCUx9wDnSpump",
+                "8CJqru4XL2y9eZ1nN6MTeEiN31E9649bmb1DMemupump",
                 "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump",
-                "9KtmZMhDzFf8F1EEBGgsuPTTMSKNDtwJWJwgqzBABMMH",
                 "AqpJ2uRYEFdmsL1gZuQoMkWof8YRuuBVMm8dkNK7pump"
             ]
         },
@@ -301,11 +333,11 @@
             "expected_return": 0.8753604342368425,
             "avg_volume": 4813646264742.284,
             "best_tokens": [
-                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
-                "D4N5vcpdxysThXZqT1VEJYcQzvp59Eff4fHQvbL9pump",
-                "N2jAJu9ymjNwvKuSWJ4EvmS94MsxkNGL64g2xPPpump",
-                "GB2RP1BbGnFvB62UMzWJ8b5BW8hYcEmwVtkh2ADKpump",
-                "9KtmZMhDzFf8F1EEBGgsuPTTMSKNDtwJWJwgqzBABMMH"
+                "APntf6qxwj7tMRVhjuviEitXyxy6RwXJJYP3j2GjruvZ",
+                "8sqkgSRcpgQvEPcZ5jeh5sSPw1W9sAYHGX9JTT5fpump",
+                "8wa9yRNKp57Fy4RViUgBV21oR7SsgmrAkN576ThJzY2F",
+                "4sx9a8c81cPWYPy3QVptKcgZu87ncixZp5d2cxeVpump",
+                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf"
             ]
         },
         "0.786": {
@@ -317,11 +349,27 @@
             "expected_return": 1.1809097921072504,
             "avg_volume": 586299669.1099007,
             "best_tokens": [
+                "APntf6qxwj7tMRVhjuviEitXyxy6RwXJJYP3j2GjruvZ",
+                "8sqkgSRcpgQvEPcZ5jeh5sSPw1W9sAYHGX9JTT5fpump",
+                "DKrm76PGsieXQe22U5Ab1SqEG5ZzEm9kykQGQ4f5SE8V",
                 "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf",
-                "9KtmZMhDzFf8F1EEBGgsuPTTMSKNDtwJWJwgqzBABMMH",
-                "FCrGhgT7DY5EUv4nB1Lqyvm5eTsDuWGufJ2z4BhHpump",
-                "7XFXYYiqrEQLLkAGvvxaoh6iYkVYQ4K7XXtKoRShpump",
-                "AqpJ2uRYEFdmsL1gZuQoMkWof8YRuuBVMm8dkNK7pump"
+                "9dV5wyv4U9MHtz8r28JNmkVimrE7mAGDiddyK9e3pump"
+            ]
+        },
+        "0.886": {
+            "total_touches": 760,
+            "success_rate": 0.656578947368421,
+            "avg_rr_ratio": 6.963665693904026,
+            "avg_gain": 2.0918248324629296,
+            "avg_loss": 0.5334061192286967,
+            "expected_return": 1.5584187132342324,
+            "avg_volume": 685967078.390096,
+            "best_tokens": [
+                "APntf6qxwj7tMRVhjuviEitXyxy6RwXJJYP3j2GjruvZ",
+                "8sqkgSRcpgQvEPcZ5jeh5sSPw1W9sAYHGX9JTT5fpump",
+                "DKrm76PGsieXQe22U5Ab1SqEG5ZzEm9kykQGQ4f5SE8V",
+                "4sx9a8c81cPWYPy3QVptKcgZu87ncixZp5d2cxeVpump",
+                "5nFS243yLc8fFkYWGfmbyU1Z5TpkeGiKMRBAx8sAonYf"
             ]
         },
         "1": {
@@ -333,11 +381,11 @@
             "expected_return": 4.586597857631505,
             "avg_volume": 1657300136.6946042,
             "best_tokens": [
-                "FiQSxRdBzBgskvWcxFYZUrYdcZ55Qzci9dtrSH54pump",
+                "APntf6qxwj7tMRVhjuviEitXyxy6RwXJJYP3j2GjruvZ",
+                "BfT9czaPUvWyvCCcJfV4z8BCgJbbZnz3NyrsFrQmZf5j",
                 "CvARs26ujuCphpnFQZ1Lxsk5R6YaHZ5uKUJoRnoLpump",
-                "8sqkgSRcpgQvEPcZ5jeh5sSPw1W9sAYHGX9JTT5fpump",
-                "6yDq43NrbnGeVChQv9iPqcAP3uNCc5K459nLeMYbpump",
-                "SHNfd29uR7r5wRVqMuGxaWAgfcKXrEzhrnM6zZctW1k"
+                "59LjgLwuWGnvW2rBZqCyt1JZETj3U2Yajb2uqUbmpump",
+                "FvLjA1gxFgYSGdxjBgjJBchD5XRdrwvfZaCMyTBdpump"
             ]
         }
     }
