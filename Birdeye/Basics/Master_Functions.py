@@ -33,19 +33,19 @@ chain = "solana"
 multichain = "solana,ethereum,bsc"
 
 #### PRE-COLLECTION FILTERS ####
-days_back = 0 # 0 for last 24 hours, 1 for 24-48 hours ago, 2 for 48-72 hours ago (max 2)
+days_back = 1 # 0 for last 24 hours, 1 for 24-48 hours ago, 2 for 48-72 hours ago (max 2)
 hours_back = 23  # 0-23 hours back within the selected day
-minutes_back = 59  # 0-59 minutes back within the selected hour
+minutes_back = 0  # 0-59 minutes back within the selected hour
 new_token_liquidity_filter = 10000 # Minimum liquidity in USD for new tokens
 
 #### POST-COLLECTION FILTERS ####
-new_token_min_liquidity = 30000  # Minimum liquidity in USD for new tokens
+new_token_min_liquidity = 20000  # Minimum liquidity in USD for new tokens
 new_token_max_liquidity = 1000000  # Maximum liquidity in USD for new tokens
 new_token_min_market_cap = 200000  # Minimum market cap in USD for new tokens
 new_token_max_market_cap = 5000000  # Maximum market cap in USD for new tokens
 
 #### OHLCV DATA #### 
-timeframes = ['5m', '15m', '1H', '4H'] 
+timeframes = ['1m', '5m', '15m', '1H'] 
 # ['1m', '3m', '5m', '15m', '30m', '1H', '2H', '4H', '6H', '8H', '12H', '1D']
 
 
@@ -274,7 +274,7 @@ def get_token_list(sort_by, sort_type, min_liquidity, min_volume_24h, min_market
             break
 
         # Respect rate limits
-        time.sleep(0.12)
+        time.sleep(0.25)
 
     # Trim the list to the desired number of tokens
     all_tokens = all_tokens[:total_tokens]
@@ -415,7 +415,7 @@ def get_token_security_data_multi(tokens, API_Key):
             }
 
         # Respect rate limits by adding a small delay between requests
-        time.sleep(0.12)
+        time.sleep(0.25)
 
     return results
 
@@ -493,7 +493,7 @@ def get_token_overview_data_multi(tokens, API_Key):
             results[address] = pd.DataFrame({'Error': [f"Request failed with status code: {response.status_code}"]})
 
         # Respect rate limits by adding a small delay between requests
-        time.sleep(0.12)
+        time.sleep(0.25)
 
     return results
 
@@ -541,7 +541,7 @@ def get_token_trade_data_multi(tokens, API_Key):
             results[address] = pd.DataFrame({'Attribute': ['Error'], 'Value': [f"Request failed with status code: {response.status_code}"]})
 
         # Respect rate limits by adding a small delay between requests
-        time.sleep(0.12)
+        time.sleep(0.25)
 
     return results
 
@@ -592,7 +592,7 @@ def get_trending_tokens(total_tokens, API_Key, chain):
             break
 
         # Respect rate limits
-        time.sleep(0.12)
+        time.sleep(0.25)
 
     all_tokens = all_tokens[:total_tokens]
 
@@ -679,7 +679,7 @@ def get_new_listings(days_back, hours_back, minutes_back, API_Key, liquidity_fil
             break
 
         # Respect rate limits
-        time.sleep(0.12)
+        time.sleep(0.25)
 
     # Remove duplicates based on 'address'
     unique_tokens = list({token['address']: token for token in all_tokens}.values())
@@ -750,7 +750,7 @@ def get_top_traders(address, time_frame, sort_type, sort_by, total_traders, API_
             break
 
         # Respect rate limits
-        time.sleep(0.12)
+        time.sleep(0.25)
 
     return pd.DataFrame(all_traders[:total_traders])
 
@@ -799,7 +799,7 @@ def get_markets(address, time_frame, sort_type, sort_by, total_markets, API_Key)
             break
 
         # Respect rate limits
-        time.sleep(0.12)
+        time.sleep(0.25)
 
     if all_markets:
         df = pd.DataFrame(all_markets[:total_markets])
