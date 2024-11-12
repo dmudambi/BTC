@@ -274,7 +274,7 @@ def get_token_list(sort_by, sort_type, min_liquidity, min_volume_24h, min_market
             break
 
         # Respect rate limits
-        time.sleep(0.25)
+        time.sleep(0.08)
 
     # Trim the list to the desired number of tokens
     all_tokens = all_tokens[:total_tokens]
@@ -415,7 +415,7 @@ def get_token_security_data_multi(tokens, API_Key):
             }
 
         # Respect rate limits by adding a small delay between requests
-        time.sleep(0.25)
+        time.sleep(0.08)
 
     return results
 
@@ -493,7 +493,7 @@ def get_token_overview_data_multi(tokens, API_Key):
             results[address] = pd.DataFrame({'Error': [f"Request failed with status code: {response.status_code}"]})
 
         # Respect rate limits by adding a small delay between requests
-        time.sleep(0.25)
+        time.sleep(0.08)
 
     return results
 
@@ -541,7 +541,7 @@ def get_token_trade_data_multi(tokens, API_Key):
             results[address] = pd.DataFrame({'Attribute': ['Error'], 'Value': [f"Request failed with status code: {response.status_code}"]})
 
         # Respect rate limits by adding a small delay between requests
-        time.sleep(0.25)
+        time.sleep(0.08)
 
     return results
 
@@ -592,7 +592,7 @@ def get_trending_tokens(total_tokens, API_Key, chain):
             break
 
         # Respect rate limits
-        time.sleep(0.25)
+        time.sleep(0.08)
 
     all_tokens = all_tokens[:total_tokens]
 
@@ -679,7 +679,7 @@ def get_new_listings(days_back, hours_back, minutes_back, API_Key, liquidity_fil
             break
 
         # Respect rate limits
-        time.sleep(0.25)
+        time.sleep(0.08)
 
     # Remove duplicates based on 'address'
     unique_tokens = list({token['address']: token for token in all_tokens}.values())
@@ -750,7 +750,7 @@ def get_top_traders(address, time_frame, sort_type, sort_by, total_traders, API_
             break
 
         # Respect rate limits
-        time.sleep(0.25)
+        time.sleep(0.08)
 
     return pd.DataFrame(all_traders[:total_traders])
 
@@ -799,7 +799,7 @@ def get_markets(address, time_frame, sort_type, sort_by, total_markets, API_Key)
             break
 
         # Respect rate limits
-        time.sleep(0.25)
+        time.sleep(0.08)
 
     if all_markets:
         df = pd.DataFrame(all_markets[:total_markets])
