@@ -11,7 +11,7 @@ import plotly.graph_objects as go
 current_dir = os.getcwd()
 root_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..', '..'))
 sys.path.append(root_dir)
-import Birdeye.Basics.Master_Functions as Master_Functions
+import Birdeye_Dashboard.Birdeye.Basics.ATH_Breakout_Master as ATH_Breakout_Master
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -32,13 +32,13 @@ base_path = 'Data/New_Token_Data'
 current_date = datetime.now().strftime('%Y_%m_%d')
 date_folder = os.path.join(base_path, current_date)
 ohlcv_folder = os.path.join(date_folder, 'OHLCV_Data')
-ohlcv_datetime_folder = Master_Functions.get_most_recent_folder(ohlcv_folder)
+ohlcv_datetime_folder = ATH_Breakout_Master.get_most_recent_folder(ohlcv_folder)
 
 # Print the name of the folder being used for import
 print(f"Importing OHLCV data from folder: {ohlcv_datetime_folder}")
 
 # Import the OHLCV data
-imported_ohlcv_data = Master_Functions.import_ohlcv_data(ohlcv_datetime_folder)
+imported_ohlcv_data = ATH_Breakout_Master.import_ohlcv_data(ohlcv_datetime_folder)
 
 
 
@@ -75,7 +75,7 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
     
     def create_timeframe_annotations(timeframe, market_cap, volume):
         """Create annotations for the chart"""
-        formatted_volume = Master_Functions.format_number(volume)
+        formatted_volume = ATH_Breakout_Master.format_number(volume)
         return [
             dict(
                 text=f"<b>Timeframe:</b> {timeframe}",
@@ -195,7 +195,7 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
         print(f"\nProcessing: {dexscreener_link}")
         
         timeframes = imported_ohlcv_data[token_address]
-        market_cap = Master_Functions.format_number(market_caps.get(token_address, 0))
+        market_cap = ATH_Breakout_Master.format_number(market_caps.get(token_address, 0))
         
         fig = go.Figure(layout_xaxis_rangeslider_visible=False)
         timeframe_traces = {}

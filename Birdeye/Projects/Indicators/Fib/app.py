@@ -39,7 +39,7 @@ sys.path.append(current_dir)
 # Import custom modules
 from Fib_Dashboard import (
     plot_price_and_fib_levels,
-    Master_Functions
+    ATH_Breakout_Master
 )
 
 def get_formatted_times():
@@ -167,7 +167,7 @@ def display_dashboard():
             # Get the most recent folder using Master_Functions
             status_container.info("Locating most recent data folder...")
             progress_bar.progress(20)
-            ohlcv_datetime_folder = Master_Functions.get_most_recent_folder(ohlcv_folder)
+            ohlcv_datetime_folder = ATH_Breakout_Master.get_most_recent_folder(ohlcv_folder)
             
             if not ohlcv_datetime_folder:
                 status_container.warning("No data folders found. Waiting for data...")
@@ -182,7 +182,7 @@ def display_dashboard():
             progress_bar.progress(30)
             
             try:
-                imported_ohlcv_data = Master_Functions.import_ohlcv_data(ohlcv_datetime_folder)
+                imported_ohlcv_data = ATH_Breakout_Master.import_ohlcv_data(ohlcv_datetime_folder)
                 if not imported_ohlcv_data or len(imported_ohlcv_data) == 0:
                     raise Exception("No valid OHLCV data found")
                     
