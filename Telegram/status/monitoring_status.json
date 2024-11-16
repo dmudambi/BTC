@@ -1,20 +1,20 @@
 {
     "ATH_Price": {
-        "last_update": "2024-11-16 02:56:47",
-        "messages_processed": 10,
-        "successful_filters": 1,
+        "last_update": "2024-11-16 03:06:59",
+        "messages_processed": 20,
+        "successful_filters": 15,
         "errors": 0
     },
     "PUMP_FDV_Surge": {
-        "last_update": "2024-11-16 02:56:41",
-        "messages_processed": 10,
-        "successful_filters": 1,
+        "last_update": "2024-11-16 03:06:59",
+        "messages_processed": 21,
+        "successful_filters": 20,
         "errors": 0
     },
     "Solana_FDV_Surge": {
-        "last_update": "2024-11-16 02:56:41",
-        "messages_processed": 0,
-        "successful_filters": 0,
+        "last_update": "2024-11-16 03:06:59",
+        "messages_processed": 20,
+        "successful_filters": 16,
         "errors": 0
     }
 }

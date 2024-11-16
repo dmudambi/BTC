@@ -24,7 +24,7 @@ class TopicConfig:
     def __init__(self):
         self.configs = {
             "ATH_Price": {
-                "id": 1115976,
+                "id": 1115976,  # ATH Price
                 "min_market_cap": 10000,      # $10K
                 "min_liquidity": 10,           # 10 SOL
                 "min_5m_change": 2,           # 2%
@@ -36,7 +36,7 @@ class TopicConfig:
                 "data_path": "data/ATH_Price/"
             },
             "PUMP_FDV_Surge": {
-                "id": 1152511,
+                "id": 1152511,  # PUMP FDV Surge
                 "min_market_cap": 5000,       # $5K
                 "min_liquidity": 5,            # 5 SOL
                 "min_5m_change": 5,           # 5%
@@ -48,7 +48,7 @@ class TopicConfig:
                 "data_path": "data/PUMP_FDV_Surge/"
             },
             "Solana_FDV_Surge": {
-                "id": 1152512,
+                "id": 1152525,  # Solana FDV Surge
                 "min_market_cap": 7500,       # $7.5K
                 "min_liquidity": 7,            # 7 SOL
                 "min_5m_change": 17,           # 17%
@@ -510,11 +510,11 @@ class TelegramClientManager:
             # Get the chat entity
             chat = await self.client.get_entity(chat_name)
             
-            # Get messages from the specific topic
+            # Get messages from the specific topic using the same parameters as the notebook
             messages = await self.client.get_messages(
-                entity=chat,
+                entity=chat, 
                 limit=limit,
-                reply_to=topic_id  # Use reply_to instead of _thread
+                reply_to=topic_id
             )
             
             return messages

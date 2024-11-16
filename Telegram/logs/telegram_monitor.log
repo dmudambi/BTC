@@ -137,3 +137,20 @@
 2024-11-16 02:56:40,680 - TelegramMonitor - INFO - Starting Telegram monitoring system...
 2024-11-16 02:56:41,427 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 1
 2024-11-16 02:56:41,485 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 10 - Passed: 1
+2024-11-16 03:03:54,233 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 03:03:54,233 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 03:03:55,200 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 20 - Passed: 15
+2024-11-16 03:03:55,241 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 20 - Passed: 19
+2024-11-16 03:04:52,677 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 03:04:52,678 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 03:06:06,011 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 03:06:06,011 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 03:06:06,857 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 20 - Passed: 15
+2024-11-16 03:06:07,106 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 20 - Passed: 19
+2024-11-16 03:06:07,195 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 20 - Passed: 16
+2024-11-16 03:06:29,622 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 03:06:29,623 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 03:06:30,412 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 20 - Passed: 19
+2024-11-16 03:06:30,505 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 20 - Passed: 16
+2024-11-16 03:06:30,738 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 20 - Passed: 15
+2024-11-16 03:06:53,443 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 20 - Passed: 1
