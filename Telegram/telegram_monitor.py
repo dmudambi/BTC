@@ -15,9 +15,9 @@ from dotenv import load_dotenv
 
 # Message limits for each group
 MESSAGE_LIMITS = {
-    "ATH_Price": 20,
-    "PUMP_FDV_Surge": 20,
-    "Solana_FDV_Surge": 20
+    "ATH_Price": 5,
+    "PUMP_FDV_Surge": 5,
+    "Solana_FDV_Surge": 5
 }
 
 class TopicConfig:
@@ -93,7 +93,7 @@ class BaseMessageParser:
             'dev_hold_%': None,
             'dev_burnt': None,
             'telegram': None,
-            'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Consistent datetime format
         }
 
     def _clean_numeric(self, value: str) -> float:
@@ -365,11 +365,20 @@ class DataManager:
         # Create directory if it doesn't exist
         topic_path.mkdir(parents=True, exist_ok=True)
         
+        # Add timestamp column if not present
+        if 'timestamp' not in df.columns:
+            df['timestamp'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        # Convert timestamp to datetime if it's not already
+        df['timestamp'] = pd.to_datetime(df['timestamp'])
+        
         # Load existing data if available
         if topic_name in self.file_cache:
             existing_df = self.file_cache[topic_name]
         elif filepath.exists():
             existing_df = pd.read_csv(filepath)
+            # Convert timestamp to datetime for existing data
+            existing_df['timestamp'] = pd.to_datetime(existing_df['timestamp'])
         else:
             existing_df = pd.DataFrame()
 
@@ -379,6 +388,9 @@ class DataManager:
         # Drop duplicates based on all columns except timestamp
         cols_for_dedup = [col for col in combined_df.columns if col != 'timestamp']
         combined_df = combined_df.drop_duplicates(subset=cols_for_dedup, keep='last')
+        
+        # Sort by timestamp in descending order (newest first)
+        combined_df = combined_df.sort_values('timestamp', ascending=False)
         
         # Save to file and update cache
         combined_df.to_csv(filepath, index=False)
