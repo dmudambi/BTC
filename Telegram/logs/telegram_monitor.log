@@ -1,0 +1,139 @@
+2024-11-16 01:51:04,616 - TelegramMonitor - ERROR - Failed to initialize Telegram client
+2024-11-16 01:51:04,616 - TelegramMonitor - ERROR - Failed to initialize. Exiting...
+2024-11-16 01:51:04,617 - TelegramMonitor - ERROR - Error during cleanup: 'TelegramClientManager' object has no attribute 'close'
+2024-11-16 02:04:18,151 - TelegramMonitor - ERROR - Failed to initialize Telegram client
+2024-11-16 02:04:18,152 - TelegramMonitor - ERROR - Failed to initialize. Exiting...
+2024-11-16 02:04:18,152 - TelegramMonitor - ERROR - Error during cleanup: 'TelegramClientManager' object has no attribute 'close'
+2024-11-16 02:08:53,003 - TelegramMonitor - ERROR - Failed to initialize Telegram client
+2024-11-16 02:08:53,003 - TelegramMonitor - ERROR - Failed to initialize. Exiting...
+2024-11-16 02:08:53,004 - TelegramMonitor - ERROR - Error during cleanup: 'TelegramClientManager' object has no attribute 'close'
+2024-11-16 02:10:26,187 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:10:26,187 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:10:26,188 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:10:26,188 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:10:26,189 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:10:36,199 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:10:36,200 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:10:36,200 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:16:46,290 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:16:46,290 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:16:46,290 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:16:46,290 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:16:46,290 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:16:56,291 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:16:56,292 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:16:56,292 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:17:06,302 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:17:06,303 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:17:06,303 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:17:27,502 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:17:27,502 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:20:39,697 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:20:39,697 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:20:39,697 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:20:39,697 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:20:39,697 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:20:49,708 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:20:49,708 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:20:49,708 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:20:58,831 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:20:58,832 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:20:58,832 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:20:58,833 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:20:58,833 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:21:08,844 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:21:08,844 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:21:08,845 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:23:09,223 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:23:09,223 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:24:50,267 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:24:50,267 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:24:50,268 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:24:50,268 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:24:50,269 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:25:00,279 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:25:00,280 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:25:00,280 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:26:29,621 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:26:29,621 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:26:29,622 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:26:29,623 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:26:29,624 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:26:39,633 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:26:39,634 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:26:39,634 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:26:49,644 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:26:49,645 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:26:49,645 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:26:59,656 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:26:59,656 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:26:59,656 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:27:09,666 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:27:09,667 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:27:09,667 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:27:19,678 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:27:19,678 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:27:19,678 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:27:24,773 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:27:24,774 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:28:18,690 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:28:18,690 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:48:18,705 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:48:18,705 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:48:19,449 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 10 - Passed: 1
+2024-11-16 02:49:42,757 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:49:42,757 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:49:42,757 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:49:42,758 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:49:42,758 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:49:52,768 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:49:52,769 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:49:52,769 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:50:19,975 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:50:19,975 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:50:19,976 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:50:19,976 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:50:19,977 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:50:29,987 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:50:29,987 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:50:29,988 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:50:39,998 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:50:39,998 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:50:39,999 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:50:49,259 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:50:49,259 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:50:50,040 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 10 - Passed: 1
+2024-11-16 02:51:01,150 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:51:01,150 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:51:01,151 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:01,152 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:01,152 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:13,597 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:51:13,597 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:51:13,598 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:13,599 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:13,599 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:23,601 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:23,601 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:23,602 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:33,603 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:33,603 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:33,604 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:43,613 - TelegramMonitor - ERROR - Topic: ATH_Price - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:43,613 - TelegramMonitor - ERROR - Topic: PUMP_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:51:43,614 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: monitoring_error - Message: 'TelegramClientManager' object has no attribute 'get_messages'
+2024-11-16 02:52:05,731 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:52:05,732 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:52:06,490 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 10 - Passed: 1
+2024-11-16 02:53:19,714 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:53:19,715 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:54:12,111 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:54:12,112 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:55:47,941 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:55:47,941 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:56:28,496 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:56:28,497 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:56:40,680 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 02:56:40,680 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 02:56:41,427 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 02:56:41,485 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 10 - Passed: 1

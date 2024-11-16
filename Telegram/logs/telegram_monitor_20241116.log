@@ -1,0 +1,57 @@
+2024-11-16 01:13:22,486 - telethon.network.mtprotosender - INFO - Connecting to 149.154.175.58:443/TcpFull...
+2024-11-16 01:13:22,606 - telethon.network.mtprotosender - INFO - Connection to 149.154.175.58:443/TcpFull complete!
+2024-11-16 01:13:23,247 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 01:13:23,247 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 01:13:23,248 - TelegramMonitor - ERROR - Topic: monitor - Error Type: monitoring_error - Message: attempted relative import with no known parent package
+Traceback (most recent call last):
+  File "/home/ubuntu/Birdeye_Dashboard/Telegram/telegram_monitor.py", line 511, in start_monitoring
+    await asyncio.gather(*monitoring_tasks)
+  File "/home/ubuntu/Birdeye_Dashboard/Telegram/telegram_monitor.py", line 519, in monitor_topic
+    from .message_parser import get_parser_for_topic
+ImportError: attempted relative import with no known parent package
+2024-11-16 01:13:23,248 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.175.58:443/TcpFull...
+2024-11-16 01:13:23,249 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.175.58:443/TcpFull complete!
+2024-11-16 01:13:23,249 - TelegramMonitor - INFO - Monitoring system shut down successfully
+2024-11-16 01:16:18,225 - telethon.network.mtprotosender - INFO - Connecting to 149.154.175.58:443/TcpFull...
+2024-11-16 01:16:18,354 - telethon.network.mtprotosender - INFO - Connection to 149.154.175.58:443/TcpFull complete!
+2024-11-16 01:16:19,019 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 01:16:19,019 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 01:16:19,356 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 10 - Passed: 2
+2024-11-16 01:17:07,475 - telethon.client.updates - INFO - Got difference for channel 2202241417 updates
+2024-11-16 01:17:17,918 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 10 - Passed: 1
+2024-11-16 01:18:54,309 - telethon.network.mtprotosender - INFO - Connecting to 149.154.175.58:443/TcpFull...
+2024-11-16 01:18:54,470 - telethon.network.mtprotosender - INFO - Connection to 149.154.175.58:443/TcpFull complete!
+2024-11-16 01:18:55,310 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 01:18:55,310 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 01:18:55,713 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 10 - Passed: 3
+2024-11-16 01:20:10,302 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 10 - Passed: 1
+2024-11-16 01:24:35,030 - telethon.network.mtprotosender - INFO - Connecting to 149.154.175.58:443/TcpFull...
+2024-11-16 01:24:35,147 - telethon.network.mtprotosender - INFO - Connection to 149.154.175.58:443/TcpFull complete!
+2024-11-16 01:24:35,765 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 01:24:35,765 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 01:24:36,093 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 10
+2024-11-16 01:24:36,115 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 10 - Passed: 9
+2024-11-16 01:24:36,132 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 10 - Passed: 3
+2024-11-16 01:25:41,978 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:26:08,284 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:26:25,106 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:27:04,400 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:28:21,053 - telethon.client.updates - INFO - Got difference for channel 2202241417 updates
+2024-11-16 01:28:36,522 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:28:59,612 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:29:16,241 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:29:55,491 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:30:02,707 - telethon.client.updates - INFO - Got difference for channel 2202241417 updates
+2024-11-16 01:30:05,869 - telethon.client.updates - INFO - Got difference for channel 2202241417 updates
+2024-11-16 01:30:31,796 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:30:39,042 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:30:41,440 - telethon.client.updates - INFO - Got difference for channel 2202241417 updates
+2024-11-16 01:30:48,199 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:30:48,891 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:30:54,754 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:31:05,296 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:31:21,739 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:31:31,159 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:31:51,260 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:32:14,393 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 10 - Passed: 1
+2024-11-16 01:33:00,726 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 10 - Passed: 1
