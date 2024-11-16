@@ -354,7 +354,7 @@ class DataManager:
         self.base_path = Path(base_path)
         self.retention_days = 7
         self.session_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.file_cache = {}  # Store DataFrames in memory
+        self.file_cache = {}
 
     def save_data(self, df, topic_name, timestamp=None):
         """Save DataFrame to appropriate topic directory"""
@@ -365,32 +365,31 @@ class DataManager:
         # Create directory if it doesn't exist
         topic_path.mkdir(parents=True, exist_ok=True)
         
-        # Add timestamp column if not present
-        if 'timestamp' not in df.columns:
-            df['timestamp'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        
-        # Convert timestamp to datetime if it's not already
-        df['timestamp'] = pd.to_datetime(df['timestamp'])
+        # Convert input to DataFrame if it's a dictionary
+        if not isinstance(df, pd.DataFrame):
+            df = pd.DataFrame([df])
         
         # Load existing data if available
         if topic_name in self.file_cache:
             existing_df = self.file_cache[topic_name]
         elif filepath.exists():
             existing_df = pd.read_csv(filepath)
-            # Convert timestamp to datetime for existing data
-            existing_df['timestamp'] = pd.to_datetime(existing_df['timestamp'])
         else:
             existing_df = pd.DataFrame()
 
         # Combine existing and new data
-        combined_df = pd.concat([existing_df, df], ignore_index=True)
+        combined_df = pd.concat([existing_df, df], ignore_index=False)
         
-        # Drop duplicates based on all columns except timestamp
-        cols_for_dedup = [col for col in combined_df.columns if col != 'timestamp']
+        # Drop duplicates based on all columns except row_index if it exists
+        cols_for_dedup = [col for col in combined_df.columns if col != 'row_index']
         combined_df = combined_df.drop_duplicates(subset=cols_for_dedup, keep='last')
         
-        # Sort by timestamp in descending order (newest first)
-        combined_df = combined_df.sort_values('timestamp', ascending=False)
+        # Remove existing row_index if it exists
+        if 'row_index' in combined_df.columns:
+            combined_df = combined_df.drop('row_index', axis=1)
+        
+        # Add fresh row_index starting from 0
+        combined_df.insert(0, 'row_index', range(len(combined_df)))
         
         # Save to file and update cache
         combined_df.to_csv(filepath, index=False)
@@ -415,9 +414,9 @@ class DataManager:
                         continue
 
 class TelegramMonitorLogger:
-    def __init__(self, log_dir="logs"):
+    def __init__(self, log_dir="data/logs"):
         self.log_dir = Path(log_dir)
-        self.log_dir.mkdir(exist_ok=True)
+        self.log_dir.mkdir(parents=True, exist_ok=True)
         
         # Configure logging
         self.logger = logging.getLogger("TelegramMonitor")
@@ -449,9 +448,9 @@ class TelegramMonitorLogger:
         self.logger.info(f"Topic: {topic} - Filtered: {total} - Passed: {passed}")
 
 class MonitoringStatus:
-    def __init__(self, status_dir="status"):
+    def __init__(self, status_dir="data/status"):
         self.status_dir = Path(status_dir)
-        self.status_dir.mkdir(exist_ok=True)
+        self.status_dir.mkdir(parents=True, exist_ok=True)
         self.status_file = self.status_dir / "monitoring_status.json"
         self.status = self._load_status()
 
@@ -667,10 +666,10 @@ class TelegramMonitorApp:
         self.api_hash = os.getenv("TELEGRAM_API_HASH")
         self.chat_name = "gmgnsignals"
         
-        # Create base directories
+        # Create base directory and subdirectories
         Path("data").mkdir(exist_ok=True)
-        Path("logs").mkdir(exist_ok=True)
-        Path("status").mkdir(exist_ok=True)
+        Path("data/logs").mkdir(exist_ok=True)
+        Path("data/status").mkdir(exist_ok=True)
         
         # Initialize components
         self.topic_config = TopicConfig()

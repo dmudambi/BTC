@@ -1,0 +1,26 @@
+2024-11-16 05:45:15,858 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-11-16 05:45:15,858 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-11-16 05:45:16,598 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 5 - Passed: 5
+2024-11-16 05:45:16,629 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 5 - Passed: 4
+2024-11-16 05:45:16,663 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 5 - Passed: 4
+2024-11-16 05:45:34,336 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:45:40,127 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:46:54,971 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:47:29,598 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:48:33,578 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:48:39,605 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 5 - Passed: 1
+2024-11-16 05:49:53,492 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:52:11,432 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:52:28,606 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:53:38,556 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:53:50,047 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:55:16,371 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 5 - Passed: 1
+2024-11-16 05:55:45,082 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:56:08,079 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:56:18,648 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:56:42,554 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:57:44,931 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:58:08,813 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:58:14,551 - TelegramMonitor - INFO - Topic: PUMP_FDV_Surge - Filtered: 5 - Passed: 1
+2024-11-16 05:59:17,917 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 5 - Passed: 1
+2024-11-16 05:59:58,425 - TelegramMonitor - INFO - Topic: ATH_Price - Filtered: 5 - Passed: 1
