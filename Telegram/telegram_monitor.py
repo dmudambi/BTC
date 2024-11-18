@@ -15,9 +15,9 @@ from dotenv import load_dotenv
 
 # Message limits for each group
 MESSAGE_LIMITS = {
-    "ATH_Price": 5,
-    "PUMP_FDV_Surge": 5,
-    "Solana_FDV_Surge": 5
+    "ATH_Price": 300,
+    "PUMP_FDV_Surge": 100,
+    "Solana_FDV_Surge": 100
 }
 
 class TopicConfig:
@@ -25,13 +25,13 @@ class TopicConfig:
         self.configs = {
             "ATH_Price": {
                 "id": 1115976,  # ATH Price
-                "min_market_cap": 10000,      # $10K
-                "min_liquidity": 10,           # 10 SOL
+                "min_market_cap": 500000,      # $500K
+                "min_liquidity": 50,           # 50 SOL
                 "min_5m_change": 2,           # 2%
-                "min_5m_volume": 500,         # $500
-                "min_holders": 10,            # 10 holders
-                "max_top10_holders": 50,       # 50%
-                "max_dev_holdings": 10,        # 10%
+                "min_5m_volume": 5000,         # $5K
+                "min_holders": 750,            # 750 holders
+                "max_top10_holders": 40,       # 40%
+                "max_dev_holdings": 5,        # 5%
                 "interval": 5,                 # 5 seconds
                 "data_path": "data/ATH_Price/"
             },
