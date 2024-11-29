@@ -2,13 +2,15 @@ import requests
 import json
 import logging
 from typing import Optional, Dict, List
+import aiohttp
+import asyncio
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Set maximum risk score threshold
-MAX_RISK_SCORE = 500  # Less than or equal to
+MAX_RISK_SCORE = 1000  # Less than or equal to
 
 def get_token_risk_report(mint_address: str) -> Optional[Dict]:
     """Get token risk report from RugCheck API"""
@@ -27,13 +29,80 @@ def get_token_risk_report(mint_address: str) -> Optional[Dict]:
         logger.error(f"Error fetching data for {mint_address}: {e}")
         return None
 
+async def get_token_risk_report_async(mint_address: str, session: Optional[aiohttp.ClientSession] = None) -> Optional[Dict]:
+    """Async version of get_token_risk_report using the same API endpoint"""
+    try:
+        url = f"https://api.rugcheck.xyz/v1/tokens/{mint_address}/report/summary"
+        
+        should_close = False
+        if session is None:
+            session = aiohttp.ClientSession()
+            should_close = True
+        
+        try:
+            async with session.get(
+                url, 
+                headers={"accept": "application/json"},
+                timeout=aiohttp.ClientTimeout(total=10)
+            ) as response:
+                if response.status == 404:
+                    logger.warning(f"Token not found: {mint_address}")
+                    return None
+                    
+                if response.status == 200:
+                    return await response.json()
+                
+                response.raise_for_status()
+                return None
+        finally:
+            if should_close:
+                await session.close()
+                
+    except Exception as e:
+        logger.error(f"Error fetching data for {mint_address}: {e}")
+        return None
+
+async def check_multiple_tokens_async(token_addresses: List[str], batch_size: int = 5) -> Dict[str, Dict]:
+    """Check multiple tokens concurrently with rate limiting and batch processing"""
+    results = {}
+    timeout = aiohttp.ClientTimeout(total=30)
+    
+    try:
+        async with aiohttp.ClientSession(timeout=timeout) as session:
+            for i in range(0, len(token_addresses), batch_size):
+                try:
+                    batch = token_addresses[i:i + batch_size]
+                    tasks = []
+                    
+                    for address in batch:
+                        if tasks:  # If not the first request in batch
+                            await asyncio.sleep(0.1)
+                        tasks.append(get_token_risk_report_async(address, session=session))
+                    
+                    batch_results = await asyncio.gather(*tasks, return_exceptions=True)
+                    
+                    for address, result in zip(batch, batch_results):
+                        if isinstance(result, Exception):
+                            logger.error(f"Error checking {address}: {result}")
+                            results[address] = None
+                        else:
+                            results[address] = result
+                    
+                    await asyncio.sleep(0.5)  # Rate limiting between batches
+                except Exception as e:
+                    logger.error(f"Error processing batch starting at index {i}: {e}")
+                    continue
+    except Exception as e:
+        logger.error(f"Critical error in check_multiple_tokens_async: {e}")
+    
+    return results
+
 def main():
     # List of token addresses to check
     tokens = [
         "Gg7yp9ZL4Fszk26zPmVToCvEqSXWLRR25KsgKQdFpump",  # Example token
         "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",  # SAMO
         "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",  # BONK
-        # Add more tokens here
     ]
     
     print(f"\nChecking tokens for risk score <= {MAX_RISK_SCORE}")

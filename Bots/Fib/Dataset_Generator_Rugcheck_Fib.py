@@ -7,11 +7,14 @@ from datetime import datetime, timedelta
 current_dir = os.getcwd()
 root_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..'))
 sys.path.append(root_dir)
-import Birdeye.Basics.Master_Functions as Master_Functions
+import Birdeye.Basics.Master_Functions_Asynco as Master_Functions
 # Add rugcheck import
 sys.path.append(os.path.join(root_dir, 'APIs', 'Rugcheck'))
-from rugcheck_monitor import get_token_risk_report, MAX_RISK_SCORE
+from rugcheck_monitor import get_token_risk_report, MAX_RISK_SCORE, get_token_risk_report_async
 import time
+import concurrent.futures
+import aiohttp
+import asyncio
 
 
 
@@ -69,8 +72,22 @@ new_tokens_address = new_tokens_filtered['Address'].tolist()
 # Set Index
 new_tokens_filtered = new_tokens_filtered.set_index('Address')
 
-# Get Token Overview Data
-token_overview_data = Master_Functions.get_token_trade_data_multi(new_tokens_address, Master_Functions.API_Key)
+# Modify get_token_trade_data_multi to use concurrent processing
+async def get_token_trade_data_async(session, address, api_key):
+    try:
+        return await Master_Functions.get_token_trade_data_async(session, address, api_key)
+    except Exception as e:
+        print(f"Error getting trade data for {address}: {e}")
+        return None
+
+async def get_all_token_trade_data(addresses, api_key):
+    async with aiohttp.ClientSession() as session:
+        tasks = [get_token_trade_data_async(session, address, api_key) for address in addresses]
+        results = await asyncio.gather(*tasks)
+        return {addr: result for addr, result in zip(addresses, results) if result is not None}
+
+# Replace the synchronous call with async version
+token_overview_data = asyncio.run(get_all_token_trade_data(new_tokens_address, Master_Functions.API_Key))
 
 # Modify the attributes processing
 all_attributes = set()
@@ -103,85 +120,115 @@ new_tokens_filtered_overview = new_tokens_master_overview
 # Get the list of addresses from new_tokens_master_overview
 new_tokens_filtered_overview_address = new_tokens_filtered_overview.index.tolist()
 
-# Get market data for all tokens in new_tokens_filtered_overview_address
-market_data_list = []
-for address in new_tokens_filtered_overview_address:
-    market_data_df = Master_Functions.get_token_market_data(address, Master_Functions.API_Key)
-    if not market_data_df.empty:
-        # Convert numeric columns to float
-        for col in ['Liquidity', 'Market Cap']:
-            if col in market_data_df.columns:
-                market_data_df[col] = market_data_df[col].astype(float)
-        market_data_df.index = [address]  # Set index to address
-        market_data_list.append(market_data_df)
+# Modify market data retrieval to use concurrent processing
+async def get_market_data_async(session, address, api_key):
+    try:
+        return await Master_Functions.get_token_market_data_async(session, address, api_key)
+    except Exception as e:
+        print(f"Error getting market data for {address}: {e}")
+        return None
 
-# Combine all market data into a single DataFrame
-if market_data_list:
-    all_market_data_df = pd.concat(market_data_list)
-else:
-    all_market_data_df = pd.DataFrame(index=new_tokens_filtered_overview_address)
+async def get_all_market_data(addresses, api_key):
+    async with aiohttp.ClientSession() as session:
+        tasks = [get_market_data_async(session, address, api_key) for address in addresses]
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        
+        # Create a DataFrame with all addresses as index
+        market_data_df = pd.DataFrame(index=addresses)
+        
+        for address, result in zip(addresses, results):
+            if isinstance(result, Exception):
+                print(f"Error processing {address}: {result}")
+                continue
+            if result is not None and not result.empty:
+                # Ensure we're using the renamed columns from get_token_market_data_async
+                for col in result.columns:
+                    # Add suffix '_market' to avoid column name conflicts
+                    market_data_df.at[address, f"{col}_market"] = result.iloc[0][col]
+        
+        return market_data_df
 
-# Add rugcheck assessment function with rate limiting
+# First, define the rugcheck functions (move these up before line 150)
+async def check_token_risk_async(session, address):
+    try:
+        result = await get_token_risk_report_async(address)
+        if result:
+            return {
+                'score': result.get('score', 0),
+                'risks': result.get('risks', [])
+            }
+    except Exception as e:
+        print(f"Error checking {address}: {e}")
+    return None
+
+async def check_all_tokens_risk(addresses):
+    results = {}
+    for address in addresses:
+        try:
+            result = await get_token_risk_report_async(address)
+            if result:
+                results[address] = result
+            await asyncio.sleep(0.5)  # Rate limiting
+        except Exception as e:
+            print(f"Error checking {address}: {e}")
+            results[address] = None
+    return results
+
 def add_rugcheck_data(df):
-    """Add rugcheck risk assessment data to the dataframe with rate limiting"""
+    print("\nPerforming RugCheck Assessment...")
+    results = asyncio.run(check_all_tokens_risk(df.index))
+    
     risk_scores = []
     risk_status = []
     
-    print("\nPerforming RugCheck Assessment...")
     for address in df.index:
-        print(f"Checking {address}...")
-        max_retries = 3
-        retry_delay = 2  # seconds
-        
-        for attempt in range(max_retries):
-            try:
-                report = get_token_risk_report(address)
-                if report:
-                    score = report.get('score', 0)
-                    risk_scores.append(score)
-                    risk_status.append('LOW RISK' if score <= MAX_RISK_SCORE else 'HIGH RISK')
-                else:
-                    risk_scores.append(None)
-                    risk_status.append('UNKNOWN')
-                time.sleep(1)  # Add 1 second delay between requests
-                break
-            except Exception as e:
-                if 'Too Many Requests' in str(e) and attempt < max_retries - 1:
-                    print(f"Rate limited, waiting {retry_delay} seconds...")
-                    time.sleep(retry_delay)
-                    retry_delay *= 2  # Exponential backoff
-                else:
-                    print(f"Error checking {address}: {e}")
-                    risk_scores.append(None)
-                    risk_status.append('UNKNOWN')
-                    break
+        result = results.get(address)
+        if result:
+            score = result.get('score', 0)
+            risk_scores.append(score)
+            risk_status.append('LOW RISK' if score <= MAX_RISK_SCORE else 'HIGH RISK')
+        else:
+            risk_scores.append(None)
+            risk_status.append('UNKNOWN')
     
     df['RugCheck_Score'] = risk_scores
     df['Risk_Status'] = risk_status
+    
     return df
 
-# Add rugcheck data before applying market cap filters
-new_tokens_mc_added = add_rugcheck_data(new_tokens_filtered_overview)
+# Then use the functions (around line 150)
+market_data_df = asyncio.run(get_all_market_data(new_tokens_filtered_overview_address, Master_Functions.API_Key))
+new_tokens_mc_added = new_tokens_filtered_overview.join(market_data_df, how='left')
 
-# Join market data after rugcheck assessment
-new_tokens_mc_added = new_tokens_mc_added.join(
-    all_market_data_df,
-    how='left'
-)
+# After joining, you might want to rename some columns to remove the suffix
+columns_to_rename = {
+    'Price_market': 'Price',
+    'Liquidity_market': 'Liquidity',
+    'Market Cap_market': 'Market Cap',
+    'Total Supply_market': 'Total Supply',
+    'Circulating Supply_market': 'Circulating Supply',
+    'Circulating Market Cap_market': 'Circulating Market Cap'
+}
+new_tokens_mc_added = new_tokens_mc_added.rename(columns=columns_to_rename)
 
-# Debug prints
+# Now add rugcheck data
+new_tokens_mc_added = add_rugcheck_data(new_tokens_mc_added)
+
+# Then print the debug information
 print("\nBefore filtering:")
 print(f"Total tokens: {len(new_tokens_mc_added)}")
 print("\nSample of data:")
 print(new_tokens_mc_added[['Liquidity', 'Market Cap', 'RugCheck_Score', 'Risk_Status']].head())
 
-# Update filtering with proper error handling
+# Then update the filtering section to include rugcheck criteria
 filtered_tokens = new_tokens_mc_added[
+    new_tokens_mc_added['Liquidity'].notna() &
+    new_tokens_mc_added['Market Cap'].notna() &
     (new_tokens_mc_added['Liquidity'].astype(float) >= Master_Functions.new_token_min_liquidity) &
     (new_tokens_mc_added['Liquidity'].astype(float) <= Master_Functions.new_token_max_liquidity) &
     (new_tokens_mc_added['Market Cap'].astype(float) >= Master_Functions.new_token_min_market_cap) &
     (new_tokens_mc_added['Market Cap'].astype(float) <= Master_Functions.new_token_max_market_cap) &
-    (new_tokens_mc_added['Risk_Status'] == 'LOW RISK')
+    (new_tokens_mc_added['Risk_Status'] == 'LOW RISK')  # Add rugcheck filter
 ].copy()
 
 # More debug prints
@@ -227,22 +274,59 @@ print(f"\n--------------------------------\n")
 # Get the list of token addresses
 token_addresses = filtered_tokens.index.tolist()
 
-# Retrieve and save OHLCV data for each token and timeframe
-for address in token_addresses:
-    # Create a folder for the token
-    token_folder = os.path.join(ohlcv_datetime_folder, address)
-    os.makedirs(token_folder, exist_ok=True)
-    # Retrieve OHLCV data for all timeframes
-    ohlcv_data = Master_Functions.get_ohlcv_data_multi([address], Master_Functions.API_Key, Master_Functions.timeframes)
-    # Save OHLCV data for each timeframe
-    for timeframe, df in ohlcv_data[address].items():
-        if not df.empty:
-            filename = f"{timeframe}.csv"
-            file_path = os.path.join(token_folder, filename)
-            df.to_csv(file_path)
-            #print(f"OHLCV data for {address} ({timeframe}) saved to: {file_path}")
-            print(f"OHLCV data retrieval and storage completed for {address} ({timeframe}).")
-        else:
-            print(f"No OHLCV data available for {address} ({timeframe})")
+# Modify OHLCV data retrieval to use concurrent processing
+async def get_ohlcv_async(session, address, timeframe, api_key):
+    try:
+        return await Master_Functions.get_ohlcv_data_async(session, address, timeframe, api_key)
+    except Exception as e:
+        print(f"Error getting OHLCV data for {address} ({timeframe}): {e}")
+        return None
+
+async def process_token_ohlcv(address, token_folder):
+    try:
+        async with aiohttp.ClientSession() as session:
+            tasks = []
+            for timeframe in Master_Functions.timeframes:
+                if tasks:  # If not the first request
+                    await asyncio.sleep(0.1)  # 100ms between timeframes
+                tasks.append(get_ohlcv_async(session, address, timeframe, Master_Functions.API_Key))
+            results = await asyncio.gather(*tasks, return_exceptions=True)
+            
+            success = False
+            for timeframe, result in zip(Master_Functions.timeframes, results):
+                if isinstance(result, Exception):
+                    print(f"Error for {address} ({timeframe}): {result}")
+                    continue
+                    
+                if result is not None and not result.empty:
+                    filename = f"{timeframe}.csv"
+                    file_path = os.path.join(token_folder, filename)
+                    result.to_csv(file_path)
+                    success = True
+                    print(f"OHLCV data saved for {address} ({timeframe}).")
+            
+            return success
+    except Exception as e:
+        print(f"Critical error processing {address}: {e}")
+        return False
+
+# Replace the OHLCV processing loop
+async def process_all_tokens_ohlcv():
+    tasks = []
+    for address in token_addresses:
+        token_folder = os.path.join(ohlcv_datetime_folder, address)
+        os.makedirs(token_folder, exist_ok=True)
+        tasks.append(process_token_ohlcv(address, token_folder))
+    
+    # Add error handling for the gather
+    try:
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        for address, result in zip(token_addresses, results):
+            if isinstance(result, Exception):
+                print(f"Error processing OHLCV data for {address}: {result}")
+    except Exception as e:
+        print(f"Error in OHLCV processing: {e}")
+
+asyncio.run(process_all_tokens_ohlcv())
 
 print("\n--------------------------------\nData Processing Complete\n--------------------------------\n")

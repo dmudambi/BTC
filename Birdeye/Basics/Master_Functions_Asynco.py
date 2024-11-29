@@ -20,13 +20,76 @@ import pytz
 import time
 import aiohttp
 import asyncio
-from typing import Dict, List, Optional
+import logging
+
+logger = logging.getLogger(__name__)
 
 current_dir = os.getcwd()
 root_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..'))
 sys.path.append(root_dir)
 import Birdeye.Basics.dontshare as d
 
+RATE_LIMIT_DELAY = 0.08  # 80ms delay
+
+async def delay_for_rate_limit():
+    """Helper function to maintain consistent rate limiting"""
+    await asyncio.sleep(RATE_LIMIT_DELAY)
+
+async def get_token_trade_data_async(session, address, API_Key):
+    """Async version of get_token_trade_data"""
+    url = f"https://public-api.birdeye.so/defi/v3/token/trade-data/single?address={address}"
+    headers = {
+        "accept": "application/json",
+        "X-API-KEY": API_Key
+    }
+    
+    try:
+        async with session.get(url, headers=headers) as response:
+            await delay_for_rate_limit()  # Add rate limiting
+            if response.status == 200:
+                data = await response.json()
+                if 'data' in data:
+                    token_data = data['data']
+                    df = pd.DataFrame([token_data])
+                    df_transposed = df.T.reset_index()
+                    df_transposed.columns = ['Attribute', 'Value']
+                    return df_transposed
+            logger.warning(f"Failed to get trade data for {address}: Status {response.status}")
+            return None
+    except Exception as e:
+        logger.error(f"Error fetching trade data for {address}: {e}")
+        return None
+
+async def get_token_market_data_async(session, address, API_Key):
+    """Async version of get_token_market_data"""
+    url = f"https://public-api.birdeye.so/defi/v3/token/market-data?address={address}"
+    headers = {
+        "accept": "application/json",
+        "X-API-KEY": API_Key
+    }
+    
+    try:
+        async with session.get(url, headers=headers) as response:
+            await delay_for_rate_limit()  # Add rate limiting
+            if response.status == 200:
+                data = await response.json()
+                if 'data' in data and data['success']:
+                    df = pd.DataFrame([data['data']])
+                    df = df.rename(columns={
+                        'address': 'Address',
+                        'price': 'Price',
+                        'liquidity': 'Liquidity',
+                        'supply': 'Total Supply',
+                        'marketcap': 'Market Cap',
+                        'circulating_supply': 'Circulating Supply',
+                        'circulating_marketcap': 'Circulating Market Cap'
+                    })
+                    return df
+            logger.warning(f"Failed to get market data for {address}: Status {response.status}")
+            return None
+    except Exception as e:
+        logger.error(f"Error fetching market data for {address}: {e}")
+        return None
 
 #### API Keys and Wallets ####
 API_Key = d.birdeye
@@ -1017,23 +1080,22 @@ def get_wallet_transaction_history(wallet, offset, limit, API_Key):
         return pd.DataFrame()
 
 # Add this helper function for rate limiting
-async def delay_request():
-    """Helper function to implement rate limiting"""
-    await asyncio.sleep(0.08)  # 80ms delay between requests
+async def delay_for_rate_limit():
+    """Helper function to maintain consistent rate limiting"""
+    await asyncio.sleep(RATE_LIMIT_DELAY)
 
-# Token Trade Data
-async def get_token_trade_data_async(session: aiohttp.ClientSession, address: str, api_key: str) -> Optional[pd.DataFrame]:
+# Update token trade data function
+async def get_token_trade_data_async(session, address, API_Key):
     """
-    Async version of get_token_trade_data for a single token.
+    Async version of get_token_trade_data_multi for a single token.
     """
-    await delay_request()
-    
     url = f"https://public-api.birdeye.so/defi/v3/token/trade-data/single?address={address}"
+    
     headers = {
         "accept": "application/json",
-        "X-API-KEY": api_key
+        "X-API-KEY": API_Key
     }
-
+    
     async with session.get(url, headers=headers) as response:
         if response.status == 200:
             data = await response.json()
@@ -1045,19 +1107,18 @@ async def get_token_trade_data_async(session: aiohttp.ClientSession, address: st
                 return df_transposed
         return None
 
-# Token Market Data
-async def get_token_market_data_async(session: aiohttp.ClientSession, address: str, api_key: str) -> Optional[pd.DataFrame]:
+# Update market data function
+async def get_token_market_data_async(session, address, API_Key):
     """
     Async version of get_token_market_data.
     """
-    await delay_request()
-    
     url = f"https://public-api.birdeye.so/defi/v3/token/market-data?address={address}"
+    
     headers = {
         "accept": "application/json",
-        "X-API-KEY": api_key
+        "X-API-KEY": API_Key
     }
-
+    
     async with session.get(url, headers=headers) as response:
         if response.status == 200:
             data = await response.json()
@@ -1075,15 +1136,11 @@ async def get_token_market_data_async(session: aiohttp.ClientSession, address: s
                 return df
         return None
 
-# OHLCV Data
-async def get_ohlcv_data_async(session: aiohttp.ClientSession, address: str, timeframe: str, api_key: str) -> Optional[pd.DataFrame]:
+# Update OHLCV data function
+async def get_ohlcv_data_async(session, address, timeframe, API_Key):
     """
-    Async version of OHLCV data retrieval for a single token and timeframe.
+    Async version of get_ohlcv_data_multi for a single token and timeframe.
     """
-    await delay_request()
-    
-    # Calculate time range
-    end_time = datetime.now(pytz.UTC)
     timeframes_data = {
         '1m': 1 * 24 * 60,    # 1 day of 1-minute data
         '3m': 3 * 24 * 20,    # 3 days of 3-minute data
@@ -1098,17 +1155,22 @@ async def get_ohlcv_data_async(session: aiohttp.ClientSession, address: str, tim
         '12H': 1200 * 2,      # 1200 days of 12-hour data
         '1D': 5 * 365         # 5 years of daily data
     }
-    
-    hours_back = timeframes_data.get(timeframe, 24)
-    start_time = end_time - timedelta(hours=hours_back)
+
+    if timeframe not in timeframes_data:
+        return None
+
+    # Calculate start and end times
+    end_time = datetime.now(pytz.UTC)
+    start_time = end_time - timedelta(hours=timeframes_data[timeframe])
     
     time_from = int(start_time.timestamp())
     time_to = int(end_time.timestamp())
-    
+
     url = f"https://public-api.birdeye.so/defi/ohlcv?address={address}&type={timeframe}&time_from={time_from}&time_to={time_to}"
+    
     headers = {
         "accept": "application/json",
-        "X-API-KEY": api_key
+        "X-API-KEY": API_Key
     }
 
     async with session.get(url, headers=headers) as response:
@@ -1120,68 +1182,54 @@ async def get_ohlcv_data_async(session: aiohttp.ClientSession, address: str, tim
                     df = pd.DataFrame(items)
                     df['datetime'] = pd.to_datetime(df['unixTime'], unit='s')
                     df.set_index('datetime', inplace=True)
-                    df = df[[col for col in df.columns if col != 'unixTime']]
+                    columns_order = [col for col in df.columns if col != 'unixTime']
+                    df = df[columns_order]
                     return df
         return None
 
-# Token Overview Data
-async def get_token_overview_data_async(session: aiohttp.ClientSession, address: str, api_key: str) -> Optional[pd.DataFrame]:
-    """
-    Async version of get_token_overview_data for a single token.
-    """
-    await delay_request()
-    
-    url = f"https://public-api.birdeye.so/defi/token_overview?address={address}"
-    headers = {
-        "accept": "application/json",
-        "X-API-KEY": api_key
-    }
-
-    async with session.get(url, headers=headers) as response:
-        if response.status == 200:
-            data = await response.json()
-            if 'data' in data:
-                token_data = data['data']
-                selected_data = {
-                    'address': token_data.get('address', 'N/A'),
-                    'decimals': token_data.get('decimals', 'N/A'),
-                    'symbol': token_data.get('symbol', 'N/A'),
-                    'name': token_data.get('name', 'N/A'),
-                    'price': token_data.get('price', 'N/A'),
-                    'liquidity': token_data.get('liquidity', 'N/A'),
-                    'uniqueWallet24h': token_data.get('uniqueWallet24h', 'N/A'),
-                    'uniqueWallet24hChangePercent': token_data.get('uniqueWallet24hChangePercent', 'N/A'),
-                    'realMc': token_data.get('realMc', 'N/A'),
-                    'holder': token_data.get('holder', 'N/A'),
-                    'numberMarkets': token_data.get('numberMarkets', 'N/A')
-                }
-                
-                df = pd.DataFrame.from_dict(selected_data, orient='index', columns=['Value'])
-                df.index.name = 'Attribute'
-                df.reset_index(inplace=True)
-                return df
-        return None
-
-# Batch processing helper
-async def process_tokens_in_batches(tokens: List[str], batch_size: int, api_key: str, 
-                                  process_func) -> Dict[str, pd.DataFrame]:
-    """
-    Helper function to process tokens in batches with rate limiting.
-    """
+# Add a batch processing function for multiple tokens
+async def process_tokens_batch(tokens, API_Key, func, batch_size=5):
+    """Process tokens in batches with proper session management"""
     results = {}
     
-    for i in range(0, len(tokens), batch_size):
-        batch = tokens[i:i + batch_size]
-        async with aiohttp.ClientSession() as session:
-            tasks = [process_func(session, token, api_key) for token in batch]
-            batch_results = await asyncio.gather(*tasks)
+    async with await get_aiohttp_session() as session:
+        for i in range(0, len(tokens), batch_size):
+            batch = tokens[i:i + batch_size]
+            tasks = []
+            for token in batch:
+                if tasks:  # If not the first request in batch
+                    await asyncio.sleep(RATE_LIMIT_DELAY)
+                tasks.append(func(session, token, API_Key))
+            
+            batch_results = await asyncio.gather(*tasks, return_exceptions=True)
             
             for token, result in zip(batch, batch_results):
-                if result is not None:
+                if isinstance(result, Exception):
+                    logger.error(f"Error processing {token}: {result}")
+                    results[token] = None
+                else:
                     results[token] = result
-        
-        # Add delay between batches
-        if i + batch_size < len(tokens):
-            await asyncio.sleep(1)
+            
+            await asyncio.sleep(RATE_LIMIT_DELAY * 2)  # Double delay between batches
     
     return results
+
+# Example usage of batch processing:
+async def get_multiple_token_data(tokens, API_Key):
+    """
+    Get market data for multiple tokens using batch processing.
+    """
+    return await process_tokens_batch(
+        tokens=tokens,
+        API_Key=API_Key,
+        func=get_token_market_data_async,
+        batch_size=5
+    )
+
+# Add at the top after imports
+async def get_aiohttp_session():
+    """Get a configured aiohttp session with proper SSL context"""
+    return aiohttp.ClientSession(
+        timeout=aiohttp.ClientTimeout(total=30),
+        headers={"accept": "application/json"}
+    )
