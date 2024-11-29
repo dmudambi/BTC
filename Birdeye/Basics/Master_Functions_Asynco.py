@@ -31,6 +31,30 @@ import Birdeye.Basics.dontshare as d
 
 RATE_LIMIT_DELAY = 0.08  # 80ms delay
 
+
+#### API Keys and Wallets ####
+API_Key = d.birdeye
+wallet = d.sol_wallet
+chain = "solana" 
+# Choose between: solana,ethereum,arbitrum,avalanche,bsc,optimism,polygon,base,zksync
+multichain = "solana,ethereum,bsc"
+
+#### PRE-COLLECTION FILTERS ####
+days_back = 1 # 0 for last 24 hours, 1 for 24-48 hours ago, 2 for 48-72 hours ago (max 2)
+hours_back = 12  # 0-23 hours back within the selected day
+minutes_back = 0  # 0-59 minutes back within the selected hour
+new_token_liquidity_filter = 20000 # Minimum liquidity in USD for new tokens
+
+#### POST-COLLECTION FILTERS ####
+new_token_min_liquidity = 20000  # Minimum liquidity in USD for new tokens
+new_token_max_liquidity = 200000  # Maximum liquidity in USD for new tokens
+new_token_min_market_cap = 200000  # Minimum market cap in USD for new tokens
+new_token_max_market_cap = 5000000  # Maximum market cap in USD for new tokens
+
+#### OHLCV DATA #### 
+timeframes = ['1m', '5m', '15m', '1H'] 
+# ['1m', '3m', '5m', '15m', '30m', '1H', '2H', '4H', '6H', '8H', '12H', '1D']
+
 async def delay_for_rate_limit():
     """Helper function to maintain consistent rate limiting"""
     await asyncio.sleep(RATE_LIMIT_DELAY)
@@ -91,28 +115,6 @@ async def get_token_market_data_async(session, address, API_Key):
         logger.error(f"Error fetching market data for {address}: {e}")
         return None
 
-#### API Keys and Wallets ####
-API_Key = d.birdeye
-wallet = d.sol_wallet
-chain = "solana" 
-# Choose between: solana,ethereum,arbitrum,avalanche,bsc,optimism,polygon,base,zksync
-multichain = "solana,ethereum,bsc"
-
-#### PRE-COLLECTION FILTERS ####
-days_back = 0 # 0 for last 24 hours, 1 for 24-48 hours ago, 2 for 48-72 hours ago (max 2)
-hours_back = 6  # 0-23 hours back within the selected day
-minutes_back = 0  # 0-59 minutes back within the selected hour
-new_token_liquidity_filter = 30000 # Minimum liquidity in USD for new tokens
-
-#### POST-COLLECTION FILTERS ####
-new_token_min_liquidity = 30000  # Minimum liquidity in USD for new tokens
-new_token_max_liquidity = 1000000  # Maximum liquidity in USD for new tokens
-new_token_min_market_cap = 350000  # Minimum market cap in USD for new tokens
-new_token_max_market_cap = 4000000  # Maximum market cap in USD for new tokens
-
-#### OHLCV DATA #### 
-timeframes = ['1m', '5m', '15m', '1H'] 
-# ['1m', '3m', '5m', '15m', '30m', '1H', '2H', '4H', '6H', '8H', '12H', '1D']
 
 
 
