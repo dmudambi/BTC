@@ -99,3 +99,40 @@ TimeoutError
 2024-11-29 07:03:34,961 - INFO - Created 22 rows for CSV
 2024-11-29 07:03:34,964 - INFO - Bubble map data saved to data/2024_11_29/CHILLGRINCH**_61trovNRXxwEyDraZnyZA1U1XW5anmug5DjjDLR7pump/2024_Nov_29_0703AM/bubble_map_070334.csv with 22 rows
 2024-11-29 07:03:34,964 - INFO - Daily summary updated at data/2024_11_29/CHILLGRINCH**_61trovNRXxwEyDraZnyZA1U1XW5anmug5DjjDLR7pump/2024_Nov_29_0703AM/daily_summary.csv
+2024-11-29 11:10:41,277 - INFO - Sending command: /s 61trovNRXxwEyDraZnyZA1U1XW5anmug5DjjDLR7pump
+2024-11-29 11:14:32,736 - INFO - Sending command: /s 61trovNRXxwEyDraZnyZA1U1XW5anmug5DjjDLR7pump
+2024-11-29 11:15:31,582 - INFO - Created 23 rows for CSV
+2024-11-29 11:15:31,584 - INFO - Bubble map data saved to data/2024_11_29/CHILLGRINCH**_61trovNRXxwEyDraZnyZA1U1XW5anmug5DjjDLR7pump/2024_Nov_29_1115AM/bubble_map_111531.csv with 23 rows
+2024-11-29 11:15:31,585 - INFO - Daily summary updated at data/2024_11_29/CHILLGRINCH**_61trovNRXxwEyDraZnyZA1U1XW5anmug5DjjDLR7pump/2024_Nov_29_1115AM/daily_summary.csv
+2024-11-29 12:13:53,610 - INFO - Sending command: /s waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v
+2024-11-29 12:14:50,951 - INFO - Created 20 rows for CSV
+2024-11-29 12:14:50,953 - INFO - Bubble map data saved to data/2024_11_29/WagerOn**_waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v/2024_Nov_29_1214PM/bubble_map_121450.csv with 20 rows
+2024-11-29 12:14:50,954 - INFO - Daily summary updated at data/2024_11_29/WagerOn**_waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v/2024_Nov_29_1214PM/daily_summary.csv
+2024-11-29 12:23:43,892 - INFO - No saved session found, using new session
+2024-11-29 12:23:51,259 - ERROR - Error initializing client: The phone number is invalid (caused by SendCodeRequest)
+2024-11-29 12:24:09,801 - INFO - Sending command: /s waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v
+2024-11-29 12:24:09,801 - INFO - Sending command: /s waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v
+2024-11-29 12:24:34,617 - ERROR - No buttons found in response
+2024-11-29 12:24:34,617 - ERROR - No buttons found in response
+2024-11-29 12:32:59,471 - INFO - Sending command: /s waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v
+2024-11-29 12:32:59,471 - INFO - Sending command: /s waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v
+2024-11-29 12:32:59,471 - INFO - Sending command: /s waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v
+2024-11-29 12:33:26,816 - INFO - Created 20 rows for CSV
+2024-11-29 12:33:26,816 - INFO - Created 20 rows for CSV
+2024-11-29 12:33:26,816 - INFO - Created 20 rows for CSV
+2024-11-29 12:33:26,819 - INFO - Bubble map data saved to data/2024_11_29/WagerOn**_waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v/2024_Nov_29_1233PM/bubble_map_123326.csv with 20 rows
+2024-11-29 12:33:26,819 - INFO - Bubble map data saved to data/2024_11_29/WagerOn**_waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v/2024_Nov_29_1233PM/bubble_map_123326.csv with 20 rows
+2024-11-29 12:33:26,819 - INFO - Bubble map data saved to data/2024_11_29/WagerOn**_waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v/2024_Nov_29_1233PM/bubble_map_123326.csv with 20 rows
+2024-11-29 12:33:26,821 - INFO - Daily summary updated at data/2024_11_29/WagerOn**_waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v/2024_Nov_29_1233PM/daily_summary.csv
+2024-11-29 12:33:26,821 - INFO - Daily summary updated at data/2024_11_29/WagerOn**_waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v/2024_Nov_29_1233PM/daily_summary.csv
+2024-11-29 12:33:26,821 - INFO - Daily summary updated at data/2024_11_29/WagerOn**_waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v/2024_Nov_29_1233PM/daily_summary.csv
+2024-11-29 13:10:00,926 - INFO - No saved session found, using new session
+2024-11-29 13:10:00,926 - INFO - No saved session found, using new session
+2024-11-29 13:10:00,926 - INFO - No saved session found, using new session
+2024-11-29 13:11:49,524 - ERROR - Error initializing client: The phone number is invalid (caused by SendCodeRequest)
+2024-11-29 13:11:49,524 - ERROR - Error initializing client: The phone number is invalid (caused by SendCodeRequest)
+2024-11-29 13:11:49,524 - ERROR - Error initializing client: The phone number is invalid (caused by SendCodeRequest)
+2024-11-29 13:39:22,800 - INFO - Sending command: /s waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v
+2024-11-29 13:40:08,245 - INFO - Created 20 rows for CSV
+2024-11-29 13:40:08,247 - INFO - Bubble map data saved to data/2024_11_29/WagerOn**_waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v/2024_Nov_29_0140PM/bubble_map_134008.csv with 20 rows
+2024-11-29 13:40:08,248 - INFO - Daily summary updated at data/2024_11_29/WagerOn**_waGerWB7pKNvEfvQmhA2eS61Vs45BsLAmpFff46Lc3v/2024_Nov_29_0140PM/daily_summary.csv
