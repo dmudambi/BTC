@@ -330,3 +330,25 @@ async def process_all_tokens_ohlcv():
 asyncio.run(process_all_tokens_ohlcv())
 
 print("\n--------------------------------\nData Processing Complete\n--------------------------------\n")
+
+# Add batch processing for tokens
+BATCH_SIZE = 5  # Process 5 tokens at a time
+
+async def process_tokens_in_batches(tokens):
+    all_results = []
+    
+    for i in range(0, len(tokens), BATCH_SIZE):
+        batch = tokens[i:i + BATCH_SIZE]
+        
+        async with aiohttp.ClientSession() as session:
+            tasks = [get_token_risk_report_async(token, session) for token in batch]
+            batch_results = await asyncio.gather(*tasks, return_exceptions=True)
+            all_results.extend(batch_results)
+            
+        # Add delay between batches
+        await asyncio.sleep(5)  # 5 second delay between batches
+        
+    return all_results
+
+# Replace your existing token processing code with:
+results = asyncio.run(process_tokens_in_batches(token_addresses))

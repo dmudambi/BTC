@@ -4,20 +4,43 @@ import logging
 from typing import Optional, Dict, List
 import aiohttp
 import asyncio
+import time
+import backoff  
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Set maximum risk score threshold
-MAX_RISK_SCORE = 1000  # Less than or equal to
+MAX_RISK_SCORE = 2500  # Less than or equal to
 
+# Add rate limiting parameters
+RATE_LIMIT_CALLS = 50  # Number of calls allowed
+RATE_LIMIT_PERIOD = 60  # Time period in seconds
+MIN_RETRY_DELAY = 2  # Minimum delay between retries in seconds
+
+@backoff.on_exception(
+    backoff.expo,
+    (requests.exceptions.RequestException, aiohttp.ClientError),
+    max_tries=3,
+    max_time=30
+)
 def get_token_risk_report(mint_address: str) -> Optional[Dict]:
-    """Get token risk report from RugCheck API"""
+    """Get token risk report from RugCheck API with rate limiting"""
     try:
         url = f"https://api.rugcheck.xyz/v1/tokens/{mint_address}/report/summary"
+        
+        # Add delay between requests
+        time.sleep(MIN_RETRY_DELAY)
+        
         response = requests.get(url, headers={"accept": "application/json"}, timeout=10)
         
+        if response.status_code == 429:  # Too Many Requests
+            retry_after = int(response.headers.get('Retry-After', 60))
+            logger.warning(f"Rate limited. Waiting {retry_after} seconds...")
+            time.sleep(retry_after)
+            return get_token_risk_report(mint_address)  # Retry after waiting
+            
         if response.status_code == 404:
             logger.warning(f"Token not found: {mint_address}")
             return None
@@ -29,8 +52,14 @@ def get_token_risk_report(mint_address: str) -> Optional[Dict]:
         logger.error(f"Error fetching data for {mint_address}: {e}")
         return None
 
+@backoff.on_exception(
+    backoff.expo,
+    (aiohttp.ClientError, asyncio.TimeoutError),
+    max_tries=3,
+    max_time=30
+)
 async def get_token_risk_report_async(mint_address: str, session: Optional[aiohttp.ClientSession] = None) -> Optional[Dict]:
-    """Async version of get_token_risk_report using the same API endpoint"""
+    """Async version of get_token_risk_report with rate limiting"""
     try:
         url = f"https://api.rugcheck.xyz/v1/tokens/{mint_address}/report/summary"
         
@@ -39,21 +68,30 @@ async def get_token_risk_report_async(mint_address: str, session: Optional[aioht
             session = aiohttp.ClientSession()
             should_close = True
         
+        # Add delay between requests
+        await asyncio.sleep(MIN_RETRY_DELAY)
+        
         try:
             async with session.get(
                 url, 
                 headers={"accept": "application/json"},
                 timeout=aiohttp.ClientTimeout(total=10)
             ) as response:
+                if response.status == 429:  # Too Many Requests
+                    retry_after = int(response.headers.get('Retry-After', 60))
+                    logger.warning(f"Rate limited. Waiting {retry_after} seconds...")
+                    await asyncio.sleep(retry_after)
+                    return await get_token_risk_report_async(mint_address, session)
+                    
                 if response.status == 404:
                     logger.warning(f"Token not found: {mint_address}")
                     return None
                     
                 if response.status == 200:
                     return await response.json()
-                
+                    
                 response.raise_for_status()
-                return None
+                
         finally:
             if should_close:
                 await session.close()
