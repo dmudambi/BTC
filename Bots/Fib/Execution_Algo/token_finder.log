@@ -1,0 +1,77 @@
+2024-11-30 09:20:25,970 - INFO - libssl detected, it will be used for encryption
+2024-11-30 09:20:26,064 - INFO - ==================================================
+2024-11-30 09:20:26,065 - INFO - Starting Token Finder Script
+2024-11-30 09:20:26,065 - INFO - Current Directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Execution_Algo
+2024-11-30 09:20:26,065 - INFO - Root Directory: /home/ubuntu/Birdeye_Dashboard
+2024-11-30 09:20:26,065 - INFO - Environment File Path: /home/ubuntu/Birdeye_Dashboard/APIs/Telegram_PirbView/.env
+2024-11-30 09:20:26,065 - INFO - ==================================================
+2024-11-30 09:20:26,065 - INFO - Starting main loop with credentials:
+2024-11-30 09:20:26,065 - INFO - API_ID exists: True
+2024-11-30 09:20:26,065 - INFO - API_HASH exists: True
+2024-11-30 09:20:26,065 - INFO - Starting new analysis cycle
+2024-11-30 09:20:26,065 - INFO - Running Dataset Generator...
+2024-11-30 09:20:26,065 - INFO - Dataset Generator path: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-11-30 09:20:26,065 - INFO - File exists: True
+2024-11-30 09:20:26,065 - INFO - PYTHONPATH set to: /home/ubuntu/Birdeye_Dashboard:/home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-11-30 09:20:26,065 - INFO - Changed directory to: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-11-30 09:20:26,953 - INFO - Dataset Generator: {"success":true,"data":["solana","ethereum","arbitrum","avalanche","bsc","optimism","polygon","base","zksync"]}
+2024-11-30 09:21:39,762 - INFO - libssl detected, it will be used for encryption
+2024-11-30 09:21:39,855 - INFO - ==================================================
+2024-11-30 09:21:39,855 - INFO - Starting Token Finder Script
+2024-11-30 09:21:39,855 - INFO - Current Directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Execution_Algo
+2024-11-30 09:21:39,855 - INFO - Root Directory: /home/ubuntu/Birdeye_Dashboard
+2024-11-30 09:21:39,855 - INFO - Environment File Path: /home/ubuntu/Birdeye_Dashboard/APIs/Telegram_PirbView/.env
+2024-11-30 09:21:39,855 - INFO - ==================================================
+2024-11-30 09:21:39,856 - INFO - Starting main loop with credentials:
+2024-11-30 09:21:39,856 - INFO - API_ID exists: True
+2024-11-30 09:21:39,856 - INFO - API_HASH exists: True
+2024-11-30 09:21:39,856 - INFO - Starting new analysis cycle
+2024-11-30 09:21:39,856 - INFO - Running Dataset Generator...
+2024-11-30 09:21:39,856 - INFO - Dataset Generator path: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-11-30 09:21:39,856 - INFO - File exists: True
+2024-11-30 09:21:39,856 - INFO - PYTHONPATH set to: /home/ubuntu/Birdeye_Dashboard:/home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-11-30 09:21:39,856 - INFO - Changed directory to: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-11-30 09:21:40,709 - INFO - Dataset Generator: {"success":true,"data":["solana","ethereum","arbitrum","avalanche","bsc","optimism","polygon","base","zksync"]}
+2024-11-30 09:23:19,711 - INFO - libssl detected, it will be used for encryption
+2024-11-30 09:23:19,804 - INFO - ==================================================
+2024-11-30 09:23:19,804 - INFO - Starting Token Finder Script
+2024-11-30 09:23:19,804 - INFO - Current Directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Execution_Algo
+2024-11-30 09:23:19,804 - INFO - Root Directory: /home/ubuntu/Birdeye_Dashboard
+2024-11-30 09:23:19,804 - INFO - Environment File Path: /home/ubuntu/Birdeye_Dashboard/APIs/Telegram_PirbView/.env
+2024-11-30 09:23:19,804 - INFO - ==================================================
+2024-11-30 09:23:19,804 - INFO - Starting main loop with credentials:
+2024-11-30 09:23:19,804 - INFO - API_ID exists: True
+2024-11-30 09:23:19,804 - INFO - API_HASH exists: True
+2024-11-30 09:23:19,804 - INFO - Starting new analysis cycle
+2024-11-30 09:23:19,804 - INFO - Running Dataset Generator...
+2024-11-30 09:23:19,804 - INFO - Dataset Generator path: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-11-30 09:23:19,804 - INFO - File exists: True
+2024-11-30 09:23:19,805 - INFO - PYTHONPATH set to: /home/ubuntu/Birdeye_Dashboard:/home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-11-30 09:23:19,805 - INFO - Changed directory to: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-11-30 09:23:20,916 - INFO - Dataset Generator: {"success":true,"data":["solana","ethereum","arbitrum","avalanche","bsc","optimism","polygon","base","zksync"]}
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: Current Directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: Root Directory: /home/ubuntu/Birdeye_Dashboard
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: Python Path: ['/home/ubuntu/Birdeye_Dashboard/Bots/Fib', '/home/ubuntu/Birdeye_Dashboard', '/home/ubuntu/Birdeye_Dashboard/Bots/Fib', '/home/ubuntu/miniconda3/lib/python312.zip', '/home/ubuntu/miniconda3/lib/python3.12', '/home/ubuntu/miniconda3/lib/python3.12/lib-dynload', '/home/ubuntu/miniconda3/lib/python3.12/site-packages', '/home/ubuntu/Birdeye_Dashboard', '/home/ubuntu', '/home/ubuntu/Birdeye_Dashboard/APIs/Rugcheck']
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: 
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: --------------------------------
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: 
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: Running on: solana
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: 
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: --------------------------------
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: 
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: NEW TOKEN FILTERS:
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: 
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: Min Liquidity: 20K
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: Max Liquidity: 200K
+2024-11-30 09:23:20,920 - INFO - Dataset Generator: Min Market Cap: 150K
+2024-11-30 09:23:20,921 - INFO - Dataset Generator: Max Market Cap: 5.00Mil
+2024-11-30 09:23:20,921 - INFO - Dataset Generator: Filtering New Tokens for: 0 days, 23 hours, 0 minutes back
+2024-11-30 09:23:20,921 - INFO - Dataset Generator: Token Launch Liquidity Filter: 20K
+2024-11-30 09:23:20,921 - INFO - Dataset Generator: RugCheck Risk Score Threshold: 10000
+2024-11-30 09:23:20,921 - INFO - Dataset Generator: 
+2024-11-30 09:23:20,921 - INFO - Dataset Generator: --------------------------------
+2024-11-30 09:23:20,921 - INFO - Dataset Generator: 
+2024-11-30 09:23:20,921 - INFO - Dataset Generator: Collecting New Token Listings...
+2024-11-30 09:23:20,921 - INFO - Dataset Generator: 
+2024-11-30 09:23:20,921 - INFO - Dataset Generator: --------------------------------
+2024-11-30 09:23:20,921 - INFO - Dataset Generator: 

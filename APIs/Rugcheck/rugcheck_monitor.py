@@ -12,12 +12,12 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Set maximum risk score threshold
-MAX_RISK_SCORE = 2500  # Less than or equal to
+MAX_RISK_SCORE = 10000  # Less than or equal to
 
 # Add rate limiting parameters
-RATE_LIMIT_CALLS = 50  # Number of calls allowed
-RATE_LIMIT_PERIOD = 60  # Time period in seconds
-MIN_RETRY_DELAY = 2  # Minimum delay between retries in seconds
+RATE_LIMIT_CALLS = 1000  # Number of calls allowed
+RATE_LIMIT_PERIOD = 0.05  # Time period in seconds
+MIN_RETRY_DELAY = 0.05  # Minimum delay between retries in seconds
 
 @backoff.on_exception(
     backoff.expo,
@@ -36,8 +36,8 @@ def get_token_risk_report(mint_address: str) -> Optional[Dict]:
         response = requests.get(url, headers={"accept": "application/json"}, timeout=10)
         
         if response.status_code == 429:  # Too Many Requests
-            retry_after = int(response.headers.get('Retry-After', 60))
-            logger.warning(f"Rate limited. Waiting {retry_after} seconds...")
+            retry_after = int(response.headers.get('Retry-After', MIN_RETRY_DELAY))
+            #logger.warning(f"Rate limited. Waiting {retry_after} seconds...")
             time.sleep(retry_after)
             return get_token_risk_report(mint_address)  # Retry after waiting
             
@@ -56,7 +56,7 @@ def get_token_risk_report(mint_address: str) -> Optional[Dict]:
     backoff.expo,
     (aiohttp.ClientError, asyncio.TimeoutError),
     max_tries=3,
-    max_time=30
+    max_time=1
 )
 async def get_token_risk_report_async(mint_address: str, session: Optional[aiohttp.ClientSession] = None) -> Optional[Dict]:
     """Async version of get_token_risk_report with rate limiting"""
@@ -78,8 +78,8 @@ async def get_token_risk_report_async(mint_address: str, session: Optional[aioht
                 timeout=aiohttp.ClientTimeout(total=10)
             ) as response:
                 if response.status == 429:  # Too Many Requests
-                    retry_after = int(response.headers.get('Retry-After', 60))
-                    logger.warning(f"Rate limited. Waiting {retry_after} seconds...")
+                    retry_after = int(response.headers.get('Retry-After', MIN_RETRY_DELAY))
+                    logger.warning(f"Rate limited. Waiting {MIN_RETRY_DELAY} seconds...")
                     await asyncio.sleep(retry_after)
                     return await get_token_risk_report_async(mint_address, session)
                     

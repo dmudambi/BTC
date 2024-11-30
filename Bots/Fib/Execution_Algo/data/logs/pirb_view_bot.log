@@ -1,2 +1,0 @@
-2024-11-29 13:10:00,926 - INFO - No saved session found, using new session
-2024-11-29 13:11:49,524 - ERROR - Error initializing client: The phone number is invalid (caused by SendCodeRequest)

@@ -168,7 +168,7 @@ async def check_all_tokens_risk(addresses):
             result = await get_token_risk_report_async(address)
             if result:
                 results[address] = result
-            await asyncio.sleep(0.5)  # Rate limiting
+            await asyncio.sleep(0.08)  # Rate limiting
         except Exception as e:
             print(f"Error checking {address}: {e}")
             results[address] = None
@@ -288,7 +288,7 @@ async def process_token_ohlcv(address, token_folder):
             tasks = []
             for timeframe in Master_Functions.timeframes:
                 if tasks:  # If not the first request
-                    await asyncio.sleep(0.1)  # 100ms between timeframes
+                    await asyncio.sleep(0.08)  # 80ms between timeframes
                 tasks.append(get_ohlcv_async(session, address, timeframe, Master_Functions.API_Key))
             results = await asyncio.gather(*tasks, return_exceptions=True)
             
@@ -332,7 +332,7 @@ asyncio.run(process_all_tokens_ohlcv())
 print("\n--------------------------------\nData Processing Complete\n--------------------------------\n")
 
 # Add batch processing for tokens
-BATCH_SIZE = 5  # Process 5 tokens at a time
+BATCH_SIZE = 1  # Process 5 tokens at a time
 
 async def process_tokens_in_batches(tokens):
     all_results = []
@@ -346,7 +346,7 @@ async def process_tokens_in_batches(tokens):
             all_results.extend(batch_results)
             
         # Add delay between batches
-        await asyncio.sleep(5)  # 5 second delay between batches
+        await asyncio.sleep(0.08)  # 80ms delay between batches
         
     return all_results
 
