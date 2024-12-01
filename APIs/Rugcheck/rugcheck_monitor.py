@@ -12,12 +12,21 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Set maximum risk score threshold
-MAX_RISK_SCORE = 10000  # Less than or equal to
+MAX_RISK_SCORE = 100000  # Less than or equal to
 
 # Add rate limiting parameters
 RATE_LIMIT_CALLS = 1000  # Number of calls allowed
 RATE_LIMIT_PERIOD = 0.05  # Time period in seconds
 MIN_RETRY_DELAY = 0.05  # Minimum delay between retries in seconds
+
+# Modify the logging setup to filter rate limit messages
+class RateLimitFilter(logging.Filter):
+    def filter(self, record):
+        return "Rate limited" not in record.getMessage()
+
+# Add the filter to the logger
+logger = logging.getLogger(__name__)
+logger.addFilter(RateLimitFilter())
 
 @backoff.on_exception(
     backoff.expo,
@@ -68,23 +77,16 @@ async def get_token_risk_report_async(mint_address: str, session: Optional[aioht
             session = aiohttp.ClientSession()
             should_close = True
         
-        # Add delay between requests
+        # Add delay between requests without logging
         await asyncio.sleep(MIN_RETRY_DELAY)
         
         try:
-            async with session.get(
-                url, 
-                headers={"accept": "application/json"},
-                timeout=aiohttp.ClientTimeout(total=10)
-            ) as response:
-                if response.status == 429:  # Too Many Requests
-                    retry_after = int(response.headers.get('Retry-After', MIN_RETRY_DELAY))
-                    logger.warning(f"Rate limited. Waiting {MIN_RETRY_DELAY} seconds...")
-                    await asyncio.sleep(retry_after)
-                    return await get_token_risk_report_async(mint_address, session)
+            async with session.get(url) as response:
+                if response.status == 429:  # Rate limit
+                    await asyncio.sleep(MIN_RETRY_DELAY)
+                    return None
                     
                 if response.status == 404:
-                    logger.warning(f"Token not found: {mint_address}")
                     return None
                     
                 if response.status == 200:
@@ -97,7 +99,8 @@ async def get_token_risk_report_async(mint_address: str, session: Optional[aioht
                 await session.close()
                 
     except Exception as e:
-        logger.error(f"Error fetching data for {mint_address}: {e}")
+        if "Rate limited" not in str(e):  # Only log non-rate-limit errors
+            logger.error(f"Error fetching data for {mint_address}: {e}")
         return None
 
 async def check_multiple_tokens_async(token_addresses: List[str], batch_size: int = 5) -> Dict[str, Dict]:

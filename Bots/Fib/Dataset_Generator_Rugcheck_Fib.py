@@ -15,6 +15,7 @@ import time
 import concurrent.futures
 import aiohttp
 import asyncio
+import logging
 
 
 
@@ -345,10 +346,23 @@ async def process_tokens_in_batches(tokens):
             batch_results = await asyncio.gather(*tasks, return_exceptions=True)
             all_results.extend(batch_results)
             
-        # Add delay between batches
+        # Add delay between batches without logging
         await asyncio.sleep(0.08)  # 80ms delay between batches
         
     return all_results
 
 # Replace your existing token processing code with:
 results = asyncio.run(process_tokens_in_batches(token_addresses))
+
+# Add at the top with other imports
+class RateLimitFilter(logging.Filter):
+    def filter(self, record):
+        return "Rate limited" not in record.getMessage()
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Add filter to all handlers
+for handler in logging.getLogger().handlers:
+    handler.addFilter(RateLimitFilter())

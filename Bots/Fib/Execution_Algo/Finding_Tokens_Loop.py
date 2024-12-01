@@ -9,6 +9,11 @@ import pandas as pd
 import numpy as np
 import logging
 
+# Add a rate limit filter to the main logger
+class RateLimitFilter(logging.Filter):
+    def filter(self, record):
+        return "Rate limited" not in record.getMessage()
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
@@ -18,6 +23,10 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
+
+# Add filter to all handlers
+for handler in logging.getLogger().handlers:
+    handler.addFilter(RateLimitFilter())
 
 # Initialize paths and load environment variables early
 current_dir = os.getcwd()
@@ -239,7 +248,7 @@ async def run_analysis_cycle():
             fib_levels=fib_levels,
             initial_timeframe='15m',
             target_fib_level=0.786,
-            min_market_cap=200000,
+            min_market_cap=150000,
             collect_tokens=qualifying_tokens,
             display_plots=False  # Disable plots for automated running
         )
@@ -280,9 +289,9 @@ async def main():
             try:
                 await run_analysis_cycle()
                 
-                # Wait for 5 minutes before next cycle
-                logging.info("Waiting 5 minutes before next cycle...")
-                await asyncio.sleep(300)  # 5 minutes
+                # Wait for 10 seconds before next cycle
+                logging.info("Waiting 10 seconds before next cycle...")
+                await asyncio.sleep(10)  # 10 seconds
                 
             except Exception as e:
                 logging.error(f"Error in main loop: {str(e)}", exc_info=True)
