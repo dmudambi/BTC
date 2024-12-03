@@ -12,10 +12,10 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Set maximum risk score threshold
-MAX_RISK_SCORE = 100000  # Less than or equal to
+MAX_RISK_SCORE = 15000  # Less than or equal to
 
 # Add rate limiting parameters
-RATE_LIMIT_CALLS = 1000  # Number of calls allowed
+RATE_LIMIT_CALLS = 10000  # Number of calls allowed
 RATE_LIMIT_PERIOD = 0.05  # Time period in seconds
 MIN_RETRY_DELAY = 0.05  # Minimum delay between retries in seconds
 
@@ -31,8 +31,8 @@ logger.addFilter(RateLimitFilter())
 @backoff.on_exception(
     backoff.expo,
     (requests.exceptions.RequestException, aiohttp.ClientError),
-    max_tries=3,
-    max_time=30
+    max_tries=5,
+    max_time=60
 )
 def get_token_risk_report(mint_address: str) -> Optional[Dict]:
     """Get token risk report from RugCheck API with rate limiting"""
@@ -40,25 +40,24 @@ def get_token_risk_report(mint_address: str) -> Optional[Dict]:
         url = f"https://api.rugcheck.xyz/v1/tokens/{mint_address}/report/summary"
         
         # Add delay between requests
-        time.sleep(MIN_RETRY_DELAY)
+        time.sleep(0.2)
         
-        response = requests.get(url, headers={"accept": "application/json"}, timeout=10)
+        response = requests.get(url, headers={"accept": "application/json"}, timeout=30)
         
         if response.status_code == 429:  # Too Many Requests
-            retry_after = int(response.headers.get('Retry-After', MIN_RETRY_DELAY))
-            #logger.warning(f"Rate limited. Waiting {retry_after} seconds...")
+            retry_after = int(response.headers.get('Retry-After', 1))
             time.sleep(retry_after)
             return get_token_risk_report(mint_address)  # Retry after waiting
             
         if response.status_code == 404:
-            logger.warning(f"Token not found: {mint_address}")
+            print(f"Token not found: {mint_address}")
             return None
             
         response.raise_for_status()
         return response.json()
         
     except Exception as e:
-        logger.error(f"Error fetching data for {mint_address}: {e}")
+        print(f"Error fetching data for {mint_address}: {e}")
         return None
 
 @backoff.on_exception(
@@ -77,20 +76,25 @@ async def get_token_risk_report_async(mint_address: str, session: Optional[aioht
             session = aiohttp.ClientSession()
             should_close = True
         
-        # Add delay between requests without logging
-        await asyncio.sleep(MIN_RETRY_DELAY)
-        
         try:
             async with session.get(url) as response:
                 if response.status == 429:  # Rate limit
-                    await asyncio.sleep(MIN_RETRY_DELAY)
-                    return None
+                    retry_after = int(response.headers.get('Retry-After', MIN_RETRY_DELAY))
+                    await asyncio.sleep(retry_after)
+                    # Retry the request after waiting
+                    async with session.get(url) as retry_response:
+                        if retry_response.status == 200:
+                            return await retry_response.json()
                     
                 if response.status == 404:
+                    logger.warning(f"Token not found in rugcheck: {mint_address}")
                     return None
                     
                 if response.status == 200:
-                    return await response.json()
+                    data = await response.json()
+                    if 'score' not in data:
+                        logger.warning(f"No score in rugcheck response for {mint_address}")
+                    return data
                     
                 response.raise_for_status()
                 
@@ -99,8 +103,7 @@ async def get_token_risk_report_async(mint_address: str, session: Optional[aioht
                 await session.close()
                 
     except Exception as e:
-        if "Rate limited" not in str(e):  # Only log non-rate-limit errors
-            logger.error(f"Error fetching data for {mint_address}: {e}")
+        logger.error(f"Error fetching rugcheck data for {mint_address}: {e}")
         return None
 
 async def check_multiple_tokens_async(token_addresses: List[str], batch_size: int = 5) -> Dict[str, Dict]:
@@ -141,8 +144,8 @@ async def check_multiple_tokens_async(token_addresses: List[str], batch_size: in
 def main():
     # List of token addresses to check
     tokens = [
-        "Gg7yp9ZL4Fszk26zPmVToCvEqSXWLRR25KsgKQdFpump",  # Example token
-        "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",  # SAMO
+        "AMQ4GpGVopaymh1fQDmN9y37Yt5XME7QcqU9vQNgdqpZ",  # Example token
+        "8GASDGJX94qJHRgkzLak7Xttad7UFriRrgMY1e5FjJaM",  # SAMO
         "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",  # BONK
     ]
     

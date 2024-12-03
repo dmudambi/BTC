@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 current_dir = os.getcwd()
 root_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..', '..'))
 sys.path.append(root_dir)
-import Birdeye.Basics.ATH_Breakout_Master as ATH_Breakout_Master
+import Birdeye.Basics.Master_Functions as ATH_Breakout_Master
 
 
 

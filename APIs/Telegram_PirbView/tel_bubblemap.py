@@ -25,12 +25,12 @@ class PirbViewBot:
         self.setup_logging()
         
         # Setup data directory
-        self.data_path = Path("data")
+        self.data_path = Path("Bubblemap_Data")
         self.data_path.mkdir(parents=True, exist_ok=True)
 
     def setup_logging(self):
         """Configure logging"""
-        log_dir = Path("data/logs")
+        log_dir = Path("Bubblemap_Data/logs")
         log_dir.mkdir(parents=True, exist_ok=True)
         
         self.logger = logging.getLogger("PirbViewBot")
@@ -75,6 +75,14 @@ class PirbViewBot:
             self.logger.error(f"Error initializing client: {e}")
             return False
 
+    async def ensure_connected(self):
+        """Ensure the client is connected before starting conversations"""
+        if not self.client.is_connected():
+            await self.client.connect()
+            if not await self.client.is_user_authorized():
+                await self.client.start()
+        return self.client.is_connected()
+
     async def get_token_info(self, token_address: str, max_retries=5, retry_delay=10):
         """
         Send command to bot and get token information with retry logic.
@@ -84,6 +92,9 @@ class PirbViewBot:
             max_retries (int): Maximum number of retry attempts
             retry_delay (int): Delay in seconds between retries
         """
+        if not await self.ensure_connected():
+            raise ConnectionError("Failed to establish Telegram connection")
+        
         for attempt in range(max_retries):
             try:
                 print(f"\nAttempt {attempt + 1} of {max_retries}")
@@ -91,22 +102,22 @@ class PirbViewBot:
                 command = f"/s {token_address}"
                 self.logger.info(f"Sending command: {command}")
                 
-                async with self.client.conversation(self.bot_username) as conv:
+                async with self.client.conversation(self.bot_username, timeout=300) as conv:
                     # Send the command
                     await conv.send_message(command)
                     print("Command sent, waiting for initial response...")
                     
-                    # Wait for initial response
-                    response = await conv.get_response(timeout=30)
-                    print(f"Initial response received with {len(response.buttons) if response.buttons else 0} buttons")
+                    # Wait for initial response with increased timeout
+                    try:
+                        response = await conv.get_response(timeout=120)
+                    except asyncio.TimeoutError:
+                        self.logger.warning("Timeout waiting for initial response, retrying...")
+                        continue
                     
+                    # If we get here, we got a response
                     if not response.buttons:
-                        self.logger.error("No buttons found in response")
-                        if attempt < max_retries - 1:
-                            print(f"Retrying in {retry_delay} seconds...")
-                            await asyncio.sleep(retry_delay)
-                            continue  # Try again
-                        return None
+                        self.logger.warning("No buttons found in response")
+                        continue
                     
                     try:
                         # Print button information
@@ -124,7 +135,7 @@ class PirbViewBot:
                             messages = []
                             cluster_data = None
                             start_time = datetime.now()
-                            timeout = 180  # 3 minutes timeout
+                            timeout = 300  # 3 minutes timeout
                             
                             while (datetime.now() - start_time).seconds < timeout:
                                 try:
@@ -274,8 +285,8 @@ class PirbViewBot:
         """Create organized file path based on day/token_name_address/time"""
         # Get current date and time
         now = datetime.now()
-        day = now.strftime('%Y_%m_%d')  # Format: 2024_03_11
-        time_folder = now.strftime('%Y_%b_%d_%I%M%p')  # Format: 2024_Mar_11_0504AM
+        day = now.strftime('%Y_%m_%d')
+        time_folder = now.strftime('%Y_%b_%d_%I%M%p')
         time = now.strftime('%H%M%S')
         
         # Create token directory name combining name and address
@@ -283,17 +294,17 @@ class PirbViewBot:
         token_address = data.get('token_address', 'UNKNOWN')
         token_dir_name = f"{token_name}_{token_address}"
         
-        # Create directory structure
-        day_dir = self.data_path / day
-        token_dir = day_dir / token_dir_name
-        time_dir = token_dir / time_folder
+        # Update path to use Fib/Data structure
+        base_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 
+                                'Bots', 'Fib', 'Data', 'New_Token_Data', day, 'Bubblemap_Data', time_folder)
+        token_dir = os.path.join(base_path, token_dir_name)
         
         # Create directories if they don't exist
-        time_dir.mkdir(parents=True, exist_ok=True)
+        os.makedirs(token_dir, exist_ok=True)
         
         # Create filename with human-readable time
         filename = f"bubble_map_{time}.csv"
-        return time_dir / filename
+        return os.path.join(token_dir, filename)
 
     def save_to_csv(self, data: dict):
         """Save bubble map data to CSV file with organized structure"""
@@ -366,6 +377,15 @@ class PirbViewBot:
         except Exception as e:
             self.logger.error(f"Error updating daily summary: {e}")
 
+    async def disconnect(self):
+        """Gracefully disconnect the client"""
+        try:
+            if self.client and self.client.is_connected():
+                await self.client.disconnect()
+                self.logger.info("Disconnected from Telegram")
+        except Exception as e:
+            self.logger.error(f"Error disconnecting: {e}")
+
 async def main():
     print("\nInitializing PirbViewBot...")
     bot = PirbViewBot()
@@ -375,7 +395,7 @@ async def main():
         print("Failed to initialize client")
         return
 
-    token_address = "61trovNRXxwEyDraZnyZA1U1XW5anmug5DjjDLR7pump"
+    token_address = "6ERnbzgeMVzhyAsujNRoeGjdjHQTqD9ZSNxZvoh3Ja4A"
     max_retries = 5
     retry_delay = 10  # seconds between retries
     
@@ -408,7 +428,7 @@ async def main():
                 print("Failed after all retry attempts")
     
     try:
-        await bot.client.disconnect()
+        await bot.disconnect()
     except:
         pass
 

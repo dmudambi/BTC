@@ -1,0 +1,42 @@
+2024-12-02 03:11:25,671 - INFO - Sending command: /s 6ERnbzgeMVzhyAsujNRoeGjdjHQTqD9ZSNxZvoh3Ja4A
+2024-12-02 03:11:56,377 - ERROR - Full traceback:
+Traceback (most recent call last):
+  File "/home/ubuntu/miniconda3/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Birdeye_Dashboard/APIs/Telegram_PirbView/tel_bubblemap.py", line 100, in get_token_info
+    response = await conv.get_response(timeout=30)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/lib/python3.12/asyncio/tasks.py", line 519, in wait_for
+    async with timeouts.timeout(timeout):
+  File "/home/ubuntu/miniconda3/lib/python3.12/asyncio/timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+2024-12-02 03:12:06,389 - INFO - Sending command: /s 6ERnbzgeMVzhyAsujNRoeGjdjHQTqD9ZSNxZvoh3Ja4A
+2024-12-02 03:12:36,750 - ERROR - Full traceback:
+Traceback (most recent call last):
+  File "/home/ubuntu/miniconda3/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Birdeye_Dashboard/APIs/Telegram_PirbView/tel_bubblemap.py", line 100, in get_token_info
+    response = await conv.get_response(timeout=30)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/miniconda3/lib/python3.12/asyncio/tasks.py", line 519, in wait_for
+    async with timeouts.timeout(timeout):
+  File "/home/ubuntu/miniconda3/lib/python3.12/asyncio/timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+2024-12-02 03:12:46,758 - INFO - Sending command: /s 6ERnbzgeMVzhyAsujNRoeGjdjHQTqD9ZSNxZvoh3Ja4A
+2024-12-02 03:13:17,840 - INFO - Created 20 rows for CSV
+2024-12-02 03:13:17,843 - INFO - Bubble map data saved to Bubblemap_Data/2024_12_02/BabyPeanut**_6ERnbzgeMVzhyAsujNRoeGjdjHQTqD9ZSNxZvoh3Ja4A/2024_Dec_02_0313AM/bubble_map_031317.csv with 20 rows
+2024-12-02 03:13:17,843 - INFO - Daily summary updated at Bubblemap_Data/2024_12_02/BabyPeanut**_6ERnbzgeMVzhyAsujNRoeGjdjHQTqD9ZSNxZvoh3Ja4A/2024_Dec_02_0313AM/daily_summary.csv

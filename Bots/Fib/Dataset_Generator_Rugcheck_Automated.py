@@ -56,7 +56,10 @@ print(f"Token Launch Liquidity Filter: {Master_Functions.format_number(Master_Fu
 print(f"RugCheck Risk Score Threshold: {MAX_RISK_SCORE}")
 print("\n--------------------------------\n \n Collecting New Token Listings...\n \n--------------------------------\n")
 
-
+# Add at the top of the file after imports
+def get_time_window():
+    """Generate a consistent timestamp for the current run"""
+    return datetime.now().strftime('%Y_%b_%d_%I%M%p')  # Format: YYYY_Mon_DD_HHMM(AM/PM)
 
 #### New Token Listings Summary ####
 
@@ -71,15 +74,34 @@ ohlcv_folder = os.path.join(date_folder, 'OHLCV_Data')
 token_summary_folder = os.path.join(date_folder, 'Token_Summary')
 live_trades_folder = os.path.join(date_folder, 'Live_Trades')
 backtesting_results_folder = os.path.join(date_folder, 'Backtesting_Results')
+bubblemap_folder = os.path.join(date_folder, 'Bubblemap_Data')
 
 # Create a single timestamp for both Token_Summary and OHLCV_Data
-current_datetime = datetime.now().strftime('%Y_%b_%d_%I%M%p')  # Format: YYYY_Mon_DD_HHMM(AM/PM)
+current_datetime = get_time_window()
 ohlcv_datetime_folder = os.path.join(ohlcv_folder, current_datetime)
 token_summary_datetime_folder = os.path.join(token_summary_folder, current_datetime)
+bubblemap_datetime_folder = os.path.join(bubblemap_folder, current_datetime)
 
 # Create the folders if they don't exist
-for folder in [data_folder, new_token_data_folder, date_folder, ohlcv_datetime_folder, token_summary_datetime_folder, live_trades_folder, backtesting_results_folder]:
+for folder in [data_folder, new_token_data_folder, date_folder, 
+               ohlcv_folder, token_summary_folder, live_trades_folder, 
+               backtesting_results_folder, bubblemap_folder]:
     os.makedirs(folder, exist_ok=True)
+
+# Create timestamp-specific folders only if they don't exist
+if not os.path.exists(ohlcv_datetime_folder):
+    os.makedirs(ohlcv_datetime_folder)
+    os.makedirs(token_summary_datetime_folder)
+    os.makedirs(bubblemap_datetime_folder)
+else:
+    # If folders already exist for this timestamp, use a unique timestamp
+    current_datetime = datetime.now().strftime('%Y_%b_%d_%I%M%S%p')  # Added seconds
+    ohlcv_datetime_folder = os.path.join(ohlcv_folder, current_datetime)
+    token_summary_datetime_folder = os.path.join(token_summary_folder, current_datetime)
+    bubblemap_datetime_folder = os.path.join(bubblemap_folder, current_datetime)
+    os.makedirs(ohlcv_datetime_folder)
+    os.makedirs(token_summary_datetime_folder)
+    os.makedirs(bubblemap_datetime_folder)
 
 # Adjust days_back for the function call
 adjusted_days_back = Master_Functions.days_back + 1
@@ -171,48 +193,86 @@ async def get_all_market_data(addresses, api_key):
         
         return market_data_df
 
-# First, define the rugcheck functions (move these up before line 150)
-async def check_token_risk_async(session, address):
-    try:
-        result = await get_token_risk_report_async(address)
-        if result:
-            return {
-                'score': result.get('score', 0),
-                'risks': result.get('risks', [])
-            }
-    except Exception as e:
-        print(f"Error checking {address}: {e}")
-    return None
+# Replace the process_tokens_in_batches function
+async def process_tokens_in_batches(tokens):
+    all_results = {}
+    max_retries = 5  # Increase max retries
+    
+    async with aiohttp.ClientSession() as session:
+        for address in tokens:
+            success = False
+            retry_count = 0
+            
+            while not success and retry_count < max_retries:
+                try:
+                    # First try async version
+                    result = await get_token_risk_report_async(address, session)
+                    
+                    if not result:
+                        # If async fails, try sync version
+                        print(f"Async call failed for {address}, trying sync...")
+                        result = get_token_risk_report(address)
+                    
+                    if result and 'score' in result:
+                        all_results[address] = result
+                        print(f"Successfully got rugcheck data for {address} - Score: {result['score']}")
+                        success = True
+                    else:
+                        retry_count += 1
+                        print(f"Attempt {retry_count}/{max_retries} failed for {address}")
+                        await asyncio.sleep(1)  # Wait longer between retries
+                        
+                except Exception as e:
+                    retry_count += 1
+                    print(f"Error on attempt {retry_count}/{max_retries} for {address}: {e}")
+                    await asyncio.sleep(1)  # Wait longer between retries
+            
+            if not success:
+                print(f"Failed to get rugcheck data for {address} after {max_retries} attempts")
+            
+            # Add delay between tokens regardless of success
+            await asyncio.sleep(0.2)
+    
+    # Print summary statistics
+    total = len(tokens)
+    success = len(all_results)
+    print(f"\nRugcheck Summary:")
+    print(f"Total tokens processed: {total}")
+    print(f"Successful: {success} ({(success/total)*100:.1f}%)")
+    print(f"Failed: {total - success} ({((total-success)/total)*100:.1f}%)")
+    
+    return all_results
 
-async def check_all_tokens_risk(addresses):
-    results = {}
-    for address in addresses:
-        try:
-            result = await get_token_risk_report_async(address)
-            if result:
-                results[address] = result
-            await asyncio.sleep(0.08)  # Rate limiting
-        except Exception as e:
-            print(f"Error checking {address}: {e}")
-            results[address] = None
-    return results
-
+# Update the add_rugcheck_data function to include better error handling
 def add_rugcheck_data(df):
     print("\nPerforming RugCheck Assessment...")
-    results = asyncio.run(check_all_tokens_risk(df.index))
+    
+    # Get results using the batch processor
+    results = asyncio.run(process_tokens_in_batches(df.index.tolist()))
     
     risk_scores = []
     risk_status = []
     
     for address in df.index:
         result = results.get(address)
-        if result:
-            score = result.get('score', 0)
+        if result and 'score' in result:
+            score = result['score']
             risk_scores.append(score)
             risk_status.append('LOW RISK' if score <= MAX_RISK_SCORE else 'HIGH RISK')
+            print(f"Added rugcheck data for {address} - Score: {score}")
         else:
+            print(f"No valid rugcheck data for {address}")
             risk_scores.append(None)
             risk_status.append('UNKNOWN')
+    
+    # Add debug information
+    total_tokens = len(df.index)
+    unknown_count = risk_status.count('UNKNOWN')
+    print(f"\nRugcheck Results:")
+    print(f"Total Tokens: {total_tokens}")
+    print(f"Unknown Status: {unknown_count} ({(unknown_count/total_tokens)*100:.1f}%)")
+    print(f"Low Risk: {risk_status.count('LOW RISK')}")
+    print(f"High Risk: {risk_status.count('HIGH RISK')}")
     
     df['RugCheck_Score'] = risk_scores
     df['Risk_Status'] = risk_status
@@ -250,8 +310,7 @@ filtered_tokens = new_tokens_mc_added[
     (new_tokens_mc_added['Liquidity'].astype(float) >= Master_Functions.new_token_min_liquidity) &
     (new_tokens_mc_added['Liquidity'].astype(float) <= Master_Functions.new_token_max_liquidity) &
     (new_tokens_mc_added['Market Cap'].astype(float) >= Master_Functions.new_token_min_market_cap) &
-    (new_tokens_mc_added['Market Cap'].astype(float) <= Master_Functions.new_token_max_market_cap) &
-    (new_tokens_mc_added['Risk_Status'] == 'LOW RISK')  # Add rugcheck filter
+    (new_tokens_mc_added['Market Cap'].astype(float) <= Master_Functions.new_token_max_market_cap)
 ].copy()
 
 # More debug prints
@@ -263,6 +322,7 @@ for idx, row in filtered_tokens.iterrows():
     print(f"Liquidity: {row['Liquidity']}")
     print(f"Market Cap: {row['Market Cap']}")
     print(f"RugCheck Score: {row['RugCheck_Score']}")
+    print(f"Risk Status: {row['Risk_Status']}")
 
 # Save the filtered data with market cap range and time range in the filename
 mc_range = f"{Master_Functions.new_token_min_market_cap/1e6:.1f}M-{Master_Functions.new_token_max_market_cap/1e6:.1f}M"
@@ -353,25 +413,3 @@ async def process_all_tokens_ohlcv():
 asyncio.run(process_all_tokens_ohlcv())
 
 print("\n--------------------------------\nData Processing Complete\n--------------------------------\n")
-
-# Add batch processing for tokens
-BATCH_SIZE = 1  # Process 5 tokens at a time
-
-async def process_tokens_in_batches(tokens):
-    all_results = []
-    
-    for i in range(0, len(tokens), BATCH_SIZE):
-        batch = tokens[i:i + BATCH_SIZE]
-        
-        async with aiohttp.ClientSession() as session:
-            tasks = [get_token_risk_report_async(token, session) for token in batch]
-            batch_results = await asyncio.gather(*tasks, return_exceptions=True)
-            all_results.extend(batch_results)
-            
-        # Add delay between batches
-        await asyncio.sleep(0.08)  # 80ms delay between batches
-        
-    return all_results
-
-# Replace your existing token processing code with:
-results = asyncio.run(process_tokens_in_batches(token_addresses))

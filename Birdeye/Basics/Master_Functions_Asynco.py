@@ -43,12 +43,12 @@ multichain = "solana,ethereum,bsc"
 days_back = 0 # 0 for last 24 hours, 1 for 24-48 hours ago, 2 for 48-72 hours ago (max 2)
 hours_back = 23  # 0-23 hours back within the selected day
 minutes_back = 0  # 0-59 minutes back within the selected hour
-new_token_liquidity_filter = 20000 # Minimum liquidity in USD for new tokens
+new_token_liquidity_filter = 4000 # Minimum liquidity in USD for new tokens
 
 #### POST-COLLECTION FILTERS ####
-new_token_min_liquidity = 20000  # Minimum liquidity in USD for new tokens
-new_token_max_liquidity = 200000  # Maximum liquidity in USD for new tokens
-new_token_min_market_cap = 150000  # Minimum market cap in USD for new tokens
+new_token_min_liquidity = 4000  # Minimum liquidity in USD for new tokens
+new_token_max_liquidity = 400000  # Maximum liquidity in USD for new tokens
+new_token_min_market_cap = 100000  # Minimum market cap in USD for new tokens
 new_token_max_market_cap = 5000000  # Maximum market cap in USD for new tokens
 
 #### OHLCV DATA #### 
@@ -123,8 +123,21 @@ async def get_token_market_data_async(session, address, API_Key):
 # Data Gathering Functions
 # Function to get the most recent folder
 def get_most_recent_folder(base_path):
+    """Helper function to get the most recent folder with complete data"""
+    if not os.path.exists(base_path):
+        raise FileNotFoundError(f"Base path does not exist: {base_path}")
+    
+    # Get all folders
     folders = glob.glob(os.path.join(base_path, '*'))
-    return max(folders, key=os.path.getctime)
+    
+    # Filter out empty folders and sort by creation time
+    valid_folders = [f for f in folders if os.path.isdir(f) and os.listdir(f)]
+    
+    if not valid_folders:
+        raise FileNotFoundError(f"No valid folders found in: {base_path}")
+    
+    # Sort by creation time and return the most recent
+    return max(valid_folders, key=os.path.getctime)
 
 # Import OHLCV data for analysis
 def import_ohlcv_data(ohlcv_datetime_folder):

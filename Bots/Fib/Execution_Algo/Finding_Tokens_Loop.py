@@ -8,6 +8,9 @@ from dotenv import load_dotenv
 import pandas as pd
 import numpy as np
 import logging
+import matplotlib.pyplot as plt
+
+MAX_CLUSTER_PERCENTAGE = 5
 
 # Add a rate limit filter to the main logger
 class RateLimitFilter(logging.Filter):
@@ -45,48 +48,143 @@ sys.path.append(api_path)
 import Birdeye.Basics.Master_Functions_Asynco as Master_Functions
 from APIs.Telegram_PirbView.tel_bubblemap import PirbViewBot
 
+# Add this after imports at the top of the file
+QUALIFIED_TOKENS_FILE = os.path.join(current_dir, 'qualified_tokens.txt')
+
+# Add this function after imports
+def load_qualified_tokens():
+    """Load previously qualified tokens from file"""
+    if os.path.exists(QUALIFIED_TOKENS_FILE):
+        with open(QUALIFIED_TOKENS_FILE, 'r') as f:
+            return set(line.strip() for line in f)
+    return set()
+
+def save_qualified_token(token_address):
+    """Save a newly qualified token to file"""
+    with open(QUALIFIED_TOKENS_FILE, 'a') as f:
+        f.write(f"{token_address}\n")
+
 def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe='15m', 
-                             target_fib_level=0.786, min_market_cap=200000, 
-                             collect_tokens=None, display_plots=False):
+                             target_fib_level=0.786, collect_tokens=None, display_plots=True):
     """
     Analyze price data and Fibonacci levels for multiple tokens.
     """
     if collect_tokens is None:
         collect_tokens = []
+    
+    # Get the next lower fib level compared to target_fib_level
+    fib_levels_sorted = sorted(fib_levels)
+    target_idx = fib_levels_sorted.index(target_fib_level)
+    higher_fib_level = fib_levels_sorted[target_idx - 1] if target_idx > 0 else None
+    
+    logging.info(f"Debug - Target Fib Level: {target_fib_level}")
+    logging.info(f"Debug - Higher Fib Level: {higher_fib_level}")
+
+    # Create plots directory structure if display_plots is True
+    if display_plots:
+        current_date = datetime.now().strftime('%Y_%m_%d')
+        current_datetime = datetime.now().strftime('%Y_%b_%d_%I%M%p')  # Format: YYYY_Mon_DD_HHMM(AM/PM)
+        plots_base_dir = os.path.join(current_dir, '..', 'Plots')
+        date_folder = os.path.join(plots_base_dir, current_date)
+        datetime_folder = os.path.join(date_folder, current_datetime)
+        
+        # Create directories if they don't exist
+        os.makedirs(datetime_folder, exist_ok=True)
 
     for token_address, token_data in imported_ohlcv_data.items():
         try:
-            # Extract price data
-            df = token_data[initial_timeframe]
+            logging.info(f"\n{'='*50}")
+            logging.info(f"Analyzing Token: {token_address}")
+            logging.info(f"{'='*50}")
             
-            # Check market cap
-            if 'market_cap' in df.columns and df['market_cap'].iloc[-1] < min_market_cap:
-                continue
-
-            # Find highest and lowest points
-            highest_price = df['high'].max()
-            lowest_price = df['low'].min()
-            price_range = highest_price - lowest_price
-
-            # Calculate Fibonacci levels
-            fib_price_levels = {level: highest_price - (price_range * level) 
+            # Extract price data
+            df = token_data[initial_timeframe].copy()
+            
+            # Find ATH Close and its index
+            ath_close = df['close'].max()
+            ath_idx = df['close'].idxmax()
+            
+            # Get first candle open (or first non-zero OHLC value)
+            first_open = df['open'].iloc[0]
+            if first_open == 0:
+                first_open = df[['open', 'high', 'low', 'close']].replace(0, np.nan).min().min()
+            
+            # Calculate price range and Fibonacci levels
+            price_range = ath_close - first_open
+            fib_price_levels = {level: ath_close - (price_range * level) 
                               for level in fib_levels}
-
-            # Get current price
+            
+            # Get current price (last close)
             current_price = df['close'].iloc[-1]
-
-            # Check if price is near target Fibonacci level
-            target_price = fib_price_levels[target_fib_level]
-            price_deviation = 0.02  # 2% deviation allowed
-
-            if (target_price * (1 - price_deviation) <= current_price <= 
-                target_price * (1 + price_deviation)):
-                collect_tokens.append({
-                    'token_address': token_address,
-                    'current_price': current_price,
-                    'target_price': target_price,
-                    'market_cap': df['market_cap'].iloc[-1] if 'market_cap' in df.columns else None
-                })
+            
+            # Debug logging for initial values
+            logging.info("\nInitial Values:")
+            logging.info(f"First Open: {first_open}")
+            logging.info(f"ATH Close: {ath_close}")
+            logging.info(f"Current Price: {current_price}")
+            logging.info(f"ATH Multiple from First Open: {ath_close/first_open:.2f}x")
+            
+            logging.info("\nFibonacci Price Levels:")
+            for level, price in fib_price_levels.items():
+                logging.info(f"Fib {level}: {price}")
+            
+            # Check conditions with detailed logging:
+            
+            # 1. Check for 5x multiple from first open to ATH close
+            logging.info("\nCondition 1 - 5x Multiple Check:")
+            multiple = ath_close / first_open
+            logging.info(f"Required: ATH ({ath_close}) >= First Open * 5 ({first_open * 5})")
+            logging.info(f"Actual Multiple: {multiple:.2f}x")
+            if ath_close < (first_open * 5):
+                logging.info("❌ FAILED - Less than 5x from first open to ATH")
+                continue
+            logging.info("✅ PASSED - 5x multiple condition")
+                
+            # 2. Check if current price is between higher_fib_level and target_fib_level
+            logging.info("\nCondition 2 - Price in Fib Range Check:")
+            logging.info(f"Required: {fib_price_levels[higher_fib_level]} >= {current_price} >= {fib_price_levels[target_fib_level]}")
+            if not (fib_price_levels[higher_fib_level] >= current_price >= fib_price_levels[target_fib_level]):
+                logging.info("❌ FAILED - Price not in target range")
+                continue
+            logging.info("✅ PASSED - Price in target range")
+                
+            # 3. Check if price has not gone below target_fib_level after ATH
+            logging.info("\nCondition 3 - Post-ATH Price Check:")
+            post_ath_df = df.loc[ath_idx:]
+            min_post_ath = post_ath_df['low'].min()
+            logging.info(f"Lowest post-ATH price: {min_post_ath}")
+            logging.info(f"Target Fib level price: {fib_price_levels[target_fib_level]}")
+            if (post_ath_df['low'] < fib_price_levels[target_fib_level]).any():
+                logging.info("❌ FAILED - Price went below target fib level after ATH")
+                continue
+            logging.info("✅ PASSED - Price maintained above target fib level")
+                
+            # 4. Check for large price drops post-ATH (>50% in a single candle)
+            logging.info("\nCondition 4 - Check for Large Price Drops:")
+            post_ath_df = df.loc[ath_idx:]
+            max_drop_percentage = 50
+            
+            # Calculate percentage difference between high and low for each candle
+            post_ath_df['price_drop_percentage'] = ((post_ath_df['high'] - post_ath_df['low']) / post_ath_df['high']) * 100
+            max_drop = post_ath_df['price_drop_percentage'].max()
+            
+            logging.info(f"Maximum price drop in a single candle: {max_drop:.2f}%")
+            logging.info(f"Maximum allowed drop: {max_drop_percentage}%")
+            
+            if max_drop > max_drop_percentage:
+                logging.info(f"❌ FAILED - Found price drop of {max_drop:.2f}% exceeding {max_drop_percentage}% threshold")
+                continue
+            logging.info("✅ PASSED - No excessive price drops found")
+            
+            # If all conditions pass, add to qualifying tokens
+            logging.info("\n🎯 TOKEN QUALIFIED - Passed all conditions!")
+            collect_tokens.append({
+                'token_address': token_address,
+                'current_price': current_price,
+                'ath_close': ath_close,
+                'first_open': first_open,
+                'market_cap': df['market_cap'].iloc[-1] if 'market_cap' in df.columns else None
+            })
 
         except Exception as e:
             logging.error(f"Error analyzing token {token_address}: {str(e)}")
@@ -101,52 +199,50 @@ async def analyze_qualifying_tokens(qualifying_tokens, max_cluster_percentage=5)
     results = []
     csv_file = 'qualified_tokens.csv'
     
-    # Create CSV file with headers if it doesn't exist
-    if not os.path.exists(csv_file):
-        with open(csv_file, 'w') as f:
-            f.write('timestamp,token_address,current_price,target_price,market_cap,wallet_concentration\n')
+    # Define paths relative to root directory
+    telegram_dir = os.path.join(root_dir, 'APIs', 'Telegram_PirbView')
+    session_file = os.path.join(telegram_dir, 'session.txt')
     
     for token in qualifying_tokens:
         try:
-            # Initialize PirbViewBot for bubblemap analysis
+            logging.info(f"\nAnalyzing bubblemap for token: {token['token_address']}")
+            
+            # Initialize PirbViewBot with correct paths
             bot = PirbViewBot()
+            bot.session_file = session_file
             
-            # Get bubblemap data
-            bubblemap_data = await bot.get_bubblemap_data(token['token_address'])
-            
-            if not bubblemap_data:
+            # Initialize client
+            if not await bot.initialize_client():
+                logging.error("Failed to initialize Telegram client")
                 continue
-
-            # Analyze wallet concentration
-            total_holders = sum(holder['value'] for holder in bubblemap_data)
-            largest_holder = max(holder['value'] for holder in bubblemap_data)
+                
+            # Get bubblemap data
+            bubble_data = await bot.get_token_info(token['token_address'])
             
-            # Calculate concentration percentage
-            concentration = (largest_holder / total_holders) * 100
-            
-            # Check if concentration is below threshold
-            if concentration <= max_cluster_percentage:
-                token['wallet_concentration'] = concentration
+            if bubble_data and 'clusters' in bubble_data:
+                logging.info("Received bubble data:")
+                logging.info(f"Token Name: {bubble_data.get('token_name')}")
+                
+                # Check if any individual cluster exceeds max percentage
+                max_cluster = max((cluster.get('cluster_total_percentage', 0) for cluster in bubble_data['clusters']), default=0)
+                logging.info(f"Largest individual cluster: {max_cluster}%")
+                logging.info(f"Maximum allowed cluster: {max_cluster_percentage}%")
+                
+                if max_cluster > max_cluster_percentage:
+                    logging.info(f"❌ REJECTED - Individual cluster {max_cluster}% exceeds maximum {max_cluster_percentage}%")
+                    continue
+                
+                logging.info("✅ PASSED - No clusters exceed maximum percentage")
+                
+                # If we get here, the token passed all criteria
+                logging.info("🎯 Token passed all bubblemap criteria!")
                 results.append(token)
                 
-                timestamp = datetime.now()
-                
-                # Save to txt file (keeping existing functionality)
-                with open('tokens_bubblemap_passed.txt', 'a') as f:
-                    f.write(f"{timestamp}, {token['token_address']}, "
-                           f"Concentration: {concentration}%\n")
-                
-                # Save to CSV file
-                with open(csv_file, 'a') as f:
-                    f.write(f"{timestamp},"
-                           f"{token['token_address']},"
-                           f"{token['current_price']},"
-                           f"{token['target_price']},"
-                           f"{token['market_cap']},"
-                           f"{concentration}\n")
-                
-                logging.info(f"Token {token['token_address']} saved to both txt and csv files")
-                
+            else:
+                logging.error("Failed to get bubble data or invalid data structure")
+            
+            await bot.disconnect()
+            
         except Exception as e:
             logging.error(f"Error in bubblemap analysis for {token['token_address']}: {str(e)}")
             continue
@@ -223,7 +319,7 @@ async def run_analysis_cycle():
             
         # Step 2: Import latest data
         logging.info("Importing latest OHLCV data...")
-        base_path = os.path.join(current_dir, 'Data', 'New_Token_Data')
+        base_path = os.path.join(current_dir, '..', 'Data', 'New_Token_Data')
         current_date = datetime.now().strftime('%Y_%m_%d')
         date_folder = os.path.join(base_path, current_date)
         ohlcv_folder = os.path.join(date_folder, 'OHLCV_Data')
@@ -232,9 +328,15 @@ async def run_analysis_cycle():
         logging.info(f"Looking for OHLCV data in: {ohlcv_folder}")
         logging.info(f"Folder exists: {os.path.exists(ohlcv_folder)}")
         
+        # Get the most recent folder, but only from completed runs
         ohlcv_datetime_folder = Master_Functions.get_most_recent_folder(ohlcv_folder)
-        logging.info(f"Most recent OHLCV folder: {ohlcv_datetime_folder}")
+        logging.info(f"Using OHLCV folder: {ohlcv_datetime_folder}")
         
+        # Verify that the folder contains data before proceeding
+        if not os.path.exists(ohlcv_datetime_folder) or not os.listdir(ohlcv_datetime_folder):
+            logging.error("No OHLCV data found in the most recent folder")
+            return
+            
         imported_ohlcv_data = Master_Functions.import_ohlcv_data(ohlcv_datetime_folder)
 
         # Step 3: Initialize analysis parameters
@@ -248,23 +350,40 @@ async def run_analysis_cycle():
             fib_levels=fib_levels,
             initial_timeframe='15m',
             target_fib_level=0.786,
-            min_market_cap=150000,
             collect_tokens=qualifying_tokens,
             display_plots=False  # Disable plots for automated running
         )
         
         logging.info(f"Found {len(qualifying_tokens)} qualifying tokens")
         
-        # Step 5: Run bubblemap analysis
+        # After finding qualifying tokens but before bubblemap analysis:
         if qualifying_tokens:
+            # Load previously qualified tokens
+            previously_qualified = load_qualified_tokens()
+            
+            # Filter out previously qualified tokens by comparing addresses only
+            new_qualifying_tokens = [
+                token for token in qualifying_tokens 
+                if token['token_address'] not in previously_qualified
+            ]
+            
+            if not new_qualifying_tokens:
+                logging.info("All qualifying tokens have been previously processed")
+                return
+                
+            logging.info(f"Found {len(new_qualifying_tokens)} new qualifying tokens")
+            
+            # Run bubblemap analysis only on new tokens
             logging.info("Running bubblemap analysis...")
-            MAX_CLUSTER_PERCENTAGE = 5
-            results = await analyze_qualifying_tokens(qualifying_tokens, max_cluster_percentage=MAX_CLUSTER_PERCENTAGE)
+            results = await analyze_qualifying_tokens(new_qualifying_tokens, max_cluster_percentage=MAX_CLUSTER_PERCENTAGE)
             
             if results:
                 logging.info(f"Found {len(results)} tokens passing all criteria")
                 for result in results:
-                    logging.info(f"Token found: {result['token_address']}")
+                    token_address = result['token_address']
+                    logging.info(f"Token found: {token_address}")
+                    # Save newly qualified tokens
+                    save_qualified_token(token_address)
             else:
                 logging.info("No tokens passed all criteria")
         
