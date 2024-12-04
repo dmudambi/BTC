@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Set maximum risk score threshold
-MAX_RISK_SCORE = 1500  # Less than or equal to
+MAX_RISK_SCORE = 10000  # Less than or equal to
 
 # Add rate limiting parameters
 RATE_LIMIT_CALLS = 10000  # Number of calls allowed

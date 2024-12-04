@@ -10,7 +10,7 @@ import numpy as np
 import logging
 import matplotlib.pyplot as plt
 
-MAX_CLUSTER_PERCENTAGE = 5
+MAX_CLUSTER_PERCENTAGE = 6
 
 # Add a rate limit filter to the main logger
 class RateLimitFilter(logging.Filter):
@@ -104,13 +104,13 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
             ath_close = df['close'].max()
             ath_idx = df['close'].idxmax()
             
-            # Get first candle open (or first non-zero OHLC value)
+            # Get first candle open (for 5x multiple check only)
             first_open = df['open'].iloc[0]
             if first_open == 0:
                 first_open = df[['open', 'high', 'low', 'close']].replace(0, np.nan).min().min()
             
-            # Calculate price range and Fibonacci levels
-            price_range = ath_close - first_open
+            # Calculate price range and Fibonacci levels using 0 as starting point
+            price_range = ath_close - 0  # Changed to use 0 instead of first_open
             fib_price_levels = {level: ath_close - (price_range * level) 
                               for level in fib_levels}
             
@@ -164,8 +164,8 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
             post_ath_df = df.loc[ath_idx:]
             max_drop_percentage = 50
             
-            # Calculate percentage difference between high and low for each candle
-            post_ath_df['price_drop_percentage'] = ((post_ath_df['high'] - post_ath_df['low']) / post_ath_df['high']) * 100
+            # Calculate percentage difference between open and close for each candle
+            post_ath_df['price_drop_percentage'] = ((post_ath_df['open'] - post_ath_df['close']) / post_ath_df['open']) * 100
             max_drop = post_ath_df['price_drop_percentage'].max()
             
             logging.info(f"Maximum price drop in a single candle: {max_drop:.2f}%")

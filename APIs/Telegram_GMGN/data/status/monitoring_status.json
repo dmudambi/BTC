@@ -1,9 +1,9 @@
 {
     "Solana_FDV_Surge": {
-        "last_update": "2024-11-24 14:52:22",
-        "messages_processed": 5333,
-        "successful_filters": 48,
-        "errors": 0
+        "last_update": "2024-12-04 13:28:59",
+        "messages_processed": 31961,
+        "successful_filters": 1258,
+        "errors": 4
     },
     "PUMP_FDV_Surge": {
         "last_update": "2024-11-24 05:04:06",

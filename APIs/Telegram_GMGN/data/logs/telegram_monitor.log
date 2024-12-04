@@ -6561,3 +6561,15 @@
 2024-11-24 06:06:46,655 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 5000 - Passed: 1
 2024-11-24 09:42:33,064 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 5000 - Passed: 1
 2024-11-24 10:58:27,566 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 5000 - Passed: 1
+2024-12-04 10:40:37,930 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-12-04 10:40:37,931 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-12-04 10:41:44,323 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-12-04 10:41:44,324 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-12-04 10:42:35,231 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 5000 - Passed: 126
+2024-12-04 13:02:25,632 - TelegramMonitor - INFO - Monitoring system initialized successfully
+2024-12-04 13:02:25,632 - TelegramMonitor - INFO - Starting Telegram monitoring system...
+2024-12-04 13:08:18,561 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: parse_error - Message: Message 1274773: 'NoneType' object has no attribute 'split'
+2024-12-04 13:08:18,815 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: parse_error - Message: Message 1152525: 'NoneType' object has no attribute 'split'
+2024-12-04 13:08:18,828 - TelegramMonitor - INFO - Topic: Solana_FDV_Surge - Filtered: 31953 - Passed: 1258
+2024-12-04 13:28:59,822 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: parse_error - Message: Message 1274773: 'NoneType' object has no attribute 'split'
+2024-12-04 13:28:59,823 - TelegramMonitor - ERROR - Topic: Solana_FDV_Surge - Error Type: parse_error - Message: Message 1152525: 'NoneType' object has no attribute 'split'
