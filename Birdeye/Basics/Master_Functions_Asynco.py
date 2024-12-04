@@ -48,8 +48,8 @@ new_token_liquidity_filter = 4000 # Minimum liquidity in USD for new tokens
 #### POST-COLLECTION FILTERS ####
 new_token_min_liquidity = 4000  # Minimum liquidity in USD for new tokens
 new_token_max_liquidity = 400000  # Maximum liquidity in USD for new tokens
-new_token_min_market_cap = 100000  # Minimum market cap in USD for new tokens
-new_token_max_market_cap = 5000000  # Maximum market cap in USD for new tokens
+new_token_min_market_cap = 150000  # Minimum market cap in USD for new tokens
+new_token_max_market_cap = 600000  # Maximum market cap in USD for new tokens
 
 #### OHLCV DATA #### 
 timeframes = ['5m','15m'] 

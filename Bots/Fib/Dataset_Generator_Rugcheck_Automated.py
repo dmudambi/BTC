@@ -279,11 +279,11 @@ def add_rugcheck_data(df):
     
     return df
 
-# Then use the functions (around line 150)
+# After getting market data but before rugcheck
 market_data_df = asyncio.run(get_all_market_data(new_tokens_filtered_overview_address, Master_Functions.API_Key))
 new_tokens_mc_added = new_tokens_filtered_overview.join(market_data_df, how='left')
 
-# After joining, you might want to rename some columns to remove the suffix
+# Rename columns first
 columns_to_rename = {
     'Price_market': 'Price',
     'Liquidity_market': 'Liquidity',
@@ -294,16 +294,8 @@ columns_to_rename = {
 }
 new_tokens_mc_added = new_tokens_mc_added.rename(columns=columns_to_rename)
 
-# Now add rugcheck data
-new_tokens_mc_added = add_rugcheck_data(new_tokens_mc_added)
-
-# Then print the debug information
-print("\nBefore filtering:")
-print(f"Total tokens: {len(new_tokens_mc_added)}")
-print("\nSample of data:")
-print(new_tokens_mc_added[['Liquidity', 'Market Cap', 'RugCheck_Score', 'Risk_Status']].head())
-
-# Then update the filtering section to include rugcheck criteria
+# Apply market cap and liquidity filters BEFORE rugcheck
+print("\nApplying initial filters...")
 filtered_tokens = new_tokens_mc_added[
     new_tokens_mc_added['Liquidity'].notna() &
     new_tokens_mc_added['Market Cap'].notna() &
@@ -313,35 +305,47 @@ filtered_tokens = new_tokens_mc_added[
     (new_tokens_mc_added['Market Cap'].astype(float) <= Master_Functions.new_token_max_market_cap)
 ].copy()
 
-# More debug prints
-print("\nAfter filtering:")
-print(f"Remaining tokens: {len(filtered_tokens)}")
-print("\nFiltered tokens data:")
+print(f"\nTokens after initial filtering: {len(filtered_tokens)}")
+print("\nFiltered tokens market data:")
 for idx, row in filtered_tokens.iterrows():
     print(f"\nToken: {idx}")
-    print(f"Liquidity: {row['Liquidity']}")
-    print(f"Market Cap: {row['Market Cap']}")
+    print(f"Liquidity: {Master_Functions.format_number(float(row['Liquidity']))}")
+    print(f"Market Cap: {Master_Functions.format_number(float(row['Market Cap']))}")
+
+# Now run rugcheck only on the filtered tokens
+print("\nPerforming RugCheck Assessment on filtered tokens...")
+filtered_tokens = add_rugcheck_data(filtered_tokens)
+
+# Filter for low risk tokens
+final_tokens = filtered_tokens[filtered_tokens['RugCheck_Score'] <= MAX_RISK_SCORE].copy()
+
+print("\nFinal Results:")
+print(f"Total tokens after all filters: {len(final_tokens)}")
+print("\nFinal tokens data:")
+for idx, row in final_tokens.iterrows():
+    print(f"\nToken: {idx}")
+    print(f"Liquidity: {Master_Functions.format_number(float(row['Liquidity']))}")
+    print(f"Market Cap: {Master_Functions.format_number(float(row['Market Cap']))}")
     print(f"RugCheck Score: {row['RugCheck_Score']}")
-    print(f"Risk Status: {row['Risk_Status']}")
 
 # Save the filtered data with market cap range and time range in the filename
 mc_range = f"{Master_Functions.new_token_min_market_cap/1e6:.1f}M-{Master_Functions.new_token_max_market_cap/1e6:.1f}M"
 time_range = f"{Master_Functions.days_back}d_{Master_Functions.hours_back}h_{Master_Functions.minutes_back}m"
 filename = f"new_tokens_mc_added_filtered_{mc_range}_{time_range}.csv"
 file_path = os.path.join(token_summary_datetime_folder, filename)
-filtered_tokens.to_csv(file_path)
+final_tokens.to_csv(file_path)
 
 # Sort the DataFrame by 'Market Cap' in descending order
-filtered_tokens_sorted = filtered_tokens.sort_values(by='Market Cap', ascending=False)
+final_tokens_sorted = final_tokens.sort_values(by='Market Cap', ascending=False)
 
 # Print each address with its corresponding Market Cap in descending order
-for address in filtered_tokens_sorted.index:
-    market_cap = filtered_tokens_sorted.at[address, 'Market Cap']
+for address in final_tokens_sorted.index:
+    market_cap = final_tokens_sorted.at[address, 'Market Cap']
     print(f"https://dexscreener.com/solana/{address} - Market Cap: {Master_Functions.format_number(market_cap)}")
 print(f"\nToken summary data saved to: {file_path}")
 
 # Print the number of items in the "Address" column
-num_addresses = filtered_tokens.index.size
+num_addresses = final_tokens.index.size
 print(f"\nNumber of Tokens Filtered: {num_addresses}")
 print(f"\n--------------------------------\n \nAll Token summary data saved to: {file_path}\n \n--------------------------------\n")
 
@@ -355,7 +359,7 @@ print(f"Timeframes being used to retrieve OHLCV data: {', '.join(Master_Function
 print(f"\n--------------------------------\n")
 
 # Get the list of token addresses
-token_addresses = filtered_tokens.index.tolist()
+token_addresses = final_tokens.index.tolist()
 
 # Modify OHLCV data retrieval to use concurrent processing
 async def get_ohlcv_async(session, address, timeframe, api_key):
