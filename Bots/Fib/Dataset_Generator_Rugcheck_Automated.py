@@ -167,11 +167,27 @@ new_tokens_filtered_overview_address = new_tokens_filtered_overview.index.tolist
 
 # Modify market data retrieval to use concurrent processing
 async def get_market_data_async(session, address, api_key):
-    try:
-        return await Master_Functions.get_token_market_data_async(session, address, api_key)
-    except Exception as e:
-        print(f"Error getting market data for {address}: {e}")
-        return None
+    max_retries = 3
+    retry_delay = 0.065
+    
+    for attempt in range(max_retries):
+        try:
+            result = await Master_Functions.get_token_market_data_async(session, address, api_key)
+            if result is not None and not result.empty:
+                return result
+            
+            if attempt < max_retries - 1:
+                await asyncio.sleep(retry_delay)
+                continue
+                
+        except Exception as e:
+            if attempt < max_retries - 1:
+                print(f"Attempt {attempt + 1}/{max_retries} failed for {address}: {e}")
+                await asyncio.sleep(retry_delay)
+                continue
+            print(f"Error getting market data for {address} after {max_retries} attempts: {e}")
+    
+    return None
 
 async def get_all_market_data(addresses, api_key):
     async with aiohttp.ClientSession() as session:
@@ -231,7 +247,7 @@ async def process_tokens_in_batches(tokens):
                 print(f"Failed to get rugcheck data for {address} after {max_retries} attempts")
             
             # Add delay between tokens regardless of success
-            await asyncio.sleep(0.2)
+            await asyncio.sleep(0.065)
     
     # Print summary statistics
     total = len(tokens)
@@ -281,6 +297,40 @@ def add_rugcheck_data(df):
 
 # After getting market data but before rugcheck
 market_data_df = asyncio.run(get_all_market_data(new_tokens_filtered_overview_address, Master_Functions.API_Key))
+
+# Add logging for market data completeness
+total_tokens = len(new_tokens_filtered_overview_address)
+tokens_with_market_data = len(market_data_df[market_data_df['Market Cap_market'].notna()])
+tokens_with_liquidity = len(market_data_df[market_data_df['Liquidity_market'].notna()])
+
+print("\nMarket Data Completeness Check:")
+print(f"Total Tokens Fetched: {total_tokens}")
+print(f"Tokens with Market Cap Data: {tokens_with_market_data} ({(tokens_with_market_data/total_tokens)*100:.1f}%)")
+print(f"Tokens with Liquidity Data: {tokens_with_liquidity} ({(tokens_with_liquidity/total_tokens)*100:.1f}%)")
+
+# Identify tokens missing market cap or liquidity data
+tokens_missing_mc = market_data_df[market_data_df['Market Cap_market'].isna()].index.tolist()
+tokens_missing_liq = market_data_df[market_data_df['Liquidity_market'].isna()].index.tolist()
+
+# Combine the lists of tokens missing data
+tokens_missing_data = list(set(tokens_missing_mc + tokens_missing_liq))
+
+if tokens_missing_data:
+    print("\nWARNING: Some tokens are missing market data!")
+    print("Missing Market Cap Data for:", len(tokens_missing_mc), "tokens")
+    print("Missing Liquidity Data for:", len(tokens_missing_liq), "tokens")
+    
+    # Print addresses of tokens missing data
+    if tokens_missing_mc:
+        print("\nTokens missing Market Cap data:")
+        for addr in tokens_missing_mc:
+            print(f"- {addr}")
+    
+    if tokens_missing_liq:
+        print("\nTokens missing Liquidity data:")
+        for addr in tokens_missing_liq:
+            print(f"- {addr}")
+
 new_tokens_mc_added = new_tokens_filtered_overview.join(market_data_df, how='left')
 
 # Rename columns first
@@ -294,24 +344,34 @@ columns_to_rename = {
 }
 new_tokens_mc_added = new_tokens_mc_added.rename(columns=columns_to_rename)
 
-# Apply market cap and liquidity filters BEFORE rugcheck
-print("\nApplying initial filters...")
-filtered_tokens = new_tokens_mc_added[
-    new_tokens_mc_added['Liquidity'].notna() &
-    new_tokens_mc_added['Market Cap'].notna() &
-    (new_tokens_mc_added['Liquidity'].astype(float) >= Master_Functions.new_token_min_liquidity) &
-    (new_tokens_mc_added['Liquidity'].astype(float) <= Master_Functions.new_token_max_liquidity) &
-    (new_tokens_mc_added['Market Cap'].astype(float) >= Master_Functions.new_token_min_market_cap) &
-    (new_tokens_mc_added['Market Cap'].astype(float) <= Master_Functions.new_token_max_market_cap)
+# Separate tokens with complete data and those missing data
+tokens_with_data = new_tokens_mc_added.dropna(subset=['Liquidity', 'Market Cap'])
+tokens_without_data = new_tokens_mc_added[new_tokens_mc_added.index.isin(tokens_missing_data)]
+
+# Apply market cap and liquidity filters to tokens with complete data
+filtered_tokens = tokens_with_data[
+    (tokens_with_data['Liquidity'].astype(float) >= Master_Functions.new_token_min_liquidity) &
+    (tokens_with_data['Liquidity'].astype(float) <= Master_Functions.new_token_max_liquidity) &
+    (tokens_with_data['Market Cap'].astype(float) >= Master_Functions.new_token_min_market_cap) &
+    (tokens_with_data['Market Cap'].astype(float) <= Master_Functions.new_token_max_market_cap)
 ].copy()
+
+# Combine filtered tokens with those missing data
+filtered_tokens = pd.concat([filtered_tokens, tokens_without_data])
 
 print(f"\nTokens after initial filtering: {len(filtered_tokens)}")
 print("\nFiltered tokens market data:")
 for idx, row in filtered_tokens.iterrows():
     print(f"\nToken: {idx}")
-    print(f"Liquidity: {Master_Functions.format_number(float(row['Liquidity']))}")
-    print(f"Market Cap: {Master_Functions.format_number(float(row['Market Cap']))}")
-
+    if 'Liquidity' in row and pd.notna(row['Liquidity']):
+        print(f"Liquidity: {Master_Functions.format_number(float(row['Liquidity']))}")
+    else:
+        print(f"Liquidity: Data Missing")
+    if 'Market Cap' in row and pd.notna(row['Market Cap']):
+        print(f"Market Cap: {Master_Functions.format_number(float(row['Market Cap']))}")
+    else:
+        print(f"Market Cap: Data Missing")
+    
 # Now run rugcheck only on the filtered tokens
 print("\nPerforming RugCheck Assessment on filtered tokens...")
 filtered_tokens = add_rugcheck_data(filtered_tokens)

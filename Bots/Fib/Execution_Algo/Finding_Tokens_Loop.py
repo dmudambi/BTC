@@ -427,7 +427,7 @@ async def run_analysis_cycle():
             imported_ohlcv_data=imported_ohlcv_data,
             fib_levels=fib_levels,
             initial_timeframe='15m',
-            target_fib_level=0.786,
+            target_fib_level=0.886,
             collect_tokens=qualifying_tokens,
             display_plots=False  # Disable plots for automated running
         )
