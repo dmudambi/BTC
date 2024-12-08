@@ -1,0 +1,138 @@
+2024-12-08 15:23:33,725 - INFO - libssl detected, it will be used for encryption
+2024-12-08 15:23:33,846 - INFO - ==================================================
+2024-12-08 15:23:33,846 - INFO - Starting Token Finder Script
+2024-12-08 15:23:33,846 - INFO - Current Directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 15:23:33,846 - INFO - Root Directory: /home/ubuntu
+2024-12-08 15:23:33,846 - INFO - Environment File Path: /home/ubuntu/APIs/Telegram_PirbView/.env
+2024-12-08 15:23:33,846 - INFO - ==================================================
+2024-12-08 15:23:33,847 - INFO - Starting main loop with credentials:
+2024-12-08 15:23:33,847 - INFO - API_ID exists: True
+2024-12-08 15:23:33,847 - INFO - API_HASH exists: True
+2024-12-08 15:23:33,847 - INFO - Starting new analysis cycle
+2024-12-08 15:23:33,847 - INFO - Running Dataset Generator...
+2024-12-08 15:23:33,847 - INFO - Dataset Generator path: /home/ubuntu/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-12-08 15:23:33,847 - INFO - File exists: False
+2024-12-08 15:23:33,847 - INFO - PYTHONPATH set to: /home/ubuntu:/home/ubuntu/Bots/Fib
+2024-12-08 15:23:33,847 - INFO - Returned to directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 15:23:33,847 - ERROR - Error in analysis cycle: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+Traceback (most recent call last):
+  File "/home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py", line 273, in run_analysis_cycle
+    os.chdir(dataset_generator_dir)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+2024-12-08 15:23:33,847 - INFO - Waiting 10 seconds before next cycle...
+2024-12-08 15:24:16,226 - INFO - libssl detected, it will be used for encryption
+2024-12-08 15:24:16,342 - INFO - ==================================================
+2024-12-08 15:24:16,343 - INFO - Starting Token Finder Script
+2024-12-08 15:24:16,343 - INFO - Current Directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 15:24:16,343 - INFO - Root Directory: /home/ubuntu
+2024-12-08 15:24:16,343 - INFO - Environment File Path: /home/ubuntu/APIs/Telegram_PirbView/.env
+2024-12-08 15:24:16,343 - INFO - ==================================================
+2024-12-08 15:24:16,343 - INFO - Starting main loop with credentials:
+2024-12-08 15:24:16,343 - INFO - API_ID exists: True
+2024-12-08 15:24:16,343 - INFO - API_HASH exists: True
+2024-12-08 15:24:16,343 - INFO - Starting new analysis cycle
+2024-12-08 15:24:16,343 - INFO - Running Dataset Generator...
+2024-12-08 15:24:16,343 - INFO - Dataset Generator path: /home/ubuntu/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-12-08 15:24:16,343 - INFO - File exists: False
+2024-12-08 15:24:16,343 - INFO - PYTHONPATH set to: /home/ubuntu:/home/ubuntu/Bots/Fib
+2024-12-08 15:24:16,343 - INFO - Returned to directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 15:24:16,343 - ERROR - Error in analysis cycle: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+Traceback (most recent call last):
+  File "/home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py", line 273, in run_analysis_cycle
+    os.chdir(dataset_generator_dir)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+2024-12-08 15:24:16,344 - INFO - Waiting 10 seconds before next cycle...
+2024-12-08 15:24:26,354 - INFO - Starting new analysis cycle
+2024-12-08 15:24:26,354 - INFO - Running Dataset Generator...
+2024-12-08 15:24:26,354 - INFO - Dataset Generator path: /home/ubuntu/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-12-08 15:24:26,354 - INFO - File exists: False
+2024-12-08 15:24:26,354 - INFO - PYTHONPATH set to: /home/ubuntu:/home/ubuntu/Bots/Fib
+2024-12-08 15:24:26,354 - INFO - Returned to directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 15:24:26,354 - ERROR - Error in analysis cycle: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+Traceback (most recent call last):
+  File "/home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py", line 273, in run_analysis_cycle
+    os.chdir(dataset_generator_dir)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+2024-12-08 15:24:26,355 - INFO - Waiting 10 seconds before next cycle...
+2024-12-08 15:24:36,365 - INFO - Starting new analysis cycle
+2024-12-08 15:24:36,365 - INFO - Running Dataset Generator...
+2024-12-08 15:24:36,365 - INFO - Dataset Generator path: /home/ubuntu/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-12-08 15:24:36,366 - INFO - File exists: False
+2024-12-08 15:24:36,366 - INFO - PYTHONPATH set to: /home/ubuntu:/home/ubuntu/Bots/Fib
+2024-12-08 15:24:36,366 - INFO - Returned to directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 15:24:36,367 - ERROR - Error in analysis cycle: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+Traceback (most recent call last):
+  File "/home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py", line 273, in run_analysis_cycle
+    os.chdir(dataset_generator_dir)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+2024-12-08 15:24:36,367 - INFO - Waiting 10 seconds before next cycle...
+2024-12-08 15:26:21,672 - INFO - libssl detected, it will be used for encryption
+2024-12-08 15:26:21,790 - INFO - ==================================================
+2024-12-08 15:26:21,790 - INFO - Starting Token Finder Script
+2024-12-08 15:26:21,790 - INFO - Current Directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 15:26:21,790 - INFO - Root Directory: /home/ubuntu
+2024-12-08 15:26:21,790 - INFO - Environment File Path: /home/ubuntu/APIs/Telegram_PirbView/.env
+2024-12-08 15:26:21,790 - INFO - ==================================================
+2024-12-08 15:26:21,790 - INFO - Starting main loop with credentials:
+2024-12-08 15:26:21,790 - INFO - API_ID exists: True
+2024-12-08 15:26:21,790 - INFO - API_HASH exists: True
+2024-12-08 15:26:21,790 - INFO - Starting new analysis cycle
+2024-12-08 15:26:21,790 - INFO - Running Dataset Generator...
+2024-12-08 15:26:21,790 - INFO - Dataset Generator path: /home/ubuntu/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-12-08 15:26:21,790 - INFO - File exists: False
+2024-12-08 15:26:21,790 - INFO - PYTHONPATH set to: /home/ubuntu:/home/ubuntu/Bots/Fib
+2024-12-08 15:26:21,790 - INFO - Returned to directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 15:26:21,790 - ERROR - Error in analysis cycle: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+Traceback (most recent call last):
+  File "/home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py", line 273, in run_analysis_cycle
+    os.chdir(dataset_generator_dir)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+2024-12-08 15:26:21,791 - INFO - Waiting 10 seconds before next cycle...
+2024-12-08 15:26:31,801 - INFO - Starting new analysis cycle
+2024-12-08 15:26:31,801 - INFO - Running Dataset Generator...
+2024-12-08 15:26:31,802 - INFO - Dataset Generator path: /home/ubuntu/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-12-08 15:26:31,802 - INFO - File exists: False
+2024-12-08 15:26:31,802 - INFO - PYTHONPATH set to: /home/ubuntu:/home/ubuntu/Bots/Fib
+2024-12-08 15:26:31,802 - INFO - Returned to directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 15:26:31,803 - ERROR - Error in analysis cycle: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+Traceback (most recent call last):
+  File "/home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py", line 273, in run_analysis_cycle
+    os.chdir(dataset_generator_dir)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+2024-12-08 15:26:31,804 - INFO - Waiting 10 seconds before next cycle...
+2024-12-08 15:26:41,814 - INFO - Starting new analysis cycle
+2024-12-08 15:26:41,814 - INFO - Running Dataset Generator...
+2024-12-08 15:26:41,815 - INFO - Dataset Generator path: /home/ubuntu/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-12-08 15:26:41,815 - INFO - File exists: False
+2024-12-08 15:26:41,815 - INFO - PYTHONPATH set to: /home/ubuntu:/home/ubuntu/Bots/Fib
+2024-12-08 15:26:41,816 - INFO - Returned to directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 15:26:41,816 - ERROR - Error in analysis cycle: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+Traceback (most recent call last):
+  File "/home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py", line 273, in run_analysis_cycle
+    os.chdir(dataset_generator_dir)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+2024-12-08 15:26:41,817 - INFO - Waiting 10 seconds before next cycle...
+2024-12-08 15:26:51,827 - INFO - Starting new analysis cycle
+2024-12-08 15:26:51,828 - INFO - Running Dataset Generator...
+2024-12-08 15:26:51,828 - INFO - Dataset Generator path: /home/ubuntu/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-12-08 15:26:51,828 - INFO - File exists: False
+2024-12-08 15:26:51,828 - INFO - PYTHONPATH set to: /home/ubuntu:/home/ubuntu/Bots/Fib
+2024-12-08 15:26:51,829 - INFO - Returned to directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 15:26:51,829 - ERROR - Error in analysis cycle: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+Traceback (most recent call last):
+  File "/home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py", line 273, in run_analysis_cycle
+    os.chdir(dataset_generator_dir)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+2024-12-08 15:26:51,830 - INFO - Waiting 10 seconds before next cycle...
+2024-12-08 15:27:01,840 - INFO - Starting new analysis cycle
+2024-12-08 15:27:01,840 - INFO - Running Dataset Generator...
+2024-12-08 15:27:01,841 - INFO - Dataset Generator path: /home/ubuntu/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-12-08 15:27:01,841 - INFO - File exists: False
+2024-12-08 15:27:01,841 - INFO - PYTHONPATH set to: /home/ubuntu:/home/ubuntu/Bots/Fib
+2024-12-08 15:27:01,841 - INFO - Returned to directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 15:27:01,842 - ERROR - Error in analysis cycle: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+Traceback (most recent call last):
+  File "/home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py", line 273, in run_analysis_cycle
+    os.chdir(dataset_generator_dir)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Bots/Fib'
+2024-12-08 15:27:01,842 - INFO - Waiting 10 seconds before next cycle...

@@ -1,43 +1,214 @@
-2024-12-04 16:42:13,759 - INFO - libssl detected, it will be used for encryption
-2024-12-04 16:42:13,877 - INFO - ==================================================
-2024-12-04 16:42:13,877 - INFO - Starting Token Finder Script
-2024-12-04 16:42:13,877 - INFO - Current Directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Execution_Algo
-2024-12-04 16:42:13,877 - INFO - Root Directory: /home/ubuntu/Birdeye_Dashboard
-2024-12-04 16:42:13,877 - INFO - Environment File Path: /home/ubuntu/Birdeye_Dashboard/APIs/Telegram_PirbView/.env
-2024-12-04 16:42:13,877 - INFO - ==================================================
-2024-12-04 16:42:13,877 - INFO - Starting main loop with credentials:
-2024-12-04 16:42:13,877 - INFO - API_ID exists: True
-2024-12-04 16:42:13,877 - INFO - API_HASH exists: True
-2024-12-04 16:42:13,877 - INFO - Starting new analysis cycle
-2024-12-04 16:42:13,878 - INFO - Running Dataset Generator...
-2024-12-04 16:42:13,878 - INFO - Dataset Generator path: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
-2024-12-04 16:42:13,878 - INFO - File exists: True
-2024-12-04 16:42:13,878 - INFO - PYTHONPATH set to: /home/ubuntu/Birdeye_Dashboard:/home/ubuntu/Birdeye_Dashboard/Bots/Fib
-2024-12-04 16:42:13,878 - INFO - Changed directory to: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
-2024-12-04 16:42:15,197 - INFO - Dataset Generator: {"success":true,"data":["solana","ethereum","arbitrum","avalanche","bsc","optimism","polygon","base","zksync"]}
-2024-12-04 16:42:15,201 - INFO - Dataset Generator: Current Directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
-2024-12-04 16:42:15,201 - INFO - Dataset Generator: Root Directory: /home/ubuntu/Birdeye_Dashboard
-2024-12-04 16:42:15,201 - INFO - Dataset Generator: Python Path: ['/home/ubuntu/Birdeye_Dashboard/Bots/Fib', '/home/ubuntu/Birdeye_Dashboard', '/home/ubuntu/Birdeye_Dashboard/Bots/Fib', '/home/ubuntu/miniconda3/lib/python312.zip', '/home/ubuntu/miniconda3/lib/python3.12', '/home/ubuntu/miniconda3/lib/python3.12/lib-dynload', '/home/ubuntu/miniconda3/lib/python3.12/site-packages', '/home/ubuntu/Birdeye_Dashboard', '/home/ubuntu', '/home/ubuntu/Birdeye_Dashboard/APIs/Rugcheck']
-2024-12-04 16:42:15,201 - INFO - Dataset Generator: 
-2024-12-04 16:42:15,201 - INFO - Dataset Generator: --------------------------------
-2024-12-04 16:42:15,201 - INFO - Dataset Generator: 
-2024-12-04 16:42:15,201 - INFO - Dataset Generator: Running on: solana
-2024-12-04 16:42:15,201 - INFO - Dataset Generator: 
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: --------------------------------
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: 
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: NEW TOKEN FILTERS:
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: 
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: Min Liquidity: 4K
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: Max Liquidity: 400K
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: Min Market Cap: 200K
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: Max Market Cap: 3.00Mil
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: Filtering New Tokens for: 0 days, 18 hours, 0 minutes back
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: Token Launch Liquidity Filter: 4K
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: RugCheck Risk Score Threshold: 10000
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: 
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: --------------------------------
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: 
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: Collecting New Token Listings...
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: 
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: --------------------------------
-2024-12-04 16:42:15,202 - INFO - Dataset Generator: 
+2024-12-08 16:42:32,356 - INFO - libssl detected, it will be used for encryption
+2024-12-08 16:42:32,471 - INFO - ==================================================
+2024-12-08 16:42:32,471 - INFO - Starting Token Finder Script
+2024-12-08 16:42:32,471 - INFO - Current Directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Execution_Algo
+2024-12-08 16:42:32,472 - INFO - Root Directory: /home/ubuntu/Birdeye_Dashboard
+2024-12-08 16:42:32,472 - INFO - Environment File Path: /home/ubuntu/Birdeye_Dashboard/APIs/Telegram_PirbView/.env
+2024-12-08 16:42:32,472 - INFO - ==================================================
+2024-12-08 16:42:32,472 - INFO - Starting main loop with credentials:
+2024-12-08 16:42:32,472 - INFO - API_ID exists: True
+2024-12-08 16:42:32,472 - INFO - API_HASH exists: True
+2024-12-08 16:42:32,472 - INFO - Starting new analysis cycle
+2024-12-08 16:42:32,472 - INFO - Running Dataset Generator...
+2024-12-08 16:42:32,472 - INFO - Dataset Generator path: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-12-08 16:42:32,472 - INFO - File exists: True
+2024-12-08 16:42:32,472 - INFO - PYTHONPATH set to: /home/ubuntu/Birdeye_Dashboard:/home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 16:42:32,472 - INFO - Filtering data from: 2024-12-08 15:42:32 UTC to 2024-12-08 16:42:32 UTC
+2024-12-08 16:42:32,472 - INFO - Changed directory to: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 16:42:33,821 - INFO - Dataset Generator: {"success":true,"data":["solana","ethereum","arbitrum","avalanche","bsc","optimism","polygon","base","zksync"]}
+2024-12-08 16:42:33,824 - INFO - Dataset Generator: Current Directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 16:42:33,824 - INFO - Dataset Generator: Root Directory: /home/ubuntu/Birdeye_Dashboard
+2024-12-08 16:42:33,824 - INFO - Dataset Generator: Python Path: ['/home/ubuntu/Birdeye_Dashboard/Bots/Fib', '/home/ubuntu/Birdeye_Dashboard', '/home/ubuntu/Birdeye_Dashboard/Bots/Fib', '/home/ubuntu/miniconda3/lib/python312.zip', '/home/ubuntu/miniconda3/lib/python3.12', '/home/ubuntu/miniconda3/lib/python3.12/lib-dynload', '/home/ubuntu/miniconda3/lib/python3.12/site-packages', '/home/ubuntu/Birdeye_Dashboard', '/home/ubuntu', '/home/ubuntu/Birdeye_Dashboard/APIs/Rugcheck']
+2024-12-08 16:42:33,824 - INFO - Dataset Generator: 
+2024-12-08 16:42:33,824 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:42:33,824 - INFO - Dataset Generator: 
+2024-12-08 16:42:33,824 - INFO - Dataset Generator: Running on: solana
+2024-12-08 16:42:33,824 - INFO - Dataset Generator: 
+2024-12-08 16:42:33,824 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:42:33,824 - INFO - Dataset Generator: 
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: NEW TOKEN FILTERS:
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: 
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: Min Liquidity: 4K
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: Max Liquidity: 400K
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: Min Market Cap: 50K
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: Max Market Cap: 3.00Mil
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: Filtering New Tokens for: 0 days, 1 hours, 0 minutes back
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: Token Launch Liquidity Filter: 4K
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: RugCheck Risk Score Threshold: 10000
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: 
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: 
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: Collecting New Token Listings...
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: 
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: 
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: Fetching token data...
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: Fetching tokens from 2024-12-08 15:42:33.824965+0000 to 2024-12-08 16:42:33.824965+0000
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: Start timestamp: 1733672553
+2024-12-08 16:42:33,825 - INFO - Dataset Generator: End timestamp: 1733676153
+2024-12-08 16:44:30,151 - INFO - Dataset Generator: Fetched 10 tokens (Current batch time: 2024-12-08 16:42:33+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:42:12+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:41:50+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:41:34+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:41:20+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:41:06+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:40:55+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:40:40+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:40:14+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:39:57+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:39:33+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:39:14+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:39:04+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:38:43+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:38:23+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:38:12+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:37:50+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:37:41+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:37:17+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:37:00+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:36:35+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:36:15+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:35:57+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:35:33+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:35:14+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:35:03+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:34:46+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:34:24+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:33:56+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:33:39+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:33:27+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:33:04+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:32:54+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:32:36+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:32:21+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:31:55+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:31:42+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:31:23+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:31:11+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:30:40+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:30:21+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:30:11+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:29:55+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:29:35+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:29:19+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:28:51+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:28:41+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:28:14+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:28:03+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:27:46+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:27:30+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:27:11+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:26:51+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:26:28+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:26:03+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:25:41+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:25:28+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:25:01+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:24:37+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:24:20+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:24:00+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:23:39+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:23:10+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:22:54+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:22:27+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:22:09+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:21:47+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:21:27+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:21:10+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:20:43+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:20:30+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:20:06+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:19:47+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:19:30+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:19:11+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:18:41+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:18:07+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:17:47+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:17:25+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:17:01+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:16:32+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:15:56+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:15:38+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:15:17+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:15:02+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:14:43+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:14:18+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:13:52+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:13:40+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:13:11+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:12:44+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:12:18+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:11:57+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:11:42+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:11:19+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:11:05+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:10:51+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:10:34+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:10:13+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:09:49+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:09:32+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:09:24+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:09:08+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:08:53+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:08:33+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:08:12+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:07:52+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:07:30+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:07:13+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:06:59+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:06:38+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:06:17+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:05:59+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:05:37+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:05:30+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:05:05+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:04:38+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:04:22+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:04:08+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:03:51+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:03:32+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:03:19+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:03:03+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:02:42+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:02:29+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:02:08+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:01:57+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:01:47+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:01:36+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:01:23+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:01:13+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:01:02+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:00:44+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:00:36+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:00:28+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:00:17+0000)Fetched 10 tokens (Current batch time: 2024-12-08 16:00:03+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:59:45+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:59:30+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:59:16+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:58:54+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:58:32+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:58:14+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:58:02+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:57:45+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:57:35+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:57:18+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:57:05+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:56:37+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:56:21+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:56:11+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:55:48+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:55:28+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:55:18+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:55:10+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:54:55+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:54:36+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:54:19+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:53:51+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:53:35+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:53:15+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:53:04+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:52:48+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:52:37+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:52:20+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:51:54+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:51:38+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:51:14+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:51:01+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:50:41+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:50:31+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:50:20+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:50:08+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:49:42+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:49:13+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:48:56+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:48:40+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:48:06+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:47:46+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:47:36+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:47:15+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:46:48+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:46:26+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:46:13+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:46:00+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:45:27+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:45:10+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:44:45+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:44:21+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:44:08+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:43:42+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:43:36+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:43:23+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:42:56+0000)Fetched 10 tokens (Current batch time: 2024-12-08 15:42:42+0000)
+2024-12-08 16:44:30,152 - INFO - Dataset Generator: Total API requests made: 195
+2024-12-08 16:44:30,152 - INFO - Dataset Generator: Total tokens fetched: 1704
+2024-12-08 16:44:30,184 - INFO - Dataset Generator: 
+2024-12-08 16:44:30,185 - INFO - Dataset Generator: Time range of fetched tokens:
+2024-12-08 16:44:30,185 - INFO - Dataset Generator: Earliest: 2024-12-08 15:42:22
+2024-12-08 16:44:30,185 - INFO - Dataset Generator: Latest: 2024-12-08 16:42:28
+2024-12-08 16:44:32,610 - INFO - Dataset Generator: 
+2024-12-08 16:44:32,610 - INFO - Dataset Generator: Applying initial filters...
+2024-12-08 16:44:32,611 - INFO - Dataset Generator: 
+2024-12-08 16:44:32,611 - INFO - Dataset Generator: Tokens after initial filtering: 4
+2024-12-08 16:44:32,611 - INFO - Dataset Generator: 
+2024-12-08 16:44:32,611 - INFO - Dataset Generator: Filtered tokens market data:
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: 
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Token: 9xa6xZjByrg51f7EhN4WEMFn3uhNMrztJJBw5JkrNs4G
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Liquidity: 118K
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Market Cap: 125K
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: 
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Token: GRVQydk6xvFka4DYE6B8xtDpu3EatHKYdxBXUbWcpgAF
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Liquidity: 5K
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Market Cap: 1.04Mil
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: 
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Token: ksU3Q5mwaUoFgmX9rthafbimw5sZ3ztvVmsr5wBpump
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Liquidity: 15K
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Market Cap: 56K
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: 
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Token: BN5GdTknpyGrDmnUVyrczfw5Gdbmg4rZTUZmz9CtduuW
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Liquidity: 23K
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Market Cap: 1.14Mil
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: 
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Performing RugCheck Assessment on filtered tokens...
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: 
+2024-12-08 16:44:32,612 - INFO - Dataset Generator: Performing RugCheck Assessment...
+2024-12-08 16:44:33,728 - INFO - Dataset Generator: Successfully got rugcheck data for 9xa6xZjByrg51f7EhN4WEMFn3uhNMrztJJBw5JkrNs4G - Score: 11399
+2024-12-08 16:44:34,646 - INFO - Dataset Generator: Successfully got rugcheck data for GRVQydk6xvFka4DYE6B8xtDpu3EatHKYdxBXUbWcpgAF - Score: 84369
+2024-12-08 16:44:37,734 - INFO - Dataset Generator: Successfully got rugcheck data for ksU3Q5mwaUoFgmX9rthafbimw5sZ3ztvVmsr5wBpump - Score: 500
+2024-12-08 16:44:39,044 - INFO - Dataset Generator: Successfully got rugcheck data for BN5GdTknpyGrDmnUVyrczfw5Gdbmg4rZTUZmz9CtduuW - Score: 82369
+2024-12-08 16:44:39,244 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,245 - INFO - Dataset Generator: Rugcheck Summary:
+2024-12-08 16:44:39,245 - INFO - Dataset Generator: Total tokens processed: 4
+2024-12-08 16:44:39,245 - INFO - Dataset Generator: Successful: 4 (100.0%)
+2024-12-08 16:44:39,245 - INFO - Dataset Generator: Failed: 0 (0.0%)
+2024-12-08 16:44:39,245 - INFO - Dataset Generator: Added rugcheck data for 9xa6xZjByrg51f7EhN4WEMFn3uhNMrztJJBw5JkrNs4G - Score: 11399
+2024-12-08 16:44:39,246 - INFO - Dataset Generator: Added rugcheck data for GRVQydk6xvFka4DYE6B8xtDpu3EatHKYdxBXUbWcpgAF - Score: 84369
+2024-12-08 16:44:39,246 - INFO - Dataset Generator: Added rugcheck data for ksU3Q5mwaUoFgmX9rthafbimw5sZ3ztvVmsr5wBpump - Score: 500
+2024-12-08 16:44:39,246 - INFO - Dataset Generator: Added rugcheck data for BN5GdTknpyGrDmnUVyrczfw5Gdbmg4rZTUZmz9CtduuW - Score: 82369
+2024-12-08 16:44:39,246 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,246 - INFO - Dataset Generator: Rugcheck Results:
+2024-12-08 16:44:39,246 - INFO - Dataset Generator: Total Tokens: 4
+2024-12-08 16:44:39,247 - INFO - Dataset Generator: Unknown Status: 0 (0.0%)
+2024-12-08 16:44:39,247 - INFO - Dataset Generator: Low Risk: 1
+2024-12-08 16:44:39,247 - INFO - Dataset Generator: High Risk: 3
+2024-12-08 16:44:39,249 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,249 - INFO - Dataset Generator: Final Results:
+2024-12-08 16:44:39,249 - INFO - Dataset Generator: Total tokens after all filters: 1
+2024-12-08 16:44:39,250 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,250 - INFO - Dataset Generator: Final tokens data:
+2024-12-08 16:44:39,250 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,250 - INFO - Dataset Generator: Token: ksU3Q5mwaUoFgmX9rthafbimw5sZ3ztvVmsr5wBpump
+2024-12-08 16:44:39,250 - INFO - Dataset Generator: Liquidity: 15K
+2024-12-08 16:44:39,250 - INFO - Dataset Generator: Market Cap: 56K
+2024-12-08 16:44:39,250 - INFO - Dataset Generator: RugCheck Score: 500
+2024-12-08 16:44:39,251 - INFO - Dataset Generator: https://dexscreener.com/solana/ksU3Q5mwaUoFgmX9rthafbimw5sZ3ztvVmsr5wBpump - Market Cap: 56K
+2024-12-08 16:44:39,251 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,251 - INFO - Dataset Generator: Token summary data saved to: Data/New_Token_Data/2024_12_08/Token_Summary/2024_Dec_08_0442PM/new_tokens_mc_added_filtered_0.1M-3.0M_0d_1h_0m.csv
+2024-12-08 16:44:39,251 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,251 - INFO - Dataset Generator: Number of Tokens Filtered: 1
+2024-12-08 16:44:39,251 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,251 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:44:39,251 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,251 - INFO - Dataset Generator: All Token summary data saved to: Data/New_Token_Data/2024_12_08/Token_Summary/2024_Dec_08_0442PM/new_tokens_mc_added_filtered_0.1M-3.0M_0d_1h_0m.csv
+2024-12-08 16:44:39,251 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,252 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:44:39,252 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,252 - INFO - Dataset Generator: Timeframes being used to retrieve OHLCV data: 5m, 15m
+2024-12-08 16:44:39,252 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,252 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:44:39,252 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,659 - INFO - Dataset Generator: OHLCV data saved for ksU3Q5mwaUoFgmX9rthafbimw5sZ3ztvVmsr5wBpump (5m).
+2024-12-08 16:44:39,660 - INFO - Dataset Generator: OHLCV data saved for ksU3Q5mwaUoFgmX9rthafbimw5sZ3ztvVmsr5wBpump (15m).
+2024-12-08 16:44:39,660 - INFO - Dataset Generator: Successfully saved all OHLCV data for ksU3Q5mwaUoFgmX9rthafbimw5sZ3ztvVmsr5wBpump.
+2024-12-08 16:44:39,660 - INFO - Dataset Generator: All tokens processed successfully.
+2024-12-08 16:44:39,660 - INFO - Dataset Generator: OHLCV data being saved to: Data/New_Token_Data/2024_12_08/OHLCV_Data/2024_Dec_08_0442PM
+2024-12-08 16:44:39,660 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,660 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:44:39,660 - INFO - Dataset Generator: Data Processing Complete
+2024-12-08 16:44:39,660 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:44:39,660 - INFO - Dataset Generator: 
+2024-12-08 16:44:39,782 - INFO - Dataset Generator completed successfully
+2024-12-08 16:44:39,782 - INFO - Returned to directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Execution_Algo
+2024-12-08 16:44:39,782 - INFO - Importing latest OHLCV data...
+2024-12-08 16:44:39,782 - INFO - Looking for OHLCV data in: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_08/OHLCV_Data
+2024-12-08 16:44:39,782 - INFO - Using OHLCV folder: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_08/OHLCV_Data/2024_Dec_08_0442PM
+2024-12-08 16:44:39,782 - INFO - Found 1 token folders to process
+2024-12-08 16:44:39,788 - INFO - Successfully imported OHLCV data for 1 tokens
+2024-12-08 16:44:39,788 - INFO - Running Fibonacci analysis...
+2024-12-08 16:44:39,788 - INFO - Debug - Target Fib Level: 0.786
+2024-12-08 16:44:39,788 - INFO - Debug - Higher Fib Level: 0.618
+2024-12-08 16:44:39,788 - INFO - 
+==================================================
+2024-12-08 16:44:39,788 - INFO - Analyzing Token: ksU3Q5mwaUoFgmX9rthafbimw5sZ3ztvVmsr5wBpump
+2024-12-08 16:44:39,788 - INFO - ==================================================
+2024-12-08 16:44:39,789 - INFO - 
+Initial Values:
+2024-12-08 16:44:39,789 - INFO - First Open: 9.6421130661714e-06
+2024-12-08 16:44:39,789 - INFO - ATH Close: 5.556838232299984e-05
+2024-12-08 16:44:39,789 - INFO - Current Price: 5.556838232299984e-05
+2024-12-08 16:44:39,789 - INFO - ATH Multiple from First Open: 5.76x
+2024-12-08 16:44:39,789 - INFO - 
+Fibonacci Price Levels:
+2024-12-08 16:44:39,789 - INFO - Fib 0.236: 4.245424409477188e-05
+2024-12-08 16:44:39,789 - INFO - Fib 0.382: 3.43412602756139e-05
+2024-12-08 16:44:39,789 - INFO - Fib 0.5: 2.778419116149992e-05
+2024-12-08 16:44:39,789 - INFO - Fib 0.618: 2.1227122047385936e-05
+2024-12-08 16:44:39,789 - INFO - Fib 0.786: 1.189163381712196e-05
+2024-12-08 16:44:39,789 - INFO - Fib 0.886: 6.334795584821978e-06
+2024-12-08 16:44:39,789 - INFO - 
+Condition 1 - 5x Multiple Check:
+2024-12-08 16:44:39,789 - INFO - Required: ATH (5.556838232299984e-05) >= First Open * 5 (4.8210565330857005e-05)
+2024-12-08 16:44:39,789 - INFO - Actual Multiple: 5.76x
+2024-12-08 16:44:39,789 - INFO - ✅ PASSED - 5x multiple condition
+2024-12-08 16:44:39,789 - INFO - 
+Condition 2 - Price in Fib Range Check:
+2024-12-08 16:44:39,789 - INFO - Required: 2.778419116149992e-05 >= 5.556838232299984e-05 >= 1.189163381712196e-05
+2024-12-08 16:44:39,789 - INFO - ❌ FAILED - Price not in target range
+2024-12-08 16:44:39,789 - INFO - Found 0 qualifying tokens
+2024-12-08 16:44:39,789 - INFO - Analysis cycle completed
+2024-12-08 16:44:39,790 - INFO - Waiting 10 seconds before next cycle...
+2024-12-08 16:44:49,800 - INFO - Starting new analysis cycle
+2024-12-08 16:44:49,800 - INFO - Running Dataset Generator...
+2024-12-08 16:44:49,800 - INFO - Dataset Generator path: /home/ubuntu/Birdeye_Dashboard/Bots/Fib/Dataset_Generator_Rugcheck_Automated.py
+2024-12-08 16:44:49,801 - INFO - File exists: True
+2024-12-08 16:44:49,801 - INFO - PYTHONPATH set to: /home/ubuntu/Birdeye_Dashboard:/home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 16:44:49,801 - INFO - Filtering data from: 2024-12-08 15:44:49 UTC to 2024-12-08 16:44:49 UTC
+2024-12-08 16:44:49,802 - INFO - Changed directory to: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 16:44:50,681 - INFO - Dataset Generator: {"success":true,"data":["solana","ethereum","arbitrum","avalanche","bsc","optimism","polygon","base","zksync"]}
+2024-12-08 16:44:50,692 - INFO - Dataset Generator: Current Directory: /home/ubuntu/Birdeye_Dashboard/Bots/Fib
+2024-12-08 16:44:50,692 - INFO - Dataset Generator: Root Directory: /home/ubuntu/Birdeye_Dashboard
+2024-12-08 16:44:50,692 - INFO - Dataset Generator: Python Path: ['/home/ubuntu/Birdeye_Dashboard/Bots/Fib', '/home/ubuntu/Birdeye_Dashboard', '/home/ubuntu/Birdeye_Dashboard/Bots/Fib', '/home/ubuntu/miniconda3/lib/python312.zip', '/home/ubuntu/miniconda3/lib/python3.12', '/home/ubuntu/miniconda3/lib/python3.12/lib-dynload', '/home/ubuntu/miniconda3/lib/python3.12/site-packages', '/home/ubuntu/Birdeye_Dashboard', '/home/ubuntu', '/home/ubuntu/Birdeye_Dashboard/APIs/Rugcheck']
+2024-12-08 16:44:50,692 - INFO - Dataset Generator: 
+2024-12-08 16:44:50,693 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:44:50,693 - INFO - Dataset Generator: 
+2024-12-08 16:44:50,693 - INFO - Dataset Generator: Running on: solana
+2024-12-08 16:44:50,693 - INFO - Dataset Generator: 
+2024-12-08 16:44:50,693 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:44:50,693 - INFO - Dataset Generator: 
+2024-12-08 16:44:50,693 - INFO - Dataset Generator: NEW TOKEN FILTERS:
+2024-12-08 16:44:50,694 - INFO - Dataset Generator: 
+2024-12-08 16:44:50,694 - INFO - Dataset Generator: Min Liquidity: 4K
+2024-12-08 16:44:50,694 - INFO - Dataset Generator: Max Liquidity: 400K
+2024-12-08 16:44:50,694 - INFO - Dataset Generator: Min Market Cap: 50K
+2024-12-08 16:44:50,694 - INFO - Dataset Generator: Max Market Cap: 3.00Mil
+2024-12-08 16:44:50,694 - INFO - Dataset Generator: Filtering New Tokens for: 0 days, 1 hours, 0 minutes back
+2024-12-08 16:44:50,694 - INFO - Dataset Generator: Token Launch Liquidity Filter: 4K
+2024-12-08 16:44:50,695 - INFO - Dataset Generator: RugCheck Risk Score Threshold: 10000
+2024-12-08 16:44:50,695 - INFO - Dataset Generator: 
+2024-12-08 16:44:50,695 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:44:50,695 - INFO - Dataset Generator: 
+2024-12-08 16:44:50,695 - INFO - Dataset Generator: Collecting New Token Listings...
+2024-12-08 16:44:50,695 - INFO - Dataset Generator: 
+2024-12-08 16:44:50,695 - INFO - Dataset Generator: --------------------------------
+2024-12-08 16:44:50,696 - INFO - Dataset Generator: 
+2024-12-08 16:44:50,696 - INFO - Dataset Generator: Fetching token data...
+2024-12-08 16:44:50,696 - INFO - Dataset Generator: Fetching tokens from 2024-12-08 15:44:50.693340+0000 to 2024-12-08 16:44:50.693340+0000
+2024-12-08 16:44:50,696 - INFO - Dataset Generator: Start timestamp: 1733672690
+2024-12-08 16:44:50,696 - INFO - Dataset Generator: End timestamp: 1733676290

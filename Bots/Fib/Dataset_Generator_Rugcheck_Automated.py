@@ -104,7 +104,7 @@ else:
     os.makedirs(bubblemap_datetime_folder)
 
 # Adjust days_back for the function call
-adjusted_days_back = Master_Functions.days_back + 1
+adjusted_days_back = Master_Functions.days_back
 # Example usage:
 new_tokens = Master_Functions.get_new_listings(adjusted_days_back, Master_Functions.hours_back, Master_Functions.minutes_back, Master_Functions.API_Key, Master_Functions.new_token_liquidity_filter)
 new_tokens_filtered = new_tokens[1].rename(columns={
@@ -379,18 +379,26 @@ async def process_token_ohlcv(address, token_folder):
                 tasks.append(get_ohlcv_async(session, address, timeframe, Master_Functions.API_Key))
             results = await asyncio.gather(*tasks, return_exceptions=True)
             
-            success = False
+            success = True  # Assume success initially
             for timeframe, result in zip(Master_Functions.timeframes, results):
                 if isinstance(result, Exception):
                     print(f"Error for {address} ({timeframe}): {result}")
+                    success = False  # Mark as failed if any timeframe fails
                     continue
                     
                 if result is not None and not result.empty:
                     filename = f"{timeframe}.csv"
                     file_path = os.path.join(token_folder, filename)
                     result.to_csv(file_path)
-                    success = True
                     print(f"OHLCV data saved for {address} ({timeframe}).")
+                else:
+                    print(f"No data saved for {address} ({timeframe}).")
+                    success = False  # Mark as failed if any timeframe has no data
+            
+            if success:
+                print(f"Successfully saved all OHLCV data for {address}.")
+            else:
+                print(f"Failed to save all OHLCV data for {address}.")
             
             return success
     except Exception as e:
@@ -408,11 +416,24 @@ async def process_all_tokens_ohlcv():
     # Add error handling for the gather
     try:
         results = await asyncio.gather(*tasks, return_exceptions=True)
+        all_tokens_successful = True  # Assume all tokens are successful initially
         for address, result in zip(token_addresses, results):
             if isinstance(result, Exception):
                 print(f"Error processing OHLCV data for {address}: {result}")
+                all_tokens_successful = False  # Mark as failed if any token fails
+            elif not result:  # Check if the result is False (indicating failure in process_token_ohlcv)
+                print(f"Failed to save all OHLCV data for {address}.")
+                all_tokens_successful = False  # Mark as failed if any token fails
+        
+        if all_tokens_successful:
+            print("All tokens processed successfully.")
+        else:
+            print("Some tokens failed to process.")
     except Exception as e:
         print(f"Error in OHLCV processing: {e}")
+
+    # Log the path where OHLCV data is being saved
+    print(f"OHLCV data being saved to: {ohlcv_datetime_folder}")
 
 asyncio.run(process_all_tokens_ohlcv())
 

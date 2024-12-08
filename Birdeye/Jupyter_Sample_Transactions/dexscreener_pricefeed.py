@@ -2,6 +2,7 @@ import requests
 import json
 from datetime import datetime
 import time
+import asyncio
 
 def get_token_pairs(token_address):
     """Fetch all pairs for a specific token from DexScreener"""
@@ -26,6 +27,38 @@ def get_token_pairs(token_address):
     except Exception as e:
         print(f"Error fetching token pairs: {str(e)}")
         return None
+
+def get_token_name(token_address):
+    """Fetch the name of the token from DexScreener."""
+    data = get_token_pairs(token_address)
+    if not data or 'pairs' not in data or not data['pairs']:
+        raise ValueError(f"No pairs found for token {token_address}")
+
+    # Assuming the base token is the one we're interested in
+    base_token = data['pairs'][0].get('baseToken', {})
+    token_name = base_token.get('name', 'Unknown Token')
+    return token_name
+
+async def get_token_price(token_address: str) -> float:
+    """Get the current price of a token from its most liquid pair asynchronously."""
+    loop = asyncio.get_event_loop()
+    data = await loop.run_in_executor(None, get_token_pairs, token_address)
+    
+    if not data or 'pairs' not in data or not data['pairs']:
+        raise ValueError(f"No pairs found for token {token_address}")
+    
+    # Sort pairs by liquidity to find the most liquid one
+    pairs = sorted(data['pairs'], 
+                   key=lambda x: float(x.get('liquidity', {}).get('usd', 0)), 
+                   reverse=True)
+    
+    most_liquid_pair = pairs[0]
+    price = float(most_liquid_pair.get('priceUsd', 0))
+    
+    if price <= 0:
+        raise ValueError(f"Invalid price received for token {token_address}")
+    
+    return price
 
 def format_price_change(change):
     """Format price change with color and arrow"""
@@ -111,26 +144,6 @@ def monitor_token(token_address, interval=5):
         
         print(f"\nWaiting {interval} seconds before next update...")
         time.sleep(interval)
-
-async def get_token_price(token_address: str) -> float:
-    """Get the current price of a token from its most liquid pair"""
-    data = get_token_pairs(token_address)
-    
-    if not data or 'pairs' not in data or not data['pairs']:
-        raise ValueError(f"No pairs found for token {token_address}")
-    
-    # Sort pairs by liquidity to find the most liquid one
-    pairs = sorted(data['pairs'], 
-                  key=lambda x: float(x.get('liquidity', {}).get('usd', 0)), 
-                  reverse=True)
-    
-    most_liquid_pair = pairs[0]
-    price = float(most_liquid_pair.get('priceUsd', 0))
-    
-    if price <= 0:
-        raise ValueError(f"Invalid price received for token {token_address}")
-    
-    return price
 
 if __name__ == "__main__":
     # Example token addresses

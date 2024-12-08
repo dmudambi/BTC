@@ -2,13 +2,18 @@ import os
 import sys
 import asyncio
 import subprocess
-from datetime import datetime
+from datetime import datetime, timedelta
 import time
 from dotenv import load_dotenv
 import pandas as pd
 import numpy as np
 import logging
 import matplotlib.pyplot as plt
+import pytz
+import json
+import glob
+from pathlib import Path
+import traceback
 
 MAX_CLUSTER_PERCENTAGE = 6
 
@@ -142,6 +147,9 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
                 
             # 2. Check if current price is between higher_fib_level and target_fib_level
             logging.info("\nCondition 2 - Price in Fib Range Check:")
+            # Get the fib level 2 steps above target_fib_level
+            target_idx = fib_levels_sorted.index(target_fib_level)
+            higher_fib_level = fib_levels_sorted[target_idx - 2] if target_idx > 1 else fib_levels_sorted[0]
             logging.info(f"Required: {fib_price_levels[higher_fib_level]} >= {current_price} >= {fib_price_levels[target_fib_level]}")
             if not (fib_price_levels[higher_fib_level] >= current_price >= fib_price_levels[target_fib_level]):
                 logging.info("❌ FAILED - Price not in target range")
@@ -177,7 +185,7 @@ def plot_price_and_fib_levels(imported_ohlcv_data, fib_levels, initial_timeframe
             logging.info("✅ PASSED - No excessive price drops found")
             
             # If all conditions pass, add to qualifying tokens
-            logging.info("\n🎯 TOKEN QUALIFIED - Passed all conditions!")
+            logging.info("\nTOKEN QUALIFIED - Passed all conditions!")
             collect_tokens.append({
                 'token_address': token_address,
                 'current_price': current_price,
@@ -249,6 +257,29 @@ async def analyze_qualifying_tokens(qualifying_tokens, max_cluster_percentage=5)
             
     return results
 
+def get_most_recent_folder(base_path):
+    """Helper function to get the most recent folder"""
+    if not os.path.exists(base_path):
+        raise FileNotFoundError(f"Base path does not exist: {base_path}")
+
+    # Get all folders in the directory
+    folders = [
+        f for f in glob.glob(os.path.join(base_path, '*'))
+        if os.path.isdir(f)
+    ]
+
+    if not folders:
+        raise FileNotFoundError(f"No folders found in: {base_path}")
+
+    # Get the most recent folder
+    most_recent = max(folders, key=os.path.getctime)
+    
+    # Check if the folder contains any data
+    if not any(os.path.isdir(os.path.join(most_recent, d)) for d in os.listdir(most_recent)):
+        raise FileNotFoundError(f"Most recent folder is empty: {most_recent}")
+        
+    return most_recent
+
 async def run_analysis_cycle():
     try:
         logging.info("Starting new analysis cycle")
@@ -266,6 +297,17 @@ async def run_analysis_cycle():
         env['PYTHONPATH'] = f"{root_dir}:{os.path.join(root_dir, 'Bots', 'Fib')}"
         logging.info(f"PYTHONPATH set to: {env['PYTHONPATH']}")
         
+        # Get current time and calculate start time for filtering
+        end_time = datetime.now(pytz.UTC)
+        start_time = end_time - timedelta(
+            days=Master_Functions.days_back,
+            hours=Master_Functions.hours_back,
+            minutes=Master_Functions.minutes_back
+        )
+        
+        # Log the start and end times in human-readable format
+        logging.info(f"Filtering data from: {start_time.strftime('%Y-%m-%d %H:%M:%S %Z')} to {end_time.strftime('%Y-%m-%d %H:%M:%S %Z')}")
+        
         try:
             # Run process from the correct directory
             original_dir = os.getcwd()
@@ -273,14 +315,21 @@ async def run_analysis_cycle():
             os.chdir(dataset_generator_dir)
             logging.info(f"Changed directory to: {dataset_generator_dir}")
             
-            # Modified subprocess execution
+            # Pass parameters to the subprocess
+            process_args = [
+                'python', '-u', os.path.basename(python_file_path),
+                '--days_back', str(Master_Functions.days_back),
+                '--hours_back', str(Master_Functions.hours_back),
+                '--minutes_back', str(Master_Functions.minutes_back)
+            ]
+
             process = subprocess.Popen(
-                ['python', '-u', os.path.basename(python_file_path)],
+                process_args,  # Use modified arguments
                 env=env,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=True,
-                bufsize=1,  # Line buffered
+                bufsize=1,
                 cwd=dataset_generator_dir,
                 universal_newlines=True
             )
@@ -319,26 +368,55 @@ async def run_analysis_cycle():
             
         # Step 2: Import latest data
         logging.info("Importing latest OHLCV data...")
-        base_path = os.path.join(current_dir, '..', 'Data', 'New_Token_Data')
+        
+        # Use the correct path relative to the Dataset Generator output
+        base_path = os.path.join(root_dir, 'Bots', 'Fib', 'Data', 'New_Token_Data')
         current_date = datetime.now().strftime('%Y_%m_%d')
         date_folder = os.path.join(base_path, current_date)
         ohlcv_folder = os.path.join(date_folder, 'OHLCV_Data')
         
-        # Add debug logging for paths
         logging.info(f"Looking for OHLCV data in: {ohlcv_folder}")
-        logging.info(f"Folder exists: {os.path.exists(ohlcv_folder)}")
         
-        # Get the most recent folder, but only from completed runs
-        ohlcv_datetime_folder = Master_Functions.get_most_recent_folder(ohlcv_folder)
-        logging.info(f"Using OHLCV folder: {ohlcv_datetime_folder}")
+        # Add retry logic for finding the OHLCV folder
+        max_retries = 3
+        retry_delay = 5  # seconds
         
-        # Verify that the folder contains data before proceeding
-        if not os.path.exists(ohlcv_datetime_folder) or not os.listdir(ohlcv_datetime_folder):
-            logging.error("No OHLCV data found in the most recent folder")
-            return
-            
-        imported_ohlcv_data = Master_Functions.import_ohlcv_data(ohlcv_datetime_folder)
-
+        for attempt in range(max_retries):
+            try:
+                if not os.path.exists(ohlcv_folder):
+                    raise FileNotFoundError(f"OHLCV folder does not exist: {ohlcv_folder}")
+                
+                ohlcv_datetime_folder = get_most_recent_folder(ohlcv_folder)
+                logging.info(f"Using OHLCV folder: {ohlcv_datetime_folder}")
+                
+                # Verify that we have data to process
+                token_folders = [f for f in os.listdir(ohlcv_datetime_folder) 
+                               if os.path.isdir(os.path.join(ohlcv_datetime_folder, f))]
+                
+                if not token_folders:
+                    raise FileNotFoundError(f"No token data found in: {ohlcv_datetime_folder}")
+                
+                logging.info(f"Found {len(token_folders)} token folders to process")
+                
+                # Import OHLCV data
+                imported_ohlcv_data = Master_Functions.import_ohlcv_data(ohlcv_datetime_folder)
+                
+                if not imported_ohlcv_data:
+                    raise ValueError("No OHLCV data was imported")
+                    
+                logging.info(f"Successfully imported OHLCV data for {len(imported_ohlcv_data)} tokens")
+                break  # Success - exit retry loop
+                
+            except (FileNotFoundError, ValueError) as e:
+                if attempt < max_retries - 1:
+                    logging.warning(f"Attempt {attempt + 1}/{max_retries} failed: {str(e)}")
+                    logging.info(f"Waiting {retry_delay} seconds before retry...")
+                    await asyncio.sleep(retry_delay)
+                else:
+                    logging.error(f"Failed to import OHLCV data after {max_retries} attempts: {str(e)}")
+                    return  # Exit the analysis cycle
+        
+        # Continue with the rest of the analysis cycle
         # Step 3: Initialize analysis parameters
         qualifying_tokens = []
         fib_levels = [0.236, 0.382, 0.5, 0.618, 0.786, 0.886]
@@ -390,7 +468,8 @@ async def run_analysis_cycle():
         logging.info("Analysis cycle completed")
         
     except Exception as e:
-        logging.error(f"Error in analysis cycle: {str(e)}", exc_info=True)
+        logging.error(f"Error in analysis cycle: {str(e)}")
+        traceback.print_exc()  # Add stack trace for debugging
 
 async def main():
     try:

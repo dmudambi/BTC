@@ -25,7 +25,7 @@ RATE_LIMIT_DELAY = 0.25    # Delay between API calls to prevent rate limiting (s
 MAX_RETRIES = 3           # Maximum number of API call retry attempts
 
 # Token Monitoring
-NUM_RECENT_TOKENS = 50     # Number of most recent tokens to monitor
+NUM_RECENT_TOKENS = 100     # Number of most recent tokens to monitor
 
 # Timeframe Settings
 VALID_TIMEFRAMES = ['1m', '3m', '5m', '15m', '30m', '1H', '2H', '4H', '1D']
@@ -452,91 +452,76 @@ def create_token_plot(df: pd.DataFrame, timeframe: str, token_name: str, token_i
     try:
         if 'message_timestamp' in df.columns and not df['message_timestamp'].isna().all():
             df['timestamp'] = pd.to_datetime(df['timestamp'])
-            df['message_timestamp'] = pd.to_datetime(df['message_timestamp'])
+            message_timestamps = pd.to_datetime(df['message_timestamp'].unique())
             
-            for message_time in df['message_timestamp'].unique():
+            for message_time in message_timestamps:
                 df['time_diff'] = abs(df['timestamp'] - message_time)
                 notification_idx = df['time_diff'].idxmin()
                 notification_price = df.loc[notification_idx, 'high']
                 notification_time = df.loc[notification_idx, 'timestamp']
                 
+                # Get data after notification
+                future_data = df[df['timestamp'] >= notification_time]
+                
                 # Check for 2x increase
-                max_price_after_notification = df[df['timestamp'] >= notification_time]['high'].max()
-                color = NOTIFICATION_COLORS['2x'] if max_price_after_notification >= 2 * notification_price else NOTIFICATION_COLORS['no_2x']
-                
-                # Add notification marker
-                fig.add_trace(
-                    go.Scatter(
-                        x=[notification_time],
-                        y=[notification_price],
-                        mode='markers',
-                        marker=dict(
-                            symbol='triangle-down',
-                            size=12,
-                            color=color,
-                            line=dict(
+                if not future_data.empty:
+                    max_price_after = future_data['high'].max()
+                    achieved_2x = max_price_after >= 2 * notification_price
+                    
+                    color = NOTIFICATION_COLORS['2x'] if achieved_2x else NOTIFICATION_COLORS['no_2x']
+                    
+                    # Add notification marker
+                    fig.add_trace(
+                        go.Scatter(
+                            x=[notification_time],
+                            y=[notification_price],
+                            mode='markers',
+                            marker=dict(
+                                symbol='triangle-down',
+                                size=12,
                                 color=color,
-                                width=1
-                            )
+                                line=dict(
+                                    color=color,
+                                    width=1
+                                )
+                            ),
+                            name=f'Notified ({message_time.strftime("%H:%M:%S")})',
+                            showlegend=True
                         ),
-                        name='Notified',
-                        showlegend=True
-                    ),
-                    row=1, col=1
-                )
-                
-                # Add multiple lines with labels
-                multiples = [2, 5, 10]
-                for multiple in multiples:
-                    multiple_price = notification_price * multiple
-                    if df[df['timestamp'] >= notification_time]['high'].max() >= multiple_price:
-                        cross_idx = df[(df['timestamp'] >= notification_time) & (df['open'] <= multiple_price) & (df['close'] >= multiple_price)].index
-                        if not cross_idx.empty:
-                            cross_time = df.loc[cross_idx[0], 'timestamp']
-                            fig.add_trace(
-                                go.Scatter(
-                                    x=df['timestamp'],
-                                    y=[multiple_price] * len(df),
-                                    mode='lines',
-                                    line=dict(
-                                        color='rgba(255, 165, 0, 0.5)',  # Orange with 0.5 opacity
-                                        dash='dash',
-                                        width=1
+                        row=1, col=1
+                    )
+                    
+                    # Add price multiple lines
+                    multiples = [2, 5, 10]
+                    for multiple in multiples:
+                        multiple_price = notification_price * multiple
+                        if max_price_after >= multiple_price:
+                            # Find first crossing of multiple
+                            cross_mask = (future_data['high'] >= multiple_price) & (future_data['low'] <= multiple_price)
+                            cross_times = future_data[cross_mask].index
+                            
+                            if len(cross_times) > 0:
+                                cross_time = df.loc[cross_times[0], 'timestamp']
+                                
+                                # Add horizontal line
+                                fig.add_trace(
+                                    go.Scatter(
+                                        x=[notification_time, cross_time],
+                                        y=[multiple_price, multiple_price],
+                                        mode='lines',
+                                        line=dict(
+                                            color='rgba(255, 165, 0, 0.5)',
+                                            dash='dash',
+                                            width=1
+                                        ),
+                                        name=f'{multiple}x from {message_time.strftime("%H:%M:%S")}',
+                                        showlegend=True
                                     ),
-                                    hoverinfo='y',
-                                    showlegend=False
-                                ),
-                                row=1, col=1
-                            )
-                            fig.add_trace(
-                                go.Scatter(
-                                    x=[cross_time],
-                                    y=[multiple_price],
-                                    mode='markers',
-                                    marker=dict(
-                                        symbol='circle',
-                                        size=6,
-                                        color='rgba(255, 165, 0, 0.8)',
-                                        line=dict(width=1, color='rgba(255, 165, 0, 1)')
-                                    ),
-                                    showlegend=False
-                                ),
-                                row=1, col=1
-                            )
-                            # Add annotation for the multiple line
-                            fig.add_annotation(
-                                x=cross_time,
-                                y=multiple_price,
-                                text=f"{multiple}x",
-                                showarrow=True,
-                                arrowhead=1,
-                                ax=0,
-                                ay=-40,
-                                font=dict(color='rgba(255, 165, 0, 0.8)'),
-                                row=1, col=1
-                            )
+                                    row=1, col=1
+                                )
                 
-                df.drop('time_diff', axis=1, inplace=True)
+            df.drop('time_diff', axis=1, inplace=True)
+                            
     except Exception as e:
         print(f"Error adding notification markers: {str(e)}")
 
@@ -825,17 +810,82 @@ def save_saved_plots(saved_plots: Set[str]) -> None:
     with open(SAVED_PLOTS_FILE, 'wb') as f:
         pickle.dump(saved_plots, f)
 
+def analyze_price_multiples(df: pd.DataFrame, token_data: pd.DataFrame, message_time: datetime, token_info: dict) -> dict:
+    """
+    Analyze if a token achieves 5x price increase and gather metrics.
+    """
+    try:
+        # Find notification price
+        df['timestamp'] = pd.to_datetime(df['timestamp'])
+        message_time = pd.to_datetime(message_time)
+        
+        # Get the closest timestamp index
+        notification_idx = (df['timestamp'] - message_time).abs().idxmin()
+        if notification_idx is None:
+            return None
+            
+        notification_price = df.loc[notification_idx, 'high']
+        
+        # Get future data
+        future_data = df[df['timestamp'] >= df.loc[notification_idx, 'timestamp']].copy()
+        
+        if future_data.empty:
+            return None
+            
+        # Calculate metrics
+        max_price = future_data['high'].max()
+        price_multiple = max_price / notification_price
+        
+        if price_multiple >= 5:
+            # Calculate time to 5x
+            price_5x = notification_price * 5
+            cross_mask = (future_data['high'] >= price_5x)
+            
+            if cross_mask.any():
+                first_cross_idx = future_data[cross_mask].index[0]
+                cross_time = future_data.loc[first_cross_idx, 'timestamp']
+                time_to_5x = (cross_time - df.loc[notification_idx, 'timestamp']).total_seconds() / 60  # in minutes
+                
+                # Calculate volume metrics
+                pre_idx = max(0, notification_idx-1)
+                vol_5m_pre = df.loc[pre_idx:notification_idx, 'volume'].sum()
+                vol_5m_post = df.loc[notification_idx:notification_idx+1, 'volume'].sum()
+                vol_ratio = vol_5m_post / vol_5m_pre if vol_5m_pre > 0 else np.nan
+                
+                return {
+                    'token': token_info.get('token', 'Unknown'),
+                    'name': token_info.get('name', 'Unknown'),
+                    'notification_time': message_time,
+                    'initial_price': notification_price,
+                    'max_multiple': price_multiple,
+                    'time_to_5x_mins': time_to_5x,
+                    'volume_5m_pre': vol_5m_pre,
+                    'volume_5m_post': vol_5m_post,
+                    'volume_ratio': vol_ratio,
+                    'market_cap': token_info.get('mcp', 'N/A'),
+                    'liquidity_sol': token_info.get('liquidity_sol', 0),
+                    'holders': token_info.get('holders', 0),
+                    'fdv_surge_amount': token_info.get('fdv_surge_amount', 'N/A'),
+                    'fdv_surge_percent': token_info.get('fdv_surge_percent', 'N/A')
+                }
+    except Exception as e:
+        print(f"Error analyzing price multiples for {token_info.get('name', 'Unknown')}: {str(e)}")
+        return None
+
 def plot_ATH_data(
     token_data: Dict[str, Dict[str, pd.DataFrame]],
     initial_timeframe: str = '15m',
     volume_threshold: float = 4,
     volume_ma_period: int = 4,
 ) -> None:
-    """Plot token data with ATH analysis."""
+    """Plot token data with ATH analysis and save 5x analysis results."""
     
     saved_plots = load_saved_plots()
     newly_saved_plots = set()
     telegram_data = import_telegram_data()
+    
+    # Initialize list to store 5x analysis results
+    five_x_results = []
     
     for folder, timeframe_data in token_data.items():
         print(f"\nProcessing {folder} - {initial_timeframe}")
@@ -850,7 +900,11 @@ def plot_ATH_data(
                     'mcp': row['mcp'],
                     '5m_transactions': row['5m_transactions'],
                     '5m_volume': row['5m_volume'],
-                    'message_timestamp': row['message_timestamp']
+                    'message_timestamp': row['message_timestamp'],
+                    'liquidity_sol': row.get('liquidity_sol', 0),
+                    'holders': row.get('holders', 0),
+                    'fdv_surge_amount': row.get('fdv_surge_amount', 'N/A'),
+                    'fdv_surge_percent': row.get('fdv_surge_percent', 'N/A')
                 }
         
         for timeframe in sorted(timeframe_data.keys()):
@@ -871,6 +925,15 @@ def plot_ATH_data(
                         
                         token_name = current_token_info['name']
                         row_index = current_token_info['row_index']
+                        message_time = pd.to_datetime(current_token_info.get('message_timestamp'))
+                        
+                        token_df = df[df['token'] == token].copy()
+                        
+                        # Analyze for 5x price multiple
+                        if message_time is not None:
+                            five_x_result = analyze_price_multiples(token_df, df, message_time, current_token_info)
+                            if five_x_result:
+                                five_x_results.append(five_x_result)
                         
                         plot_path = create_folder_structure(
                             token_name=token_name,
@@ -883,8 +946,6 @@ def plot_ATH_data(
                         plot_key = f"{token}_{timeframe}"
                         if plot_key in saved_plots:
                             continue
-                        
-                        token_df = df[df['token'] == token].copy()
                         
                         # Check for 2x increase
                         notification_price = token_df['high'].iloc[0]
@@ -916,6 +977,30 @@ def plot_ATH_data(
             except Exception as e:
                 logging.error(f"Error processing timeframe {timeframe}: {str(e)}")
                 continue
+    
+    # Save 5x analysis results to CSV
+    if five_x_results:
+        results_df = pd.DataFrame(five_x_results)
+        results_df.to_csv('price_multiple_analysis.csv', index=False)
+        
+        # Calculate and save success metrics
+        metrics = {
+            'total_tokens': len(results_df),
+            'avg_time_to_5x': results_df['time_to_5x_mins'].mean(),
+            'median_time_to_5x': results_df['time_to_5x_mins'].median(),
+            'avg_volume_ratio': results_df['volume_ratio'].mean(),
+            'median_volume_ratio': results_df['volume_ratio'].median(),
+            'avg_liquidity': results_df['liquidity_sol'].mean(),
+            'median_liquidity': results_df['liquidity_sol'].median(),
+            'avg_holders': results_df['holders'].mean(),
+            'median_holders': results_df['holders'].median()
+        }
+        
+        metrics_df = pd.DataFrame([metrics])
+        metrics_df.to_csv('success_metrics.csv', index=False)
+        
+        print("\nSuccess Metrics for 5x Tokens:")
+        print(metrics_df)
     
     saved_plots.update(newly_saved_plots)
     save_saved_plots(saved_plots)

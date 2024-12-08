@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 MESSAGE_LIMITS = {
     # "ATH_Price": 5000
     # "PUMP_FDV_Surge": 5000
-    "Solana_FDV_Surge": 500000
+    "Solana_FDV_Surge": 1000000
 }
 
 class TopicConfig:
@@ -50,11 +50,11 @@ class TopicConfig:
             "Solana_FDV_Surge": {
                 "id": 1152525,  # Solana FDV Surge
                 "min_market_cap": 150000,       # $150K
-                "min_liquidity": 100,            # 100 SOL
+                "min_liquidity": 10,            # 10 SOL
                 "min_5m_change": 10,           # 10%
                 "min_5m_volume": 20000,         # $20K
                 "min_holders": 200,             # 200 holders
-                "max_top10_holders": 4,       # 4%
+                "max_top10_holders": 40,       # 4%
                 "max_dev_holdings": 3,        # 3%
                 "interval": 900,                 # 30 seconds
                 "data_path": "data/Solana_FDV_Surge/"

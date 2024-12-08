@@ -6,4 +6,6 @@ key = '5pk9PY3vbisrdVZpWg5XpYG37YqVAk2fCyz7aYsuvqWaGXso7WCxSwk65dZ6R1tgZZ4W9cjjW
 
 sol_wallet = '3juABNT61D4tFxZ5xod8rwjb2SSWtSe5PSpx4qY1AMHs'
 
+chain = "solana"
+
 #####################################################

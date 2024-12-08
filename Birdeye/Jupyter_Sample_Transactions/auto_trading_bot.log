@@ -1,20 +1,3 @@
-2024-12-02 10:55:27,764:INFO:Starting Automated Trading Bot...
-2024-12-02 10:55:28,474:INFO:Placing Buy Order: Swapping 0.004471251 SOL ($1) to Token
-2024-12-02 10:55:29,781:INFO:Transaction submitted with TxID: 61ZvCVpPQebVSWY5ekewDkTo7yivsuSRh1wGBoUtYJcABnYXVgRKzeBqdDVjqKcg6QWtEaPNLQTRDMnoFcWRLdfB
-2024-12-02 10:55:35,213:INFO:Transaction 61ZvCVpPQebVSWY5ekewDkTo7yivsuSRh1wGBoUtYJcABnYXVgRKzeBqdDVjqKcg6QWtEaPNLQTRDMnoFcWRLdfB confirmed with status: confirmed
-2024-12-02 10:55:35,213:INFO:Transaction successful! TxID: 61ZvCVpPQebVSWY5ekewDkTo7yivsuSRh1wGBoUtYJcABnYXVgRKzeBqdDVjqKcg6QWtEaPNLQTRDMnoFcWRLdfB
-2024-12-02 10:55:51,044:INFO:Placing Sell Order: Swapping 982758 Token to SOL
-2024-12-02 10:55:52,123:INFO:Transaction submitted with TxID: 4DW7ihv5uXEuXF9zFTGokoJs6xorPvdJ3RcsGSyqo6j1EX2x4BKjPYuy1ezh8f3PiMhyoBwn5gZMthRkYhP1hmFo
-2024-12-02 10:55:55,101:INFO:Transaction 4DW7ihv5uXEuXF9zFTGokoJs6xorPvdJ3RcsGSyqo6j1EX2x4BKjPYuy1ezh8f3PiMhyoBwn5gZMthRkYhP1hmFo confirmed with status: confirmed
-2024-12-02 10:55:55,102:INFO:Transaction successful! TxID: 4DW7ihv5uXEuXF9zFTGokoJs6xorPvdJ3RcsGSyqo6j1EX2x4BKjPYuy1ezh8f3PiMhyoBwn5gZMthRkYhP1hmFo
-2024-12-02 10:55:55,102:INFO:Automated Trading Bot Finished.
-2024-12-02 10:56:31,161:INFO:Starting Automated Trading Bot...
-2024-12-02 10:56:31,488:INFO:Placing Buy Order: Swapping 0.004478552 SOL ($1) to Token
-2024-12-02 10:56:32,742:INFO:Transaction submitted with TxID: 3tLWf8p3PHV4Gyj6oowe2VTpLhGtKsJ4zLM35jL9KAu9FMEuCaChQFmBMo5z4z6P5Vpe5TvFFBZpRMaKG5gtTid4
-2024-12-02 10:56:35,633:INFO:Transaction 3tLWf8p3PHV4Gyj6oowe2VTpLhGtKsJ4zLM35jL9KAu9FMEuCaChQFmBMo5z4z6P5Vpe5TvFFBZpRMaKG5gtTid4 confirmed with status: confirmed
-2024-12-02 10:56:35,633:INFO:Transaction successful! TxID: 3tLWf8p3PHV4Gyj6oowe2VTpLhGtKsJ4zLM35jL9KAu9FMEuCaChQFmBMo5z4z6P5Vpe5TvFFBZpRMaKG5gtTid4
-2024-12-02 10:56:51,468:INFO:Placing Sell Order: Swapping 330939 Token to SOL
-2024-12-02 10:56:52,638:INFO:Transaction submitted with TxID: 4pdBFK2ayWUHLoVij7YSVdvmEEGfP4yxd48p5JQAEPQVBNdM3hYtsduHqVFTWemNq1FxnuCQ7LR8Mqf5JkCF5mYp
-2024-12-02 10:56:55,473:INFO:Transaction 4pdBFK2ayWUHLoVij7YSVdvmEEGfP4yxd48p5JQAEPQVBNdM3hYtsduHqVFTWemNq1FxnuCQ7LR8Mqf5JkCF5mYp confirmed with status: confirmed
-2024-12-02 10:56:55,473:INFO:Transaction successful! TxID: 4pdBFK2ayWUHLoVij7YSVdvmEEGfP4yxd48p5JQAEPQVBNdM3hYtsduHqVFTWemNq1FxnuCQ7LR8Mqf5JkCF5mYp
-2024-12-02 10:56:55,473:INFO:Automated Trading Bot Finished.
+2024-12-08 08:31:49,152:INFO:Starting Automated Trading Bot...
+2024-12-08 08:38:29,921:ERROR:Failed to get initial price from WebSocket. Exiting.
+2024-12-08 08:38:29,921:INFO:Automated Trading Bot Finished.

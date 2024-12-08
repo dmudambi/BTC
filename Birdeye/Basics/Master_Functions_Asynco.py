@@ -29,7 +29,7 @@ root_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..'))
 sys.path.append(root_dir)
 import Birdeye.Basics.dontshare as d
 
-RATE_LIMIT_DELAY = 0.08  # 80ms delay
+RATE_LIMIT_DELAY = 0.065  # 80ms delay
 
 
 #### API Keys and Wallets ####
@@ -41,14 +41,14 @@ multichain = "solana,ethereum,bsc"
 
 #### PRE-COLLECTION FILTERS ####
 days_back = 0 # 0 for last 24 hours, 1 for 24-48 hours ago, 2 for 48-72 hours ago (max 2)
-hours_back = 18  # 0-23 hours back within the selected day
+hours_back = 1  # 0-23 hours back within the selected day
 minutes_back = 0  # 0-59 minutes back within the selected hour
 new_token_liquidity_filter = 4000 # Minimum liquidity in USD for new tokens
 
 #### POST-COLLECTION FILTERS ####
 new_token_min_liquidity = 4000  # Minimum liquidity in USD for new tokens
 new_token_max_liquidity = 400000  # Maximum liquidity in USD for new tokens
-new_token_min_market_cap = 200000  # Minimum market cap in USD for new tokens
+new_token_min_market_cap = 50000  # Minimum market cap in USD for new tokens
 new_token_max_market_cap = 3000000  # Maximum market cap in USD for new tokens
 
 #### OHLCV DATA #### 
@@ -355,7 +355,7 @@ def get_token_list(sort_by, sort_type, min_liquidity, min_volume_24h, min_market
             break
 
         # Respect rate limits
-        time.sleep(0.08)
+        time.sleep(RATE_LIMIT_DELAY)
 
     # Trim the list to the desired number of tokens
     all_tokens = all_tokens[:total_tokens]
@@ -496,7 +496,7 @@ def get_token_security_data_multi(tokens, API_Key):
             }
 
         # Respect rate limits by adding a small delay between requests
-        time.sleep(0.08)
+        time.sleep(RATE_LIMIT_DELAY)
 
     return results
 
@@ -574,7 +574,7 @@ def get_token_overview_data_multi(tokens, API_Key):
             results[address] = pd.DataFrame({'Error': [f"Request failed with status code: {response.status_code}"]})
 
         # Respect rate limits by adding a small delay between requests
-        time.sleep(0.08)
+        time.sleep(RATE_LIMIT_DELAY)
 
     return results
 
@@ -622,7 +622,7 @@ def get_token_trade_data_multi(tokens, API_Key):
             results[address] = pd.DataFrame({'Attribute': ['Error'], 'Value': [f"Request failed with status code: {response.status_code}"]})
 
         # Respect rate limits by adding a small delay between requests
-        time.sleep(0.08)
+        time.sleep(RATE_LIMIT_DELAY)
 
     return results
 
@@ -673,7 +673,7 @@ def get_trending_tokens(total_tokens, API_Key, chain):
             break
 
         # Respect rate limits
-        time.sleep(0.08)
+        time.sleep(RATE_LIMIT_DELAY)
 
     all_tokens = all_tokens[:total_tokens]
 
@@ -703,37 +703,45 @@ def get_trending_tokens(total_tokens, API_Key, chain):
 
 def get_new_listings(days_back, hours_back, minutes_back, API_Key, liquidity_filter):
     """
-    Fetch new token listings data.
+    Fetch new token listings data using the updated API endpoint.
 
     Args:
-    days_back (int): Number of days to look back (1, 2, or 3).
-    hours_back (int): Number of hours to look back within the selected day.
-    minutes_back (int): Number of minutes to look back within the selected hour.
-    API_Key (str): Your Birdeye API key.
-    liquidity_filter (float): Minimum liquidity for filtered results.
+        days_back (int): Number of days to look back (0, 1, or 2).
+        hours_back (int): Number of hours to look back within the selected day.
+        minutes_back (int): Number of minutes to look back within the selected hour.
+        API_Key (str): Your Birdeye API key.
+        liquidity_filter (float): Minimum liquidity for filtered results.
 
     Returns:
-    tuple: A tuple containing two DataFrames (full_df, filtered_df) with new listings data.
+        tuple: A tuple containing two DataFrames (full_df, filtered_df) with new listings data.
     """
     def iso8601_to_timestamp(iso_string):
         return int(datetime.fromisoformat(iso_string.replace('Z', '+00:00')).timestamp())
 
     end_time = datetime.now(pytz.UTC)
     
-    if days_back == 1:
+    if days_back == 0:
         start_time = end_time - timedelta(hours=hours_back, minutes=minutes_back)
-    elif days_back == 2:
+    elif days_back == 1:
         start_time = end_time - timedelta(days=1, hours=hours_back, minutes=minutes_back)
-    elif days_back == 3:
+    elif days_back == 2:
         start_time = end_time - timedelta(days=2, hours=hours_back, minutes=minutes_back)
     else:
-        raise ValueError("days_back must be 1, 2, or 3")
+        raise ValueError("days_back must be 0, 1, or 2")
     
     all_tokens = []
-    current_time = int(end_time.timestamp())
+    last_token_time = int(end_time.timestamp())
+    page_size = 10
+    total_api_requests = 0
+    no_new_tokens_count = 0
     
-    while current_time > int(start_time.timestamp()):
-        url = f"https://public-api.birdeye.so/defi/v2/tokens/new_listing?time_to={current_time}&limit=10"
+    print("Fetching token data...")
+    print(f"Fetching tokens from {start_time.strftime('%Y-%m-%d %H:%M:%S.%f%z')} to {end_time.strftime('%Y-%m-%d %H:%M:%S.%f%z')}")
+    print(f"Start timestamp: {int(start_time.timestamp())}")
+    print(f"End timestamp: {last_token_time}")
+    
+    while last_token_time > int(start_time.timestamp()):
+        url = f"https://public-api.birdeye.so/defi/v2/tokens/new_listing?time_to={last_token_time}&limit={page_size}&meme_platform_enabled=true"
 
         headers = {
             "accept": "application/json",
@@ -741,15 +749,27 @@ def get_new_listings(days_back, hours_back, minutes_back, API_Key, liquidity_fil
         }
 
         response = requests.get(url, headers=headers)
+        total_api_requests += 1
 
         if response.status_code == 200:
             data = response.json()
             if 'data' in data and 'items' in data['data']:
                 new_tokens = data['data']['items']
                 if not new_tokens:
-                    break
-                all_tokens.extend(new_tokens)
-                current_time = min(iso8601_to_timestamp(token['liquidityAddedAt']) for token in new_tokens)
+                    no_new_tokens_count += 1
+                    if no_new_tokens_count >= 30:
+                        print("No new tokens found in last 30 batches, stopping search")
+                        break
+                else:
+                    no_new_tokens_count = 0  # Reset count if new tokens are found
+                    all_tokens.extend(new_tokens)
+                    
+                    # Get the time of the current batch
+                    current_batch_time = datetime.fromtimestamp(last_token_time, tz=pytz.UTC).strftime('%Y-%m-%d %H:%M:%S%z')
+                    print(f"Fetched {len(new_tokens)} tokens (Current batch time: {current_batch_time})", end="")
+                    
+                    # Update last_token_time to the earliest liquidityAddedAt in the current batch
+                    last_token_time = min(iso8601_to_timestamp(token['liquidityAddedAt']) for token in new_tokens)
             else:
                 print(f"Unexpected response structure")
                 print("Response:", response.text)
@@ -760,10 +780,13 @@ def get_new_listings(days_back, hours_back, minutes_back, API_Key, liquidity_fil
             break
 
         # Respect rate limits
-        time.sleep(0.08)
+        time.sleep(RATE_LIMIT_DELAY)
 
     # Remove duplicates based on 'address'
     unique_tokens = list({token['address']: token for token in all_tokens}.values())
+    
+    print(f"\nTotal API requests made: {total_api_requests}")
+    print(f"Total tokens fetched: {len(unique_tokens)}")
     
     if unique_tokens:
         # Create full DataFrame
@@ -782,9 +805,17 @@ def get_new_listings(days_back, hours_back, minutes_back, API_Key, liquidity_fil
             (df_full['liquidity'].astype(float) >= liquidity_filter)
         ]
         
+        # Print time range of fetched tokens
+        earliest_token_time = df_full['liquidityAddedAt'].min().strftime('%Y-%m-%d %H:%M:%S')
+        latest_token_time = df_full['liquidityAddedAt'].max().strftime('%Y-%m-%d %H:%M:%S')
+        print(f"\nTime range of fetched tokens:")
+        print(f"Earliest: {earliest_token_time}")
+        print(f"Latest: {latest_token_time}")
+        
         return df_full, df_filtered
     else:
         return pd.DataFrame(), pd.DataFrame()
+
 
 # Top Traders
 
@@ -831,7 +862,7 @@ def get_top_traders(address, time_frame, sort_type, sort_by, total_traders, API_
             break
 
         # Respect rate limits
-        time.sleep(0.08)
+        time.sleep(RATE_LIMIT_DELAY)
 
     return pd.DataFrame(all_traders[:total_traders])
 
@@ -880,7 +911,7 @@ def get_markets(address, time_frame, sort_type, sort_by, total_markets, API_Key)
             break
 
         # Respect rate limits
-        time.sleep(0.08)
+        time.sleep(RATE_LIMIT_DELAY)
 
     if all_markets:
         df = pd.DataFrame(all_markets[:total_markets])

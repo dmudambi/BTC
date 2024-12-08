@@ -11,6 +11,12 @@ from solana.rpc.api import Client
 from solana.rpc.types import TxOpts
 import dontshare as d
 from functools import lru_cache
+import asyncio
+import subprocess
+import threading
+from dexscreener_pricefeed import get_token_price, get_token_name  # Importing the token name
+from jupiter_pricefeed import get_jupiter_price  # Importing Jupiter price feed function
+import os
 
 # Configure logging
 logging.basicConfig(
@@ -24,6 +30,7 @@ SLIPPAGE = 100  # Slippage in basis points (1%)
 MAX_RETRIES = 5  # Maximum number of retries for requests
 INITIAL_RETRY_DELAY = 5  # Initial delay between retries in seconds
 CSV_FILE = 'trade_log.csv'
+PRICE_CHANGE_THRESHOLD = 3.0  # Price change percentage to trigger buy/sell
 
 # Initialize Solana RPC client
 RPC_URL = "https://methodical-sleek-smoke.solana-mainnet.quiknode.pro/ce998890a7f93d71ff7c2f1979abf0510bf40d80"
@@ -35,7 +42,9 @@ USER_PUBLIC_KEY = str(KEY.pubkey())
 
 # Token configuration
 QUOTE_TOKEN = 'So11111111111111111111111111111111111111112'  # SOL
-OUTPUT_TOKEN = 'EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm'  # Replace with your target token address
+OUTPUT_TOKEN = '3CjKuqo9gsstztuUSDybSfnycxoYZUru4LxpCiHxpump'  # Target token address
+OUTPUT_TOKEN_NAME = get_token_name(OUTPUT_TOKEN)
+PAIR_ADDRESS = "FmKAfMMnxRMaqG1c4emgA4AhaThi4LQ4m2A12hwoTibb"
 
 def get_decimals(token_mint_address):
     """
@@ -261,7 +270,11 @@ def place_buy_order(usd_amount):
     sol_amount = usd_amount / sol_price  # USD / (USD/SOL) = SOL
     lamports = int(sol_amount * 1_000_000_000)  # Convert SOL to lamports
 
-    logging.info(f"Placing Buy Order: Swapping {sol_amount:.9f} SOL (${usd_amount}) to Token")
+    logging.info(f"Placing Buy Order:")
+    logging.info(f"Token Name: {OUTPUT_TOKEN_NAME}")
+    logging.info(f"Token Address: {OUTPUT_TOKEN}")
+    logging.info(f"Price Source: DexScreener API")
+    logging.info(f"Swapping {sol_amount:.9f} SOL (${usd_amount}) to {OUTPUT_TOKEN_NAME}")
 
     quote = get_quote(QUOTE_TOKEN, OUTPUT_TOKEN, lamports)
     if not quote:
@@ -301,7 +314,11 @@ def place_sell_order():
         logging.error("No tokens available to sell. Aborting sell order.")
         return
 
-    logging.info(f"Placing Sell Order: Swapping {token_amount} Token to SOL")
+    logging.info(f"Placing Sell Order:")
+    logging.info(f"Token Name: {OUTPUT_TOKEN_NAME}")
+    logging.info(f"Token Address: {OUTPUT_TOKEN}")
+    logging.info(f"Price Source: DexScreener API")
+    logging.info(f"Swapping {token_amount} {OUTPUT_TOKEN_NAME} to SOL")
 
     quote = get_quote(OUTPUT_TOKEN, QUOTE_TOKEN, token_amount)
     if not quote:
@@ -337,14 +354,110 @@ def initialize_csv():
     except FileExistsError:
         pass  # File already exists
 
+def get_token_price_birdeye(token_address):
+    """
+    Retrieves the current USD price for a given token mint address using Birdeye's Price API.
+    """
+    API_KEY = d.birdeye
+    url = f"https://public-api.birdeye.so/defi/price?address={token_address}"
+    headers = {"X-API-KEY": API_KEY}
+    
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        price_data = response.json()
+        
+        if price_data.get('success') and price_data.get('data'):
+            return float(price_data['data']['value'])
+    except Exception as e:
+        logging.error(f"Error fetching price from Birdeye: {e}")
+    return None
+
+def start_websocket_pricefeed():
+    """
+    Starts the Node.js WebSocket price feed script as a subprocess.
+    Passes API key and chain from dontshare.py as environment variables.
+    Appends the likely Node.js bin directory to the PATH.
+    """
+    command = ["node", "websocket_pricefeed.js"]
+    env = {
+        "BIRDEYE_API_KEY": d.birdeye,
+        "CHAIN": "solana",
+        "PATH": f"{os.environ['PATH']}:/home/ubuntu/miniconda3/bin"  # Append to existing PATH
+    }
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env=env)
+    return process
+
+def read_price_from_websocket(process):
+    """
+    Reads price data from the WebSocket subprocess's standard output.
+    """
+    process.stdout.timeout = 0.1  # Set a timeout of 0.1 seconds for readline()
+    while True:
+        try:
+            line = process.stdout.readline()
+            print("Read line from WebSocket:", line)
+            if not line:
+                print("No more data from WebSocket.")
+                break
+            try:
+                price_data = json.loads(line)
+                print("Parsed price data:", price_data)
+                yield price_data
+            except json.JSONDecodeError:
+                logging.error(f"Error decoding JSON from WebSocket: {line}")
+        except subprocess.TimeoutExpired:
+            print("Timeout reading from WebSocket.")
+            continue
+
+async def monitor_price_and_trade():
+    """
+    Monitors the token price from the WebSocket feed and executes buy/sell orders.
+    """
+    websocket_process = start_websocket_pricefeed()
+    price_reader = read_price_from_websocket(websocket_process)
+
+    initial_price = None
+    for price_data in price_reader:
+        initial_price = price_data['price']
+        print("Initial price set:", initial_price)  # Check if initial price is set
+        break  # Get the first price as the initial price
+
+    if initial_price is None:
+        logging.error("Failed to get initial price from WebSocket. Exiting.")
+        return
+
+    logging.info(f"Monitoring Token: {OUTPUT_TOKEN_NAME}")
+    logging.info(f"Token Address: {OUTPUT_TOKEN}")
+    logging.info(f"Price Source: WebSocket")
+    logging.info(f"Initial Price: ${initial_price:.6f}")
+
+    usd_amount_to_buy = 1  # Set the USD amount you want to spend on buying the token
+    bought = False
+
+    for price_data in price_reader:
+        current_price = price_data['price']
+        logging.info(f"Current Price: ${current_price:.6f}")
+
+        price_change = ((current_price - initial_price) / initial_price) * 100
+        logging.info(f"Price change: {price_change:.2f}%")
+
+        if not bought and price_change >= PRICE_CHANGE_THRESHOLD:
+            logging.info("Price increased by threshold. Executing buy order.")
+            place_buy_order(usd_amount_to_buy)
+            bought = True
+            initial_price = current_price  # Reset initial price after buying
+        elif bought and price_change <= -PRICE_CHANGE_THRESHOLD:
+            logging.info("Price decreased by threshold. Executing sell order.")
+            place_sell_order()
+            bought = False
+            initial_price = current_price  # Reset initial price after selling
+
 if __name__ == "__main__":
     logging.info("Starting Automated Trading Bot...")
     initialize_csv()
     try:
-        usd_amount_to_buy = 1  # Set the USD amount you want to spend on buying the token
-        place_buy_order(usd_amount_to_buy)
-        time.sleep(15)  # Wait for 15 seconds before placing the sell order
-        place_sell_order()
+        asyncio.run(monitor_price_and_trade())
     except Exception as e:
         logging.error(f"An unexpected error occurred: {e}")
     logging.info("Automated Trading Bot Finished.")
