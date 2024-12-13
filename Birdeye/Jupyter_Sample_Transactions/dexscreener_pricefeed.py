@@ -159,7 +159,7 @@ if __name__ == "__main__":
         print(f"- {name}: {address}")
     
     # Get token address from user
-    token_address = "HGW9fbnC7RDNPAe5NJdyh9qvJ6EkYafMm5Bh8Hh9gu4d"
+    token_address = "HMdmbv35DvbH7VxWSwXaxE1NNyA34HHhs9Cu9ycZpump"
     
     try:
         monitor_token(token_address)

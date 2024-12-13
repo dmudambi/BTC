@@ -52,7 +52,7 @@ new_token_min_market_cap = 200000  # Minimum market cap in USD for new tokens
 new_token_max_market_cap = 3000000  # Maximum market cap in USD for new tokens
 
 #### OHLCV DATA #### 
-timeframes = ['15m', '1H'] 
+timeframes = ['15m'] 
 # ['1m', '3m', '5m', '15m', '30m', '1H', '2H', '4H', '6H', '8H', '12H', '1D']
 
 async def delay_for_rate_limit():

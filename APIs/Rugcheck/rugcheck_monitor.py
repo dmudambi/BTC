@@ -5,7 +5,7 @@ from typing import Optional, Dict, List
 import aiohttp
 import asyncio
 import time
-import backoff  
+import backoff
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -18,15 +18,6 @@ MAX_RISK_SCORE = 10000  # Less than or equal to
 RATE_LIMIT_CALLS = 10000  # Number of calls allowed
 RATE_LIMIT_PERIOD = 0.05  # Time period in seconds
 MIN_RETRY_DELAY = 0.05  # Minimum delay between retries in seconds
-
-# Modify the logging setup to filter rate limit messages
-class RateLimitFilter(logging.Filter):
-    def filter(self, record):
-        return "Rate limited" not in record.getMessage()
-
-# Add the filter to the logger
-logger = logging.getLogger(__name__)
-logger.addFilter(RateLimitFilter())
 
 @backoff.on_exception(
     backoff.expo,
@@ -46,18 +37,22 @@ def get_token_risk_report(mint_address: str) -> Optional[Dict]:
         
         if response.status_code == 429:  # Too Many Requests
             retry_after = int(response.headers.get('Retry-After', 1))
+            logger.info(f"Rate limited for {mint_address}, retrying in {retry_after} seconds")
             time.sleep(retry_after)
             return get_token_risk_report(mint_address)  # Retry after waiting
             
         if response.status_code == 404:
-            print(f"Token not found: {mint_address}")
+            logger.info(f"Token not found: {mint_address}")
             return None
             
         response.raise_for_status()
-        return response.json()
+        data = response.json()
+        score = data.get('score', 'N/A')
+        logger.info(f"Token: {mint_address}, Score: {score}")
+        return data
         
     except Exception as e:
-        print(f"Error fetching data for {mint_address}: {e}")
+        logger.info(f"Error fetching data for {mint_address}: {e}")
         return None
 
 @backoff.on_exception(
@@ -80,20 +75,26 @@ async def get_token_risk_report_async(mint_address: str, session: Optional[aioht
             async with session.get(url) as response:
                 if response.status == 429:  # Rate limit
                     retry_after = int(response.headers.get('Retry-After', MIN_RETRY_DELAY))
+                    logger.info(f"Rate limited for {mint_address}, retrying in {retry_after} seconds")
                     await asyncio.sleep(retry_after)
                     # Retry the request after waiting
                     async with session.get(url) as retry_response:
                         if retry_response.status == 200:
-                            return await retry_response.json()
+                            data = await retry_response.json()
+                            score = data.get('score', 'N/A')
+                            logger.info(f"Token: {mint_address}, Score: {score}")
+                            return data
                     
                 if response.status == 404:
-                    logger.warning(f"Token not found in rugcheck: {mint_address}")
+                    logger.info(f"Token not found in rugcheck: {mint_address}")
                     return None
                     
                 if response.status == 200:
                     data = await response.json()
                     if 'score' not in data:
-                        logger.warning(f"No score in rugcheck response for {mint_address}")
+                        logger.info(f"No score in rugcheck response for {mint_address}")
+                    score = data.get('score', 'N/A')
+                    logger.info(f"Token: {mint_address}, Score: {score}")
                     return data
                     
                 response.raise_for_status()
@@ -103,41 +104,93 @@ async def get_token_risk_report_async(mint_address: str, session: Optional[aioht
                 await session.close()
                 
     except Exception as e:
-        logger.error(f"Error fetching rugcheck data for {mint_address}: {e}")
+        logger.info(f"Error fetching rugcheck data for {mint_address}: {e}")
         return None
 
-async def check_multiple_tokens_async(token_addresses: List[str], batch_size: int = 5) -> Dict[str, Dict]:
-    """Check multiple tokens concurrently with rate limiting and batch processing"""
+async def check_multiple_tokens_async(token_addresses: List[str], batch_size: int = 2, max_retries: int = 5) -> Dict[str, Dict]:
+    """Check multiple tokens concurrently with robust retry mechanism"""
     results = {}
-    timeout = aiohttp.ClientTimeout(total=30)
+    timeout = aiohttp.ClientTimeout(total=60)  # Increased timeout
+    
+    async def fetch_with_retry(address: str, session: aiohttp.ClientSession, attempt: int = 1) -> Dict:
+        try:
+            if attempt > 1:
+                # Longer exponential backoff: 5s, 10s, 20s, 40s, 80s between retries
+                await asyncio.sleep(5 * (2 ** (attempt - 1)))
+            result = await get_token_risk_report_async(address, session=session)
+            if result and 'score' in result:
+                # Remove duplicate logging - only log once here
+                logger.info(f"Token: {address}, Score: {result['score']}")
+                return result
+            raise Exception("Invalid response format")
+        except Exception as e:
+            if attempt < max_retries:
+                logger.info(f"Retry {attempt}/{max_retries} for {address}")
+                return await fetch_with_retry(address, session, attempt + 1)
+            # On final failure, make one last attempt with maximum delay
+            await asyncio.sleep(90)  # 90 second cooldown
+            try:
+                result = await get_token_risk_report_async(address, session=session)
+                if result and 'score' in result:
+                    # Remove duplicate logging - only log once here
+                    logger.info(f"Token: {address}, Score: {result['score']}")
+                    return result
+            except Exception as final_e:
+                logger.warning(f"Final attempt failed for {address}: {str(final_e)}")
+            return None
     
     try:
         async with aiohttp.ClientSession(timeout=timeout) as session:
+            # Process tokens in very small batches
             for i in range(0, len(token_addresses), batch_size):
-                try:
-                    batch = token_addresses[i:i + batch_size]
-                    tasks = []
-                    
-                    for address in batch:
-                        if tasks:  # If not the first request in batch
-                            await asyncio.sleep(0.1)
-                        tasks.append(get_token_risk_report_async(address, session=session))
-                    
-                    batch_results = await asyncio.gather(*tasks, return_exceptions=True)
-                    
-                    for address, result in zip(batch, batch_results):
-                        if isinstance(result, Exception):
-                            logger.error(f"Error checking {address}: {result}")
-                            results[address] = None
-                        else:
-                            results[address] = result
-                    
-                    await asyncio.sleep(0.5)  # Rate limiting between batches
-                except Exception as e:
-                    logger.error(f"Error processing batch starting at index {i}: {e}")
-                    continue
+                batch = token_addresses[i:i + batch_size]
+                tasks = []
+                
+                for address in batch:
+                    tasks.append(fetch_with_retry(address, session))
+                    await asyncio.sleep(1)  # 1s between requests within batch
+                
+                batch_results = await asyncio.gather(*tasks)
+                
+                for address, result in zip(batch, batch_results):
+                    if result and 'score' in result:
+                        results[address] = result
+                    else:
+                        # For failed tokens, try one final time sequentially
+                        await asyncio.sleep(30)  # 30s cooldown
+                        try:
+                            final_result = await get_token_risk_report_async(address, session=session)
+                            if final_result and 'score' in final_result:
+                                results[address] = final_result
+                                logger.info(f"Token: {address}, Score: {final_result['score']} (final attempt)")
+                            else:
+                                results[address] = {'score': 99999}  # Use high score instead of infinity
+                                logger.info(f"Token: {address}, Score: 99999 (failed all attempts)")
+                        except Exception:
+                            results[address] = {'score': 99999}
+                            logger.info(f"Token: {address}, Score: 99999 (failed all attempts)")
+                
+                # Longer delay between batches
+                await asyncio.sleep(3)  # 3s between batches
+    
     except Exception as e:
         logger.error(f"Critical error in check_multiple_tokens_async: {e}")
+    
+    # Verify coverage and add any missing tokens
+    missing_tokens = set(token_addresses) - set(results.keys())
+    if missing_tokens:
+        logger.warning(f"Missing rugcheck scores for {len(missing_tokens)} tokens")
+        for address in missing_tokens:
+            results[address] = {'score': 99999}
+            logger.info(f"Token: {address}, Score: 99999 (missing)")
+    
+    # Log summary
+    total_tokens = len(token_addresses)
+    successful_checks = sum(1 for r in results.values() if r.get('score', 99999) != 99999)
+    logger.info(f"\nRugcheck Summary:")
+    logger.info(f"Total tokens checked: {total_tokens}")
+    logger.info(f"Successful checks: {successful_checks} ({(successful_checks/total_tokens)*100:.1f}%)")
+    logger.info(f"Failed checks: {total_tokens - successful_checks} ({((total_tokens-successful_checks)/total_tokens)*100:.1f}%)")
     
     return results
 

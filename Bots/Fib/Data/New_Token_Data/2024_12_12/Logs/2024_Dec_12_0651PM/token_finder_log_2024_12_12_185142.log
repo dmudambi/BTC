@@ -1,0 +1,2231 @@
+Logging to file: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/Logs/2024_Dec_12_0651PM/token_finder_log_2024_12_12_185142.log
+Starting new analysis cycle
+Running Token Generator...
+Token Generator path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Execution_Algo/token_generator.py
+File exists: True
+PYTHONPATH set to: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard:/Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib
+Changed directory to: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Execution_Algo
+2024-12-12 18:51:48,471 - INFO - Starting script execution...
+2024-12-12 18:51:48,471 - INFO - Starting to fetch token list with parameters: sort_by=mc, sort_type=asc, min_liquidity=100000, min_volume_24h=1000000, min_market_cap=500000, max_market_cap=1000000, total_tokens=750, chain=solana
+2024-12-12 18:51:48,472 - INFO - Fetching tokens with offset: 0
+2024-12-12 18:51:49,898 - INFO - Fetched 0 tokens at offset 0 that meet the criteria.
+2024-12-12 18:51:49,973 - INFO - Fetching tokens with offset: 50
+2024-12-12 18:51:52,359 - INFO - Fetched 0 tokens at offset 50 that meet the criteria.
+2024-12-12 18:51:52,434 - INFO - Fetching tokens with offset: 100
+2024-12-12 18:51:53,585 - INFO - Fetched 0 tokens at offset 100 that meet the criteria.
+2024-12-12 18:51:53,655 - INFO - Fetching tokens with offset: 150
+2024-12-12 18:51:55,599 - INFO - Fetched 0 tokens at offset 150 that meet the criteria.
+2024-12-12 18:51:55,670 - INFO - Fetching tokens with offset: 200
+2024-12-12 18:51:56,568 - INFO - Fetched 0 tokens at offset 200 that meet the criteria.
+2024-12-12 18:51:56,638 - INFO - Fetching tokens with offset: 250
+2024-12-12 18:51:58,808 - INFO - Fetched 0 tokens at offset 250 that meet the criteria.
+2024-12-12 18:51:58,883 - INFO - Fetching tokens with offset: 300
+2024-12-12 18:52:00,657 - INFO - Fetched 0 tokens at offset 300 that meet the criteria.
+2024-12-12 18:52:00,730 - INFO - Fetching tokens with offset: 350
+2024-12-12 18:52:01,878 - INFO - Fetched 0 tokens at offset 350 that meet the criteria.
+2024-12-12 18:52:01,951 - INFO - Fetching tokens with offset: 400
+2024-12-12 18:52:03,160 - INFO - Fetched 0 tokens at offset 400 that meet the criteria.
+2024-12-12 18:52:03,231 - INFO - Fetching tokens with offset: 450
+2024-12-12 18:52:04,644 - INFO - Fetched 0 tokens at offset 450 that meet the criteria.
+2024-12-12 18:52:04,715 - INFO - Fetching tokens with offset: 500
+2024-12-12 18:52:05,871 - INFO - Fetched 0 tokens at offset 500 that meet the criteria.
+2024-12-12 18:52:05,942 - INFO - Fetching tokens with offset: 550
+2024-12-12 18:52:07,717 - INFO - Fetched 0 tokens at offset 550 that meet the criteria.
+2024-12-12 18:52:07,792 - INFO - Fetching tokens with offset: 600
+2024-12-12 18:52:09,026 - INFO - Fetched 0 tokens at offset 600 that meet the criteria.
+2024-12-12 18:52:09,099 - INFO - Fetching tokens with offset: 650
+2024-12-12 18:52:10,478 - INFO - Fetched 0 tokens at offset 650 that meet the criteria.
+2024-12-12 18:52:10,553 - INFO - Fetching tokens with offset: 700
+2024-12-12 18:52:11,556 - INFO - Fetched 0 tokens at offset 700 that meet the criteria.
+2024-12-12 18:52:11,628 - INFO - Fetching tokens with offset: 750
+2024-12-12 18:52:13,605 - INFO - Fetched 0 tokens at offset 750 that meet the criteria.
+2024-12-12 18:52:13,675 - INFO - Fetching tokens with offset: 800
+2024-12-12 18:52:14,591 - INFO - Fetched 0 tokens at offset 800 that meet the criteria.
+2024-12-12 18:52:14,662 - INFO - Fetching tokens with offset: 850
+2024-12-12 18:52:16,008 - INFO - Fetched 0 tokens at offset 850 that meet the criteria.
+2024-12-12 18:52:16,082 - INFO - Fetching tokens with offset: 900
+2024-12-12 18:52:17,280 - INFO - Fetched 0 tokens at offset 900 that meet the criteria.
+2024-12-12 18:52:17,355 - INFO - Fetching tokens with offset: 950
+2024-12-12 18:52:18,255 - INFO - Fetched 0 tokens at offset 950 that meet the criteria.
+2024-12-12 18:52:18,326 - INFO - Fetching tokens with offset: 1000
+2024-12-12 18:52:19,294 - INFO - Fetched 0 tokens at offset 1000 that meet the criteria.
+2024-12-12 18:52:19,367 - INFO - Fetching tokens with offset: 1050
+2024-12-12 18:52:20,108 - INFO - Fetched 0 tokens at offset 1050 that meet the criteria.
+2024-12-12 18:52:20,183 - INFO - Fetching tokens with offset: 1100
+2024-12-12 18:52:21,284 - INFO - Fetched 0 tokens at offset 1100 that meet the criteria.
+2024-12-12 18:52:21,357 - INFO - Fetching tokens with offset: 1150
+2024-12-12 18:52:22,366 - INFO - Fetched 0 tokens at offset 1150 that meet the criteria.
+2024-12-12 18:52:22,439 - INFO - Fetching tokens with offset: 1200
+2024-12-12 18:52:23,506 - INFO - Fetched 0 tokens at offset 1200 that meet the criteria.
+2024-12-12 18:52:23,577 - INFO - Fetching tokens with offset: 1250
+2024-12-12 18:52:25,477 - INFO - Fetched 0 tokens at offset 1250 that meet the criteria.
+2024-12-12 18:52:25,549 - INFO - Fetching tokens with offset: 1300
+2024-12-12 18:52:26,718 - INFO - Fetched 0 tokens at offset 1300 that meet the criteria.
+2024-12-12 18:52:26,788 - INFO - Fetching tokens with offset: 1350
+2024-12-12 18:52:27,990 - INFO - Fetched 0 tokens at offset 1350 that meet the criteria.
+2024-12-12 18:52:28,064 - INFO - Fetching tokens with offset: 1400
+2024-12-12 18:52:29,056 - INFO - Fetched 0 tokens at offset 1400 that meet the criteria.
+2024-12-12 18:52:29,127 - INFO - Fetching tokens with offset: 1450
+2024-12-12 18:52:30,252 - INFO - Fetched 0 tokens at offset 1450 that meet the criteria.
+2024-12-12 18:52:30,328 - INFO - Fetching tokens with offset: 1500
+2024-12-12 18:52:31,369 - INFO - Fetched 1 tokens at offset 1500 that meet the criteria.
+2024-12-12 18:52:31,444 - INFO - Fetching tokens with offset: 1550
+2024-12-12 18:52:32,601 - INFO - Fetched 5 tokens at offset 1550 that meet the criteria.
+2024-12-12 18:52:32,744 - INFO - Fetching tokens with offset: 1600
+2024-12-12 18:52:34,081 - INFO - Fetched 4 tokens at offset 1600 that meet the criteria.
+2024-12-12 18:52:34,156 - INFO - Fetching tokens with offset: 1650
+2024-12-12 18:52:35,671 - INFO - Fetched 5 tokens at offset 1650 that meet the criteria.
+2024-12-12 18:52:35,748 - INFO - Fetching tokens with offset: 1700
+2024-12-12 18:52:36,904 - INFO - Fetched 4 tokens at offset 1700 that meet the criteria.
+2024-12-12 18:52:36,974 - INFO - Fetching tokens with offset: 1750
+2024-12-12 18:52:37,862 - INFO - Fetched 2 tokens at offset 1750 that meet the criteria.
+2024-12-12 18:52:37,933 - INFO - Fetching tokens with offset: 1800
+2024-12-12 18:52:39,203 - INFO - Fetched 9 tokens at offset 1800 that meet the criteria.
+2024-12-12 18:52:39,274 - INFO - Fetching tokens with offset: 1850
+2024-12-12 18:52:40,396 - INFO - Fetched 8 tokens at offset 1850 that meet the criteria.
+2024-12-12 18:52:40,466 - INFO - Fetching tokens with offset: 1900
+2024-12-12 18:52:41,816 - INFO - Fetched 0 tokens at offset 1900 that meet the criteria.
+2024-12-12 18:52:41,890 - INFO - Fetching tokens with offset: 1950
+2024-12-12 18:52:43,009 - INFO - Fetched 0 tokens at offset 1950 that meet the criteria.
+2024-12-12 18:52:43,084 - INFO - Fetching tokens with offset: 2000
+2024-12-12 18:52:44,272 - INFO - Fetched 0 tokens at offset 2000 that meet the criteria.
+2024-12-12 18:52:44,344 - INFO - Fetching tokens with offset: 2050
+2024-12-12 18:52:45,502 - INFO - Fetched 0 tokens at offset 2050 that meet the criteria.
+2024-12-12 18:52:45,576 - INFO - Fetching tokens with offset: 2100
+2024-12-12 18:52:46,730 - INFO - Fetched 0 tokens at offset 2100 that meet the criteria.
+2024-12-12 18:52:46,800 - INFO - Fetching tokens with offset: 2150
+2024-12-12 18:52:48,083 - INFO - Fetched 0 tokens at offset 2150 that meet the criteria.
+2024-12-12 18:52:48,156 - INFO - Fetching tokens with offset: 2200
+2024-12-12 18:52:49,190 - INFO - Fetched 0 tokens at offset 2200 that meet the criteria.
+2024-12-12 18:52:49,263 - INFO - Total tokens fetched and filtered: 38
+2024-12-12 18:52:49,270 - INFO - Preparing to fetch overview data for filtered tokens...
+2024-12-12 18:52:49,270 - INFO - Fetching token overview data for 38 tokens...
+2024-12-12 18:52:50,113 - INFO - Successfully fetched overview data for token: Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump
+2024-12-12 18:52:50,891 - INFO - Successfully fetched overview data for token: FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump
+2024-12-12 18:52:51,956 - INFO - Successfully fetched overview data for token: EURfLGofpk6vvNquBqpSTZaTUXPpfdvtYZCfhGUB2fWG
+2024-12-12 18:52:52,721 - INFO - Successfully fetched overview data for token: 6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump
+2024-12-12 18:52:53,802 - INFO - Successfully fetched overview data for token: ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump
+2024-12-12 18:52:55,026 - INFO - Successfully fetched overview data for token: H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon
+2024-12-12 18:52:55,950 - INFO - Successfully fetched overview data for token: 4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump
+2024-12-12 18:52:56,892 - INFO - Successfully fetched overview data for token: SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump
+2024-12-12 18:52:58,406 - INFO - Successfully fetched overview data for token: AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8
+2024-12-12 18:52:59,327 - INFO - Successfully fetched overview data for token: 7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump
+2024-12-12 18:53:00,558 - INFO - Successfully fetched overview data for token: 4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump
+2024-12-12 18:53:01,484 - INFO - Successfully fetched overview data for token: 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump
+2024-12-12 18:53:02,403 - INFO - Successfully fetched overview data for token: 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump
+2024-12-12 18:53:03,171 - INFO - Successfully fetched overview data for token: AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump
+2024-12-12 18:53:03,937 - INFO - Successfully fetched overview data for token: AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump
+2024-12-12 18:53:04,855 - INFO - Successfully fetched overview data for token: 98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks
+2024-12-12 18:53:05,729 - INFO - Successfully fetched overview data for token: ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump
+2024-12-12 18:53:06,552 - INFO - Successfully fetched overview data for token: uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump
+2024-12-12 18:53:07,397 - INFO - Successfully fetched overview data for token: FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump
+2024-12-12 18:53:09,027 - INFO - Successfully fetched overview data for token: 2hZWncnmsSMdbkdwzSHJfrnDVkL66g63gncdRWqjTbBB
+2024-12-12 18:53:09,800 - INFO - Successfully fetched overview data for token: tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+2024-12-12 18:53:10,562 - INFO - Successfully fetched overview data for token: H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump
+2024-12-12 18:53:11,619 - INFO - Successfully fetched overview data for token: DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump
+2024-12-12 18:53:12,538 - INFO - Successfully fetched overview data for token: 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump
+2024-12-12 18:53:13,546 - INFO - Successfully fetched overview data for token: Dn4noZ5jgGfkntzcQSUZ8czkreiZ1ForXYoV2H8Dm7S1
+2024-12-12 18:53:14,479 - INFO - Successfully fetched overview data for token: GxWyh17McYtY3h9m75nyTdy8Cp6WAzkdyNRDPKmjHU4c
+2024-12-12 18:53:15,323 - INFO - Successfully fetched overview data for token: 9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa
+2024-12-12 18:53:16,531 - INFO - Successfully fetched overview data for token: 9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump
+2024-12-12 18:53:17,479 - INFO - Successfully fetched overview data for token: 73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump
+2024-12-12 18:53:18,341 - INFO - Successfully fetched overview data for token: HkVs1CuNJhTxniwL7tmgn9s8B3o5F9NXRywNa4dZDsCk
+2024-12-12 18:53:19,295 - INFO - Successfully fetched overview data for token: KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump
+2024-12-12 18:53:20,219 - INFO - Successfully fetched overview data for token: Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump
+2024-12-12 18:53:20,964 - INFO - Successfully fetched overview data for token: 9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump
+2024-12-12 18:53:22,075 - INFO - Successfully fetched overview data for token: 9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb
+2024-12-12 18:53:23,573 - INFO - Successfully fetched overview data for token: 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump
+2024-12-12 18:53:24,705 - INFO - Successfully fetched overview data for token: FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp
+2024-12-12 18:53:25,608 - INFO - Successfully fetched overview data for token: FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump
+2024-12-12 18:53:26,439 - INFO - Successfully fetched overview data for token: F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump
+2024-12-12 18:53:26,511 - INFO - Finished fetching token overview data.
+2024-12-12 18:53:26,558 - INFO - Token list fetching and processing complete.
+2024-12-12 18:53:26,565 - INFO - Token data saved to token_data.csv
+2024-12-12 18:53:26,565 - INFO - Script execution completed.
+Token Generator completed successfully
+Returned to directory: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Execution_Algo
+Importing token data from token_data.csv...
+Found 38 token addresses in token_data.csv
+Performing Rugcheck Analysis on token addresses...
+Token: Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump, Score: 400
+Token: Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump, Score: 400
+Token: Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump, Score: 400
+Token: FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump, Score: 300
+Token: FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump, Score: 300
+Token: FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump, Score: 300
+Token: Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump, Score: 400
+Token: FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump, Score: 300
+Token: EURfLGofpk6vvNquBqpSTZaTUXPpfdvtYZCfhGUB2fWG, Score: 75500
+Token: EURfLGofpk6vvNquBqpSTZaTUXPpfdvtYZCfhGUB2fWG, Score: 75500
+Token: EURfLGofpk6vvNquBqpSTZaTUXPpfdvtYZCfhGUB2fWG, Score: 75500
+Token: 6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump, Score: 0
+Token: 6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump, Score: 0
+Token: 6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump, Score: 0
+Token: EURfLGofpk6vvNquBqpSTZaTUXPpfdvtYZCfhGUB2fWG, Score: 75500
+Token: 6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump, Score: 0
+Token: H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon, Score: 500
+Token: H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon, Score: 500
+Token: H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon, Score: 500
+Token: ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump, Score: 2400
+Token: ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump, Score: 2400
+Token: ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump, Score: 2400
+Token: ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump, Score: 2400
+Token: H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon, Score: 500
+Token: 4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump, Score: 300
+Token: 4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump, Score: 300
+Token: 4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump, Score: 300
+Token: SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump, Score: 400
+Token: SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump, Score: 400
+Token: SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump, Score: 400
+Token: 4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump, Score: 300
+Token: SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump, Score: 400
+Token: 7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump, Score: 400
+Token: 7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump, Score: 400
+Token: 7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump, Score: 400
+Token: AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8, Score: 0
+Token: AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8, Score: 0
+Token: AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8, Score: 0
+Token: AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8, Score: 0
+Token: 7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump, Score: 400
+Token: 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump, Score: 400
+Token: 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump, Score: 400
+Token: 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump, Score: 400
+Token: 4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump, Score: 0
+Token: 4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump, Score: 0
+Token: 4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump, Score: 0
+Token: 4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump, Score: 0
+Token: 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump, Score: 400
+Token: 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump, Score: 300
+Token: 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump, Score: 300
+Token: 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump, Score: 300
+Token: AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump, Score: 100
+Token: AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump, Score: 100
+Token: AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump, Score: 100
+Token: 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump, Score: 300
+Token: AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump, Score: 100
+Token: AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump, Score: 2400
+Token: AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump, Score: 2400
+Token: AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump, Score: 2400
+Token: 98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks, Score: 300
+Token: 98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks, Score: 300
+Token: 98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks, Score: 300
+Token: AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump, Score: 2400
+Token: 98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks, Score: 300
+Token: uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump, Score: 400
+Token: uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump, Score: 400
+Token: uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump, Score: 400
+Token: ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump, Score: 400
+Token: ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump, Score: 400
+Token: ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump, Score: 400
+Token: ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump, Score: 400
+Token: uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump, Score: 400
+Token: 2hZWncnmsSMdbkdwzSHJfrnDVkL66g63gncdRWqjTbBB, Score: 54119
+Token: 2hZWncnmsSMdbkdwzSHJfrnDVkL66g63gncdRWqjTbBB, Score: 54119
+Token: 2hZWncnmsSMdbkdwzSHJfrnDVkL66g63gncdRWqjTbBB, Score: 54119
+Token: FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump, Score: 300
+Token: FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump, Score: 300
+Token: FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump, Score: 300
+Token: FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump, Score: 300
+Token: 2hZWncnmsSMdbkdwzSHJfrnDVkL66g63gncdRWqjTbBB, Score: 54119
+Rate limited for tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump, retrying in 0 seconds
+Rate limited for tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump, retrying in 0 seconds
+Rate limited for H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump, retrying in 0 seconds
+Rate limited for H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump, retrying in 0 seconds
+Error fetching rugcheck data for H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump: 429, message='Too Many Requests', url=URL('https://api.rugcheck.xyz/v1/tokens/H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump/report/summary')
+Error fetching rugcheck data for H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump: 429, message='Too Many Requests', url=URL('https://api.rugcheck.xyz/v1/tokens/H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump/report/summary')
+Retry 1/5 for H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump
+Error fetching rugcheck data for tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump: 429, message='Too Many Requests', url=URL('https://api.rugcheck.xyz/v1/tokens/tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump/report/summary')
+Error fetching rugcheck data for tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump: 429, message='Too Many Requests', url=URL('https://api.rugcheck.xyz/v1/tokens/tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump/report/summary')
+Retry 1/5 for tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+Rate limited for tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump, retrying in 0 seconds
+Rate limited for tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump, retrying in 0 seconds
+Rate limited for H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump, retrying in 0 seconds
+Rate limited for H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump, retrying in 0 seconds
+Error fetching rugcheck data for tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump: 429, message='Too Many Requests', url=URL('https://api.rugcheck.xyz/v1/tokens/tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump/report/summary')
+Error fetching rugcheck data for tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump: 429, message='Too Many Requests', url=URL('https://api.rugcheck.xyz/v1/tokens/tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump/report/summary')
+Retry 2/5 for tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+Error fetching rugcheck data for H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump: 429, message='Too Many Requests', url=URL('https://api.rugcheck.xyz/v1/tokens/H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump/report/summary')
+Error fetching rugcheck data for H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump: 429, message='Too Many Requests', url=URL('https://api.rugcheck.xyz/v1/tokens/H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump/report/summary')
+Retry 2/5 for H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump
+Token: H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump, Score: 100
+Token: H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump, Score: 100
+Token: H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump, Score: 100
+Token: tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump, Score: 400
+Token: tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump, Score: 400
+Token: tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump, Score: 400
+Token: tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump, Score: 400
+Token: H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump, Score: 100
+Error fetching rugcheck data for 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump: 400, message='Bad Request', url=URL('https://api.rugcheck.xyz/v1/tokens/2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump/report/summary')
+Error fetching rugcheck data for 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump: 400, message='Bad Request', url=URL('https://api.rugcheck.xyz/v1/tokens/2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump/report/summary')
+Retry 1/5 for 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump
+Token: DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump, Score: 400
+Token: DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump, Score: 400
+Token: DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump, Score: 400
+Token: 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump, Score: 100
+Token: 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump, Score: 100
+Token: 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump, Score: 100
+Token: DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump, Score: 400
+Token: 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump, Score: 100
+Token: GxWyh17McYtY3h9m75nyTdy8Cp6WAzkdyNRDPKmjHU4c, Score: 11399
+Token: GxWyh17McYtY3h9m75nyTdy8Cp6WAzkdyNRDPKmjHU4c, Score: 11399
+Token: GxWyh17McYtY3h9m75nyTdy8Cp6WAzkdyNRDPKmjHU4c, Score: 11399
+Token: Dn4noZ5jgGfkntzcQSUZ8czkreiZ1ForXYoV2H8Dm7S1, Score: 62100
+Token: Dn4noZ5jgGfkntzcQSUZ8czkreiZ1ForXYoV2H8Dm7S1, Score: 62100
+Token: Dn4noZ5jgGfkntzcQSUZ8czkreiZ1ForXYoV2H8Dm7S1, Score: 62100
+Token: Dn4noZ5jgGfkntzcQSUZ8czkreiZ1ForXYoV2H8Dm7S1, Score: 62100
+Token: GxWyh17McYtY3h9m75nyTdy8Cp6WAzkdyNRDPKmjHU4c, Score: 11399
+Token: 9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump, Score: 0
+Token: 9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump, Score: 0
+Token: 9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump, Score: 0
+Token: 9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa, Score: 62652
+Token: 9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa, Score: 62652
+Token: 9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa, Score: 62652
+Token: 9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa, Score: 62652
+Token: 9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump, Score: 0
+Rate limited for HkVs1CuNJhTxniwL7tmgn9s8B3o5F9NXRywNa4dZDsCk, retrying in 0 seconds
+Rate limited for HkVs1CuNJhTxniwL7tmgn9s8B3o5F9NXRywNa4dZDsCk, retrying in 0 seconds
+Token: 73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump, Score: 400
+Token: 73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump, Score: 400
+Token: 73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump, Score: 400
+Token: HkVs1CuNJhTxniwL7tmgn9s8B3o5F9NXRywNa4dZDsCk, Score: 11399
+Token: HkVs1CuNJhTxniwL7tmgn9s8B3o5F9NXRywNa4dZDsCk, Score: 11399
+Token: HkVs1CuNJhTxniwL7tmgn9s8B3o5F9NXRywNa4dZDsCk, Score: 11399
+Token: 73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump, Score: 400
+Token: HkVs1CuNJhTxniwL7tmgn9s8B3o5F9NXRywNa4dZDsCk, Score: 11399
+Token: Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump, Score: 300
+Token: Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump, Score: 300
+Token: Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump, Score: 300
+Token: KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump, Score: 400
+Token: KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump, Score: 400
+Token: KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump, Score: 400
+Token: KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump, Score: 400
+Token: Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump, Score: 300
+Token: 9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb, Score: 7112
+Token: 9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb, Score: 7112
+Token: 9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb, Score: 7112
+Token: 9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump, Score: 400
+Token: 9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump, Score: 400
+Token: 9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump, Score: 400
+Token: 9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump, Score: 400
+Token: 9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb, Score: 7112
+Token: FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp, Score: 400
+Token: FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp, Score: 400
+Token: FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp, Score: 400
+Token: 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump, Score: 300
+Token: 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump, Score: 300
+Token: 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump, Score: 300
+Token: 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump, Score: 300
+Token: FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp, Score: 400
+Token: F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump, Score: 400
+Token: F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump, Score: 400
+Token: F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump, Score: 400
+Token: FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump, Score: 400
+Token: FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump, Score: 400
+Token: FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump, Score: 400
+Token: FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump, Score: 400
+Token: F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump, Score: 400
+
+Rugcheck Summary:
+Total tokens checked: 38
+Successful checks: 38 (100.0%)
+Failed checks: 0 (0.0%)
+Low risk tokens after rugcheck: 32
+
+Setting up OHLCV data paths...
+OHLCV Data Structure:
+├── Base Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data
+├── Date Folder: 2024_12_12
+│   ├── OHLCV_Data
+│   │   └── 2024_Dec_12_0656PM
+│   └── Token_Summary
+│       └── 2024_Dec_12_0656PM
+
+Saved token data summary to:
+── /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/Token_Summary/2024_Dec_12_0656PM/token_data.csv
+
+==================================================
+Starting OHLCV Data Collection
+==================================================
+OHLCV data will be saved to:
+└── /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM
+
+Processing OHLCV data for 32 tokens
+
+Token 1/32: Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump
+
+==================================================
+Processing token: Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump on 15m timeframe...
+Successfully retrieved OHLCV data for Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump (15m) - 396 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump/15m.csv
+   └── Rows: 396
+   └── Size: 66.74 KB
+
+Token Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump
+
+Token 2/32: FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump
+
+==================================================
+Processing token: FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump on 15m timeframe...
+Successfully retrieved OHLCV data for FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump (15m) - 348 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump/15m.csv
+   └── Rows: 348
+   └── Size: 57.90 KB
+
+Token FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump
+
+Token 3/32: 6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump
+
+==================================================
+Processing token: 6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump on 15m timeframe...
+Successfully retrieved OHLCV data for 6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump (15m) - 1000 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump/15m.csv
+   └── Rows: 1000
+   └── Size: 170.43 KB
+
+Token 6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump
+
+Token 4/32: ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump
+
+==================================================
+Processing token: ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump on 15m timeframe...
+Successfully retrieved OHLCV data for ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump (15m) - 55 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump/15m.csv
+   └── Rows: 55
+   └── Size: 9.42 KB
+
+Token ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump
+
+Token 5/32: H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon
+
+==================================================
+Processing token: H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon on 15m timeframe...
+Successfully retrieved OHLCV data for H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon (15m) - 565 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon/15m.csv
+   └── Rows: 565
+   └── Size: 96.44 KB
+
+Token H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon
+
+Token 6/32: 4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump
+
+==================================================
+Processing token: 4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump on 15m timeframe...
+Successfully retrieved OHLCV data for 4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump (15m) - 1000 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump/15m.csv
+   └── Rows: 1000
+   └── Size: 162.75 KB
+
+Token 4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump
+
+Token 7/32: SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump
+
+==================================================
+Processing token: SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump on 15m timeframe...
+Successfully retrieved OHLCV data for SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump (15m) - 192 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump/15m.csv
+   └── Rows: 192
+   └── Size: 32.46 KB
+
+Token SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump
+
+Token 8/32: AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8
+
+==================================================
+Processing token: AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8 on 15m timeframe...
+Successfully retrieved OHLCV data for AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8 (15m) - 732 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8/15m.csv
+   └── Rows: 732
+   └── Size: 124.02 KB
+
+Token AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8 processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8
+
+Token 9/32: 7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump
+
+==================================================
+Processing token: 7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump on 15m timeframe...
+Successfully retrieved OHLCV data for 7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump (15m) - 529 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump/15m.csv
+   └── Rows: 529
+   └── Size: 90.61 KB
+
+Token 7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump
+
+Token 10/32: 4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump
+
+==================================================
+Processing token: 4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump on 15m timeframe...
+Successfully retrieved OHLCV data for 4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump (15m) - 1000 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump/15m.csv
+   └── Rows: 1000
+   └── Size: 169.58 KB
+
+Token 4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump
+
+Token 11/32: 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump
+
+==================================================
+Processing token: 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump on 15m timeframe...
+Successfully retrieved OHLCV data for 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump (15m) - 62 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump/15m.csv
+   └── Rows: 62
+   └── Size: 10.59 KB
+
+Token 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump
+
+Token 12/32: 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump
+
+==================================================
+Processing token: 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump on 15m timeframe...
+Successfully retrieved OHLCV data for 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump (15m) - 87 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump/15m.csv
+   └── Rows: 87
+   └── Size: 14.69 KB
+
+Token 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump
+
+Token 13/32: AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump
+
+==================================================
+Processing token: AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump on 15m timeframe...
+Successfully retrieved OHLCV data for AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump (15m) - 1000 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump/15m.csv
+   └── Rows: 1000
+   └── Size: 169.27 KB
+
+Token AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump
+
+Token 14/32: AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump
+
+==================================================
+Processing token: AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump on 15m timeframe...
+Successfully retrieved OHLCV data for AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump (15m) - 76 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump/15m.csv
+   └── Rows: 76
+   └── Size: 13.04 KB
+
+Token AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump
+
+Token 15/32: 98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks
+
+==================================================
+Processing token: 98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks on 15m timeframe...
+Successfully retrieved OHLCV data for 98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks (15m) - 1000 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks/15m.csv
+   └── Rows: 1000
+   └── Size: 166.61 KB
+
+Token 98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks
+
+Token 16/32: ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump
+
+==================================================
+Processing token: ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump on 15m timeframe...
+Successfully retrieved OHLCV data for ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump (15m) - 66 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump/15m.csv
+   └── Rows: 66
+   └── Size: 11.35 KB
+
+Token ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump
+
+Token 17/32: uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump
+
+==================================================
+Processing token: uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump on 15m timeframe...
+Successfully retrieved OHLCV data for uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump (15m) - 1000 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump/15m.csv
+   └── Rows: 1000
+   └── Size: 169.93 KB
+
+Token uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump
+
+Token 18/32: FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump
+
+==================================================
+Processing token: FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump on 15m timeframe...
+Successfully retrieved OHLCV data for FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump (15m) - 926 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump/15m.csv
+   └── Rows: 926
+   └── Size: 151.46 KB
+
+Token FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump
+
+Token 19/32: tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+
+==================================================
+Processing token: tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump on 15m timeframe...
+Successfully retrieved OHLCV data for tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump (15m) - 1000 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump/15m.csv
+   └── Rows: 1000
+   └── Size: 168.79 KB
+
+Token tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+
+Token 20/32: H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump
+
+==================================================
+Processing token: H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump on 15m timeframe...
+Successfully retrieved OHLCV data for H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump (15m) - 110 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump/15m.csv
+   └── Rows: 110
+   └── Size: 18.73 KB
+
+Token H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump
+
+Token 21/32: DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump
+
+==================================================
+Processing token: DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump on 15m timeframe...
+Successfully retrieved OHLCV data for DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump (15m) - 882 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump/15m.csv
+   └── Rows: 882
+   └── Size: 150.17 KB
+
+Token DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump
+
+Token 22/32: 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump
+
+==================================================
+Processing token: 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump on 15m timeframe...
+Successfully retrieved OHLCV data for 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump (15m) - 49 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump/15m.csv
+   └── Rows: 49
+   └── Size: 8.47 KB
+
+Token 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump
+
+Token 23/32: 9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump
+
+==================================================
+Processing token: 9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump on 15m timeframe...
+Successfully retrieved OHLCV data for 9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump (15m) - 901 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump/15m.csv
+   └── Rows: 901
+   └── Size: 151.48 KB
+
+Token 9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump
+
+Token 24/32: 73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump
+
+==================================================
+Processing token: 73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump on 15m timeframe...
+Successfully retrieved OHLCV data for 73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump (15m) - 806 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump/15m.csv
+   └── Rows: 806
+   └── Size: 137.07 KB
+
+Token 73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump
+
+Token 25/32: KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump
+
+==================================================
+Processing token: KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump on 15m timeframe...
+Successfully retrieved OHLCV data for KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump (15m) - 815 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump/15m.csv
+   └── Rows: 815
+   └── Size: 137.50 KB
+
+Token KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump
+
+Token 26/32: Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump
+
+==================================================
+Processing token: Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump on 15m timeframe...
+Successfully retrieved OHLCV data for Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump (15m) - 104 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump/15m.csv
+   └── Rows: 104
+   └── Size: 17.77 KB
+
+Token Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump
+
+Token 27/32: 9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump
+
+==================================================
+Processing token: 9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump on 15m timeframe...
+Successfully retrieved OHLCV data for 9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump (15m) - 116 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump/15m.csv
+   └── Rows: 116
+   └── Size: 19.83 KB
+
+Token 9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump
+
+Token 28/32: 9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb
+
+==================================================
+Processing token: 9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb on 15m timeframe...
+Successfully retrieved OHLCV data for 9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb (15m) - 11 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb/15m.csv
+   └── Rows: 11
+   └── Size: 1.84 KB
+
+Token 9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb
+
+Token 29/32: 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump
+
+==================================================
+Processing token: 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump on 15m timeframe...
+Successfully retrieved OHLCV data for 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump (15m) - 259 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump/15m.csv
+   └── Rows: 259
+   └── Size: 43.61 KB
+
+Token 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump
+
+Token 30/32: FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp
+
+==================================================
+Processing token: FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp on 15m timeframe...
+Successfully retrieved OHLCV data for FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp (15m) - 1000 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp/15m.csv
+   └── Rows: 1000
+   └── Size: 164.08 KB
+
+Token FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp
+
+Token 31/32: FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump
+
+==================================================
+Processing token: FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump on 15m timeframe...
+Successfully retrieved OHLCV data for FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump (15m) - 74 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump/15m.csv
+   └── Rows: 74
+   └── Size: 12.79 KB
+
+Token FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump
+
+Token 32/32: F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump
+
+==================================================
+Processing token: F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump
+==================================================
+
+Fetching 15m data...
+Requesting OHLCV data for token F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump on 15m timeframe...
+Successfully retrieved OHLCV data for F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump (15m) - 9 rows
+✅ 15m data saved:
+   └── Path: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump/15m.csv
+   └── Rows: 9
+   └── Size: 1.58 KB
+
+Token F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump processing complete:
+└── Total timeframes saved: 1
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM/F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump
+
+==================================================
+OHLCV Processing Summary
+==================================================
+Total tokens processed: 32
+✅ Successful: 32
+❌ Failed: 0
+
+Final OHLCV Data Structure:
+└── Folder: /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/OHLCV_Data/2024_Dec_12_0656PM
+└── Total files: 32
+└── Total size: 2.66 MB
+
+==================================================
+Importing OHLCV data for qualified tokens
+==================================================
+✅ Successfully imported OHLCV data for Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump
+   Available timeframes: ['15m']
+✅ Successfully imported OHLCV data for F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump
+   Available timeframes: ['15m']
+
+Successfully imported OHLCV data for 32 tokens
+
+==================================================
+Starting Fibonacci Analysis
+==================================================
+Selected timeframe for analysis: 15m
+Debug - Target Fib Level: 0.786
+Debug - Higher Fib Level: 0.618
+
+==================================================
+Analyzing Token: Acud16jqA9j1Hc83JrHYeiN2BpK8LYYQ1h6FGnYrpump
+==================================================
+
+Initial Values:
+First Open: 1.2556754658580318e-05
+ATH Close: 0.0010404071847379
+Current Price: 0.0005021466921284
+ATH Multiple from First Open: 82.86x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0007948710891397556
+Fib 0.382: 0.0006429716401680222
+Fib 0.5: 0.00052020359236895
+Fib 0.618: 0.0003974355445698778
+Fib 0.786: 0.00022264713753391055
+Fib 0.886: 0.00011860641906012064
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0010404071847379) >= First Open * 5 (6.27837732929016e-05)
+Actual Multiple: 82.86x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00052020359236895 >= 0.0005021466921284 >= 0.00022264713753391055
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 2.389789268584592e-05
+Target Fib level price: 0.00022264713753391055
+❌ FAILED - Price went below target fib level after ATH
+
+==================================================
+Analyzing Token: FRpTyMBDavKsdYN1FQZcEeZ2iwGvHaZKFSkvr5izpump
+==================================================
+
+Initial Values:
+First Open: 6.890769810538981e-06
+ATH Close: 0.0069148734632149
+Current Price: 0.0006563196496318
+ATH Multiple from First Open: 1003.50x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.005282963325896183
+Fib 0.382: 0.004273391800266808
+Fib 0.5: 0.00345743673160745
+Fib 0.618: 0.0026414816629480916
+Fib 0.786: 0.001479782921127988
+Fib 0.886: 0.0007882955748064989
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0069148734632149) >= First Open * 5 (3.445384905269491e-05)
+Actual Multiple: 1003.50x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00345743673160745 >= 0.0006563196496318 >= 0.001479782921127988
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: 6kJhG826LGowg7zG6PLd6tg7mqvVSdq2WzHhsfc7pump
+==================================================
+
+Initial Values:
+First Open: 0.0002654028415927
+ATH Close: 0.0049922320307919
+Current Price: 0.0019889116102073
+ATH Multiple from First Open: 18.81x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.003814065271525012
+Fib 0.382: 0.0030851993950293945
+Fib 0.5: 0.00249611601539595
+Fib 0.618: 0.001907032635762506
+Fib 0.786: 0.0010683376545894668
+Fib 0.886: 0.000569114451510277
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0049922320307919) >= First Open * 5 (0.0013270142079635002)
+Actual Multiple: 18.81x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00249611601539595 >= 0.0019889116102073 >= 0.0010683376545894668
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.0007910178762977
+Target Fib level price: 0.0010683376545894668
+❌ FAILED - Price went below target fib level after ATH
+
+==================================================
+Analyzing Token: ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump
+==================================================
+
+Initial Values:
+First Open: 1.94726770277915e-05
+ATH Close: 0.0011286768252454
+Current Price: 0.000560485389254
+ATH Multiple from First Open: 57.96x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0008623090944874856
+Fib 0.382: 0.0006975222780016572
+Fib 0.5: 0.0005643384126227
+Fib 0.618: 0.0004311545472437427
+Fib 0.786: 0.00024153684060251553
+Fib 0.886: 0.0001286691580779755
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0011286768252454) >= First Open * 5 (9.73633851389575e-05)
+Actual Multiple: 57.96x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.0005643384126227 >= 0.000560485389254 >= 0.00024153684060251553
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.0005411220160974
+Target Fib level price: 0.00024153684060251553
+✅ PASSED - Price maintained above target fib level
+
+Condition 4 - Check for Large Price Drops:
+Maximum price drop in a single candle: 28.91%
+Maximum allowed drop: 50%
+✅ PASSED - No excessive price drops found
+
+TOKEN QUALIFIED - Passed all conditions!
+
+==================================================
+Analyzing Token: H3c9RZhvCzxQSmLULh4RsJC8GuK9rVNV2bcoLhMQmoon
+==================================================
+
+Initial Values:
+First Open: 0.0001048992620777
+ATH Close: 0.001459808567482
+Current Price: 0.0005609357805139
+ATH Multiple from First Open: 13.92x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.001115293745556248
+Fib 0.382: 0.000902161694703876
+Fib 0.5: 0.000729904283741
+Fib 0.618: 0.0005576468727781239
+Fib 0.786: 0.00031239903344114795
+Fib 0.886: 0.00016641817669294802
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.001459808567482) >= First Open * 5 (0.0005244963103885)
+Actual Multiple: 13.92x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.000729904283741 >= 0.0005609357805139 >= 0.00031239903344114795
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.000275639459719
+Target Fib level price: 0.00031239903344114795
+❌ FAILED - Price went below target fib level after ATH
+
+==================================================
+Analyzing Token: 4VdCEb24qJ24yvq8H14skQ5gJpyT9xCMcg4ssA4zpump
+==================================================
+
+Initial Values:
+First Open: 7.36176070703318e-05
+ATH Close: 0.0006625202626746
+Current Price: 9.702288383267878e-06
+ATH Multiple from First Open: 9.00x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0005061654806833944
+Fib 0.382: 0.0004094375223329028
+Fib 0.5: 0.0003312601313373
+Fib 0.618: 0.00025308274034169725
+Fib 0.786: 0.00014177933621236434
+Fib 0.886: 7.552730994490442e-05
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0006625202626746) >= First Open * 5 (0.000368088035351659)
+Actual Multiple: 9.00x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.0003312601313373 >= 9.702288383267878e-06 >= 0.00014177933621236434
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: SWKT3Sksvtcepkn7MRn74WPUNH1Lo8H25MAogVepump
+==================================================
+
+Initial Values:
+First Open: 6.621023198443102e-06
+ATH Close: 0.0017584860763629
+Current Price: 0.0004831693701826
+ATH Multiple from First Open: 265.59x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0013434833623412557
+Fib 0.382: 0.0010867443951922723
+Fib 0.5: 0.00087924303818145
+Fib 0.618: 0.0006717416811706277
+Fib 0.786: 0.00037631602034166045
+Fib 0.886: 0.0002004674127053705
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0017584860763629) >= First Open * 5 (3.310511599221551e-05)
+Actual Multiple: 265.59x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00087924303818145 >= 0.0004831693701826 >= 0.00037631602034166045
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.0001704163788602
+Target Fib level price: 0.00037631602034166045
+❌ FAILED - Price went below target fib level after ATH
+
+==================================================
+Analyzing Token: AkukwSXUTkDSeh2c1ypyvN4unzyr4xb2T4SmKkix6bT8
+==================================================
+
+Initial Values:
+First Open: 8.37236327034026e-06
+ATH Close: 0.0182155188911123
+Current Price: 0.0006366919615938
+ATH Multiple from First Open: 2175.67x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.013916656432809796
+Fib 0.382: 0.011257190674707401
+Fib 0.5: 0.00910775944555615
+Fib 0.618: 0.006958328216404899
+Fib 0.786: 0.003898121042698032
+Fib 0.886: 0.0020765691535868033
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0182155188911123) >= First Open * 5 (4.1861816351701304e-05)
+Actual Multiple: 2175.67x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00910775944555615 >= 0.0006366919615938 >= 0.003898121042698032
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: 7VwxiPZeSYfQbQxqorGBctSyorPMJusrGDFkX5TFpump
+==================================================
+
+Initial Values:
+First Open: 9.172554347462014e-06
+ATH Close: 0.0009891423179605
+Current Price: 0.0006092021072767
+ATH Multiple from First Open: 107.84x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.000755704730921822
+Fib 0.382: 0.0006112899524995891
+Fib 0.5: 0.00049457115898025
+Fib 0.618: 0.000377852365460911
+Fib 0.786: 0.00021167645604354694
+Fib 0.886: 0.00011276222424749696
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0009891423179605) >= First Open * 5 (4.586277173731007e-05)
+Actual Multiple: 107.84x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00049457115898025 >= 0.0006092021072767 >= 0.00021167645604354694
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: 4J5HoZWoKcbo2JQxEEVCKRBfUQtEroY1QdRrKtZFpump
+==================================================
+
+Initial Values:
+First Open: 0.0001076163360926
+ATH Close: 0.010503108450542
+Current Price: 0.0014913653172504
+ATH Multiple from First Open: 97.60x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.008024374856214088
+Fib 0.382: 0.006490921022434956
+Fib 0.5: 0.005251554225271
+Fib 0.618: 0.004012187428107044
+Fib 0.786: 0.002247665208415987
+Fib 0.886: 0.001197354363361788
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.010503108450542) >= First Open * 5 (0.000538081680463)
+Actual Multiple: 97.60x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.005251554225271 >= 0.0014913653172504 >= 0.002247665208415987
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump
+==================================================
+
+Initial Values:
+First Open: 6.563165311235461e-06
+ATH Close: 0.001902299792909
+Current Price: 0.000571618608201
+ATH Multiple from First Open: 289.84x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.001453357041782476
+Fib 0.382: 0.001175621272017762
+Fib 0.5: 0.0009511498964545
+Fib 0.618: 0.000726678520891238
+Fib 0.786: 0.00040709215568252586
+Fib 0.886: 0.0002168621763916261
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.001902299792909) >= First Open * 5 (3.2815826556177306e-05)
+Actual Multiple: 289.84x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.0009511498964545 >= 0.000571618608201 >= 0.00040709215568252586
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.0004872770340402
+Target Fib level price: 0.00040709215568252586
+✅ PASSED - Price maintained above target fib level
+
+Condition 4 - Check for Large Price Drops:
+Maximum price drop in a single candle: 21.45%
+Maximum allowed drop: 50%
+✅ PASSED - No excessive price drops found
+
+TOKEN QUALIFIED - Passed all conditions!
+
+==================================================
+Analyzing Token: 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump
+==================================================
+
+Initial Values:
+First Open: 7.391662695021356e-06
+ATH Close: 0.0015277390280657
+Current Price: 0.0005083936137276
+ATH Multiple from First Open: 206.68x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0011671926174421947
+Fib 0.382: 0.0009441427193446026
+Fib 0.5: 0.00076386951403285
+Fib 0.618: 0.0005835963087210973
+Fib 0.786: 0.00032693615200605976
+Fib 0.886: 0.00017416224919948988
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0015277390280657) >= First Open * 5 (3.695831347510678e-05)
+Actual Multiple: 206.68x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00076386951403285 >= 0.0005083936137276 >= 0.00032693615200605976
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.0004122916683868
+Target Fib level price: 0.00032693615200605976
+✅ PASSED - Price maintained above target fib level
+
+Condition 4 - Check for Large Price Drops:
+Maximum price drop in a single candle: 33.17%
+Maximum allowed drop: 50%
+✅ PASSED - No excessive price drops found
+
+TOKEN QUALIFIED - Passed all conditions!
+
+==================================================
+Analyzing Token: AU1rxhY276GepM4bm7VaYrgVPJW7tg4z2MtR2jfPpump
+==================================================
+
+Initial Values:
+First Open: 0.0001172018657767
+ATH Close: 0.0059498239873513
+Current Price: 0.0005678706941481
+ATH Multiple from First Open: 50.77x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.004545665526336393
+Fib 0.382: 0.003676991224183103
+Fib 0.5: 0.00297491199367565
+Fib 0.618: 0.0022728327631681964
+Fib 0.786: 0.0012732623332931776
+Fib 0.886: 0.0006782799345580485
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0059498239873513) >= First Open * 5 (0.0005860093288835)
+Actual Multiple: 50.77x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00297491199367565 >= 0.0005678706941481 >= 0.0012732623332931776
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: AJqDoH24K7S3riUjMMzKL5tWPbuLB6vp5bZ9bznRpump
+==================================================
+
+Initial Values:
+First Open: 6.426637105702269e-06
+ATH Close: 0.0012474740338958
+Current Price: 0.0003363100822345
+ATH Multiple from First Open: 194.11x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0009530701618963911
+Fib 0.382: 0.0007709389529476044
+Fib 0.5: 0.0006237370169479
+Fib 0.618: 0.00047653508094819557
+Fib 0.786: 0.0002669594432537011
+Fib 0.886: 0.00014221203986412119
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0012474740338958) >= First Open * 5 (3.213318552851134e-05)
+Actual Multiple: 194.11x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.0006237370169479 >= 0.0003363100822345 >= 0.0002669594432537011
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.0002653932079961
+Target Fib level price: 0.0002669594432537011
+❌ FAILED - Price went below target fib level after ATH
+
+==================================================
+Analyzing Token: 98geVJZfj1JkzyRePEFRr2AHjLcs1TDwSptcVjMC2Eks
+==================================================
+
+Initial Values:
+First Open: 0.0001053728543018
+ATH Close: 0.0005640710984455
+Current Price: 4.5753293330246886e-05
+ATH Multiple from First Open: 5.35x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.000430950319212362
+Fib 0.382: 0.000348595938839319
+Fib 0.5: 0.00028203554922275
+Fib 0.618: 0.000215475159606181
+Fib 0.786: 0.000120711215067337
+Fib 0.886: 6.430410522278703e-05
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0005640710984455) >= First Open * 5 (0.000526864271509)
+Actual Multiple: 5.35x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00028203554922275 >= 4.5753293330246886e-05 >= 0.000120711215067337
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: ABAGcLC6hoapG3xFcBkwaXzmdFzdH7nup2JD1feapump
+==================================================
+
+Initial Values:
+First Open: 7.275687459097718e-06
+ATH Close: 0.0012573067679457
+Current Price: 0.0006955670480924
+ATH Multiple from First Open: 172.81x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0009605823707105148
+Fib 0.382: 0.0007770155825904426
+Fib 0.5: 0.00062865338397285
+Fib 0.618: 0.0004802911853552574
+Fib 0.786: 0.0002690636483403798
+Fib 0.886: 0.00014333297154580987
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0012573067679457) >= First Open * 5 (3.637843729548859e-05)
+Actual Multiple: 172.81x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00062865338397285 >= 0.0006955670480924 >= 0.0002690636483403798
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: uSy45a8ZvRCdnWriPaAuiRHygrRPChSvHM53Myapump
+==================================================
+
+Initial Values:
+First Open: 0.0001026599438448
+ATH Close: 0.0017095636823469
+Current Price: 0.0002498687328032
+ATH Multiple from First Open: 16.65x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0013061066533130317
+Fib 0.382: 0.0010565103556903844
+Fib 0.5: 0.00085478184117345
+Fib 0.618: 0.0006530533266565159
+Fib 0.786: 0.0003658466280222366
+Fib 0.886: 0.0001948902597875466
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0017095636823469) >= First Open * 5 (0.000513299719224)
+Actual Multiple: 16.65x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00085478184117345 >= 0.0002498687328032 >= 0.0003658466280222366
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: FuVVu23hbFcXiiEM7ASp1CKY38DA3M7E626kGf7Upump
+==================================================
+
+Initial Values:
+First Open: 8.642993058918456e-06
+ATH Close: 0.0025618412406594
+Current Price: 0.0006669223622688
+ATH Multiple from First Open: 296.41x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0019572467078637816
+Fib 0.382: 0.0015832178867275092
+Fib 0.5: 0.0012809206203297
+Fib 0.618: 0.0009786233539318908
+Fib 0.786: 0.0005482340255011115
+Fib 0.886: 0.0002920499014351717
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0025618412406594) >= First Open * 5 (4.3214965294592275e-05)
+Actual Multiple: 296.41x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.0012809206203297 >= 0.0006669223622688 >= 0.0005482340255011115
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 9.769929670315108e-05
+Target Fib level price: 0.0005482340255011115
+❌ FAILED - Price went below target fib level after ATH
+
+==================================================
+Analyzing Token: tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+==================================================
+
+Initial Values:
+First Open: 8.318369137235707e-06
+ATH Close: 0.0015271169384947
+Current Price: 0.0006761872341696
+ATH Multiple from First Open: 183.58x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0011667173410099508
+Fib 0.382: 0.0009437582679897245
+Fib 0.5: 0.00076355846924735
+Fib 0.618: 0.0005833586705049754
+Fib 0.786: 0.0003268030248378658
+Fib 0.886: 0.00017409133098839568
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0015271169384947) >= First Open * 5 (4.159184568617854e-05)
+Actual Multiple: 183.58x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00076355846924735 >= 0.0006761872341696 >= 0.0003268030248378658
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.0003686769968672
+Target Fib level price: 0.0003268030248378658
+✅ PASSED - Price maintained above target fib level
+
+Condition 4 - Check for Large Price Drops:
+Maximum price drop in a single candle: 38.71%
+Maximum allowed drop: 50%
+✅ PASSED - No excessive price drops found
+
+TOKEN QUALIFIED - Passed all conditions!
+
+==================================================
+Analyzing Token: H1hcBegR2A6b2mCGqhH5zA4sTZvMxrqT4v3fHY1kpump
+==================================================
+
+Initial Values:
+First Open: 6.455503005562391e-06
+ATH Close: 0.0026904483719283
+Current Price: 0.0007866584741563
+ATH Multiple from First Open: 416.77x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0020555025561532214
+Fib 0.382: 0.0016626970938516893
+Fib 0.5: 0.00134522418596415
+Fib 0.618: 0.0010277512780766107
+Fib 0.786: 0.0005757559515926561
+Fib 0.886: 0.0003067111143998263
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0026904483719283) >= First Open * 5 (3.227751502781195e-05)
+Actual Multiple: 416.77x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00134522418596415 >= 0.0007866584741563 >= 0.0005757559515926561
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.0005591261527489
+Target Fib level price: 0.0005757559515926561
+❌ FAILED - Price went below target fib level after ATH
+
+==================================================
+Analyzing Token: DyT6mdhiAYbHPML2AVXviGVxMQbc6Z3VmPZ2MQG6pump
+==================================================
+
+Initial Values:
+First Open: 7.317997351815066e-06
+ATH Close: 0.0026197198363704
+Current Price: 0.0008184167159232
+ATH Multiple from First Open: 357.98x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0020014659549869858
+Fib 0.382: 0.001618986858876907
+Fib 0.5: 0.0013098599181852
+Fib 0.618: 0.0010007329774934929
+Fib 0.786: 0.0005606200449832653
+Fib 0.886: 0.0002986480613462257
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0026197198363704) >= First Open * 5 (3.6589986759075334e-05)
+Actual Multiple: 357.98x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.0013098599181852 >= 0.0008184167159232 >= 0.0005606200449832653
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.000167609206086
+Target Fib level price: 0.0005606200449832653
+❌ FAILED - Price went below target fib level after ATH
+
+==================================================
+Analyzing Token: 2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump
+==================================================
+
+Initial Values:
+First Open: 1.3418763174157412e-05
+ATH Close: 0.0009248278971455
+Current Price: 0.0006838630879824
+ATH Multiple from First Open: 68.92x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.000706568513419162
+Fib 0.382: 0.000571543640435919
+Fib 0.5: 0.00046241394857275
+Fib 0.618: 0.00035328425670958093
+Fib 0.786: 0.000197913169989137
+Fib 0.886: 0.00010543038027458699
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0009248278971455) >= First Open * 5 (6.709381587078706e-05)
+Actual Multiple: 68.92x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00046241394857275 >= 0.0006838630879824 >= 0.000197913169989137
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: 9XWUzTYsRdyWdcQsJ7qibwgaJSNAm8aMKLLe2zbapump
+==================================================
+
+Initial Values:
+First Open: 8.160447483114853e-06
+ATH Close: 0.0071124782531521
+Current Price: 0.0009760935609597
+ATH Multiple from First Open: 871.58x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.005433933385408205
+Fib 0.382: 0.004395511560447998
+Fib 0.5: 0.00355623912657605
+Fib 0.618: 0.002716966692704102
+Fib 0.786: 0.0015220703461745495
+Fib 0.886: 0.0008108225208593393
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0071124782531521) >= First Open * 5 (4.080223741557427e-05)
+Actual Multiple: 871.58x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00355623912657605 >= 0.0009760935609597 >= 0.0015220703461745495
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: 73rzMJ8uEqjAf5vE1YPGrXbg7Cb2Yv85EoxpJh2mpump
+==================================================
+
+Initial Values:
+First Open: 8.960375329444191e-06
+ATH Close: 0.0042389217915658
+Current Price: 0.0008695454555839
+ATH Multiple from First Open: 473.07x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.003238536248756272
+Fib 0.382: 0.002619653667187665
+Fib 0.5: 0.0021194608957829
+Fib 0.618: 0.001619268124378136
+Fib 0.786: 0.0009071292633950814
+Fib 0.886: 0.00048323708423850123
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0042389217915658) >= First Open * 5 (4.4801876647220955e-05)
+Actual Multiple: 473.07x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.0021194608957829 >= 0.0008695454555839 >= 0.0009071292633950814
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump
+==================================================
+
+Initial Values:
+First Open: 1.2157778891957165e-05
+ATH Close: 0.0022588592048784
+Current Price: 0.00091762421708
+ATH Multiple from First Open: 185.80x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0017257684325270978
+Fib 0.382: 0.0013959749886148514
+Fib 0.5: 0.0011294296024392
+Fib 0.618: 0.0008628842162635489
+Fib 0.786: 0.0004833958698439776
+Fib 0.886: 0.0002575099493561375
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0022588592048784) >= First Open * 5 (6.078889445978582e-05)
+Actual Multiple: 185.80x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.0011294296024392 >= 0.00091762421708 >= 0.0004833958698439776
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.0006527726613808
+Target Fib level price: 0.0004833958698439776
+✅ PASSED - Price maintained above target fib level
+
+Condition 4 - Check for Large Price Drops:
+Maximum price drop in a single candle: 16.73%
+Maximum allowed drop: 50%
+✅ PASSED - No excessive price drops found
+
+TOKEN QUALIFIED - Passed all conditions!
+
+==================================================
+Analyzing Token: Ff639RjQYbqrS9VJgYM1p1ifXCAzC8GrbWUu4YAVpump
+==================================================
+
+Initial Values:
+First Open: 9.633103040797365e-06
+ATH Close: 0.0029038205791685
+Current Price: 0.0007680717990491
+ATH Multiple from First Open: 301.44x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.002218518922484734
+Fib 0.382: 0.0017945611179261331
+Fib 0.5: 0.00145191028958425
+Fib 0.618: 0.001109259461242367
+Fib 0.786: 0.0006214176039420591
+Fib 0.886: 0.0003310355460252089
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0029038205791685) >= First Open * 5 (4.8165515203986824e-05)
+Actual Multiple: 301.44x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00145191028958425 >= 0.0007680717990491 >= 0.0006214176039420591
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.0002664713055916
+Target Fib level price: 0.0006214176039420591
+❌ FAILED - Price went below target fib level after ATH
+
+==================================================
+Analyzing Token: 9VY8jhtRWS8P1e27tN8V3ajjsBmCjjr8pPvyujympump
+==================================================
+
+Initial Values:
+First Open: 1.680127452272272e-05
+ATH Close: 0.0014241251457101
+Current Price: 0.0008214577070293
+ATH Multiple from First Open: 84.76x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0010880316113225164
+Fib 0.382: 0.0008801093400488419
+Fib 0.5: 0.00071206257285505
+Fib 0.618: 0.0005440158056612582
+Fib 0.786: 0.00030476278118196144
+Fib 0.886: 0.00016235026661095132
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0014241251457101) >= First Open * 5 (8.40063726136136e-05)
+Actual Multiple: 84.76x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00071206257285505 >= 0.0008214577070293 >= 0.00030476278118196144
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: 9uLAefu2eXoEjETBRLus4bGMP7LhCpomBzxxFoh8pgRb
+==================================================
+
+Initial Values:
+First Open: 0.0586607404632993
+ATH Close: 0.2921610876426006
+Current Price: 4.563017184835061e-09
+ATH Multiple from First Open: 4.98x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.22321107095894688
+Fib 0.382: 0.1805555521631272
+Fib 0.5: 0.1460805438213003
+Fib 0.618: 0.11160553547947344
+Fib 0.786: 0.06252247275551653
+Fib 0.886: 0.03330636399125647
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.2921610876426006) >= First Open * 5 (0.2933037023164965)
+Actual Multiple: 4.98x
+❌ FAILED - Less than 5x from first open to ATH
+
+==================================================
+Analyzing Token: 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump
+==================================================
+
+Initial Values:
+First Open: 7.168175141356975e-06
+ATH Close: 0.0019208903723816
+Current Price: 0.0008364698608741
+ATH Multiple from First Open: 267.97x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0014675602444995423
+Fib 0.382: 0.0011871102501318288
+Fib 0.5: 0.0009604451861908
+Fib 0.618: 0.0007337801222497711
+Fib 0.786: 0.00041107053968966224
+Fib 0.886: 0.00021898150245150232
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0019208903723816) >= First Open * 5 (3.584087570678487e-05)
+Actual Multiple: 267.97x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.0009604451861908 >= 0.0008364698608741 >= 0.00041107053968966224
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.0006143489685756
+Target Fib level price: 0.00041107053968966224
+✅ PASSED - Price maintained above target fib level
+
+Condition 4 - Check for Large Price Drops:
+Maximum price drop in a single candle: 20.80%
+Maximum allowed drop: 50%
+✅ PASSED - No excessive price drops found
+
+TOKEN QUALIFIED - Passed all conditions!
+
+==================================================
+Analyzing Token: FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp
+==================================================
+
+Initial Values:
+First Open: 0.0001232211513701
+ATH Close: 0.0009055583032322
+Current Price: 0.0002108962936448
+ATH Multiple from First Open: 7.35x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0006918465436694008
+Fib 0.382: 0.0005596350313974996
+Fib 0.5: 0.0004527791516161
+Fib 0.618: 0.0003459232718347004
+Fib 0.786: 0.00019378947689169073
+Fib 0.886: 0.00010323364656847074
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0009055583032322) >= First Open * 5 (0.0006161057568505001)
+Actual Multiple: 7.35x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.0004527791516161 >= 0.0002108962936448 >= 0.00019378947689169073
+✅ PASSED - Price in target range
+
+Condition 3 - Post-ATH Price Check:
+Lowest post-ATH price: 0.0002108962936448
+Target Fib level price: 0.00019378947689169073
+✅ PASSED - Price maintained above target fib level
+
+Condition 4 - Check for Large Price Drops:
+Maximum price drop in a single candle: 25.11%
+Maximum allowed drop: 50%
+✅ PASSED - No excessive price drops found
+
+TOKEN QUALIFIED - Passed all conditions!
+
+==================================================
+Analyzing Token: FN9tn6JQzegrUuHx7CyXyNsiSBZkRyoaHZuKF1Smpump
+==================================================
+
+Initial Values:
+First Open: 6.648955074288473e-06
+ATH Close: 0.0009477700957037
+Current Price: 0.0006550980309412
+ATH Multiple from First Open: 142.54x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0007240963531176267
+Fib 0.382: 0.0005857219191448866
+Fib 0.5: 0.00047388504785185
+Fib 0.618: 0.0003620481765588134
+Fib 0.786: 0.00020282280048059171
+Fib 0.886: 0.00010804579091022184
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0009477700957037) >= First Open * 5 (3.324477537144237e-05)
+Actual Multiple: 142.54x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00047388504785185 >= 0.0006550980309412 >= 0.00020282280048059171
+❌ FAILED - Price not in target range
+
+==================================================
+Analyzing Token: F8TQRuWKR2jHD5mcRL3iqHwTpfagcYkYs1TTjpW6pump
+==================================================
+
+Initial Values:
+First Open: 7.4722033013855485e-06
+ATH Close: 0.0009294807798909
+Current Price: 0.0007593876476159
+ATH Multiple from First Open: 124.39x
+
+Fibonacci Price Levels:
+Fib 0.236: 0.0007101233158366476
+Fib 0.382: 0.0005744191219725762
+Fib 0.5: 0.00046474038994545
+Fib 0.618: 0.0003550616579183238
+Fib 0.786: 0.0001989088868966526
+Fib 0.886: 0.00010596080890756256
+
+Condition 1 - 5x Multiple Check:
+Required: ATH (0.0009294807798909) >= First Open * 5 (3.736101650692774e-05)
+Actual Multiple: 124.39x
+✅ PASSED - 5x multiple condition
+
+Condition 2 - Price in Fib Range Check:
+Required: 0.00046474038994545 >= 0.0007593876476159 >= 0.0001989088868966526
+❌ FAILED - Price not in target range
+
+Found 7 tokens passing Fibonacci criteria
+Found 7 new tokens for bubblemap analysis
+
+Analyzing bubblemap for token: ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Sending command: /s ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump
+Sending command: /s ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump
+Timeout waiting for initial response, retrying...
+Timeout waiting for initial response, retrying...
+Sending command: /s ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump
+Sending command: /s ATEWnH7CyLUyDAYVnUS4jxBi243SWUnBmmpRf3QRpump
+Received bubble data:
+Token Name: DEGEN TAYLOR**
+Largest individual cluster: 4.19%
+Maximum allowed cluster: 6%
+✅ PASSED - No clusters exceed maximum percentage
+🎯 Token passed all bubblemap criteria!
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnected from Telegram
+Disconnected from Telegram
+
+Analyzing bubblemap for token: 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Sending command: /s 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump
+Sending command: /s 3KCDgWw1C6PdjUsUXonYm6TGaDWKsLxmEjdBP7s8pump
+Received bubble data:
+Token Name: DEGEN TAYLOR**
+Largest individual cluster: 4.19%
+Maximum allowed cluster: 6%
+✅ PASSED - No clusters exceed maximum percentage
+🎯 Token passed all bubblemap criteria!
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnected from Telegram
+Disconnected from Telegram
+
+Analyzing bubblemap for token: 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Sending command: /s 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump
+Sending command: /s 6f41LGHuU2HVV67ao9GwJ6kv2jNUz9HL6FJPVYcJpump
+Received bubble data:
+Token Name: memOS AI**
+Largest individual cluster: 4.77%
+Maximum allowed cluster: 6%
+✅ PASSED - No clusters exceed maximum percentage
+🎯 Token passed all bubblemap criteria!
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnected from Telegram
+Disconnected from Telegram
+
+Analyzing bubblemap for token: tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Sending command: /s tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+Sending command: /s tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+Got difference for account updates
+Got difference for account updates
+Got difference for account updates
+Timeout waiting for initial response, retrying...
+Timeout waiting for initial response, retrying...
+Sending command: /s tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+Sending command: /s tqrRt3AsuGa3aYYSvABMDrPJEWVzpAnh3p6LxXGpump
+Got difference for account updates
+Got difference for account updates
+Got difference for account updates
+Received bubble data:
+Token Name: ponzi dot marke**
+Largest individual cluster: 4.83%
+Maximum allowed cluster: 6%
+✅ PASSED - No clusters exceed maximum percentage
+🎯 Token passed all bubblemap criteria!
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnected from Telegram
+Disconnected from Telegram
+
+Analyzing bubblemap for token: KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Sending command: /s KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump
+Sending command: /s KnrmAHo1wW2fGqVXcSZSpo6kmiKam5vNbDByrURpump
+Received bubble data:
+Token Name: ponzi dot marke**
+Largest individual cluster: 4.83%
+Maximum allowed cluster: 6%
+✅ PASSED - No clusters exceed maximum percentage
+🎯 Token passed all bubblemap criteria!
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnected from Telegram
+Disconnected from Telegram
+
+Analyzing bubblemap for token: 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Sending command: /s 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump
+Sending command: /s 68YY6KjfnmPuQubYkFTsmXGaF2FuwcxumWLFxb6cpump
+Received bubble data:
+Token Name: gemxbt**
+Largest individual cluster: 8.03%
+Maximum allowed cluster: 6%
+❌ REJECTED - Individual cluster 8.03% exceeds maximum 6%
+
+Analyzing bubblemap for token: FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connecting to 91.108.56.131:443/TcpFull...
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Connection to 91.108.56.131:443/TcpFull complete!
+Sending command: /s FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp
+Sending command: /s FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp
+Got difference for channel 1924865773 updates
+Got difference for channel 1924865773 updates
+Got difference for channel 1924865773 updates
+Got difference for account updates
+Got difference for account updates
+Got difference for account updates
+Got difference for account updates
+Got difference for account updates
+Got difference for account updates
+Got difference for channel 1924865773 updates
+Got difference for channel 1924865773 updates
+Got difference for channel 1924865773 updates
+Timeout waiting for initial response, retrying...
+Timeout waiting for initial response, retrying...
+Sending command: /s FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp
+Sending command: /s FA9jJDQzBEeV4qunJpt7XY7wC4smNYLsBNtMCTPsj3pp
+Got difference for account updates
+Got difference for account updates
+Got difference for account updates
+Received bubble data:
+Token Name: Froge**
+Largest individual cluster: 2.57%
+Maximum allowed cluster: 6%
+✅ PASSED - No clusters exceed maximum percentage
+🎯 Token passed all bubblemap criteria!
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnecting from 91.108.56.131:443/TcpFull...
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnection from 91.108.56.131:443/TcpFull complete!
+Disconnected from Telegram
+Disconnected from Telegram
+Saved 6 new qualifying tokens to /Users/dhruvmudambi/Desktop/Coding/Birdeye_Dashboard/Bots/Fib/Data/New_Token_Data/2024_12_12/Results/2024_Dec_12_0651PM/qualified_tokens.csv
+
+Analysis cycle completed
+Waiting 10 seconds before next cycle...
